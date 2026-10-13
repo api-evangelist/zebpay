@@ -1,0 +1,26 @@
+generated: '2026-10-13'
+method: searched
+status: published
+source: https://github.com/zebpay/zebpay-mcp-server
+description: ZebPay publishes an MCP server in its own GitHub organization (github.com/zebpay/zebpay-mcp-server, TypeScript, @modelcontextprotocol/sdk) exposing spot and futures market-data and trading tools over stdio. It is also on npm as @zebpay_rajesh/zebpay-mcp-server (maintainer email at zebpay.com). The README installs it from source and runs it with node dist/index.js; no hosted endpoint is documented. Tool names below are the README's examples only, not a full tools/list.
+deployment:
+  mode: local-stdio
+  install: node /absolute/path/to/zebpay-mcp-server/dist/index.js
+  package: https://www.npmjs.com/package/@zebpay_rajesh/zebpay-mcp-server
+  auth: api-key
+  verified: searched
+local:
+  name: '@zebpay_rajesh/zebpay-mcp-server'
+  transport: stdio
+  source: https://github.com/zebpay/zebpay-mcp-server
+tools:
+- name: zebpay_public_getTicker
+- name: zebpay_public_getOrderBook
+- name: zebpay_spot_placeMarketOrder
+- name: zebpay_spot_placeLimitOrder
+- name: zebpay_spot_getBalance
+- name: zebpay_futures_public_getMarkets
+- name: zebpay_futures_public_getOrderBook
+- name: zebpay_futures_placeOrder
+- name: zebpay_futures_getWalletBalance
+- name: zebpay_futures_getPositions

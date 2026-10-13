@@ -1,23 +1,113 @@
 aid: zebpay
 name: ZebPay
-description: 'ZebPay is a company surfaced via the API Evangelist harvest backlog (source: market-gap:crypto-exchanges)
-  and added to the network as a stub for full-pipeline profiling.'
+description: ZebPay is an Indian cryptocurrency exchange offering spot trading in INR and USDT pairs and crypto futures. It publishes REST APIs for spot (sapi.zebpay.com, documented on GitHub), a legacy
+  spot API (www.zebapi.com) and futures (futuresbe.zebpay.com), public Postman documentation at docs.zebpay.com and apidocs.zebpay.com, WebSocket market streams, futures webhooks, and an MCP server for
+  AI-assisted trading.
 url: https://raw.githubusercontent.com/api-evangelist/zebpay/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:market-gap:crypto-exchanges
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enriched
 specificationVersion: '0.20'
 created: '2026-10-13'
 modified: '2026-10-13'
 tags:
 - Company
-apis: []
+- Cryptocurrency
+- Exchanges
+- Trading
+- Futures
+- India
+- Market Data
+- MCP
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: RateLimits
+  url: rate-limits/zebpay-rate-limits.yml
+- type: AgenticAccess
+  url: agentic-access/zebpay-agentic-access.yml
+- type: Spectral
+  url: rules/zebpay-rules.yml
+- type: Vocabulary
+  url: vocabulary/zebpay-vocabulary.yml
+- type: Conformance
+  url: conformance/zebpay-conformance.yml
+- type: LLMsTxt
+  url: llms/zebpay-llms.txt
+- type: MCPServer
+  url: mcp/zebpay-mcp.yml
+- type: WellKnown
+  url: well-known/zebpay-well-known.yml
+- type: Hosts
+  url: hosts/zebpay-hosts.yml
+- type: Vendors
+  url: vendors/zebpay-vendors.yml
+- type: SDKs
+  url: packages/zebpay-packages.yml
+- type: Packages
+  url: packages/zebpay-packages.yml
+- type: Security
+  url: https://zebpay.com/features/security
+- type: Authentication
+  url: authentication/zebpay-authentication.yml
+- type: DomainSecurity
+  url: security/zebpay-domain-security.yml
 - type: Website
   url: https://zebpay.com
+- type: Documentation
+  url: https://docs.zebpay.com/
+- type: APIReference
+  url: https://apidocs.zebpay.com/
+- type: GettingStarted
+  url: https://zebpay.com/app/api-trading
+- type: Blog
+  url: https://zebpay.com/blog
+- type: Pricing
+  url: https://zebpay.com/features/pricing
+- type: SignUp
+  url: https://onboarding.zebpay.com/onboarding
+- type: Support
+  url: https://help.zebpay.com/support/home
+- type: GitHubOrganization
+  url: https://github.com/zebpay
+- type: Postman
+  url: https://docs.zebpay.com/
+apis:
+- aid: zebpay:zebpay-api
+  name: ZebPay API
+  description: 'REST API for ZebPay spot and futures trading: market data, orders, balances, positions, leverage and margin. The local contract is converted from ZebPay''s public Postman collection.'
+  humanURL: https://apidocs.zebpay.com/
+  baseURL: https://futuresbe.zebpay.com
+  tags:
+  - Cryptocurrency
+  - Trading
+  - Futures
+  - Market Data
+  properties:
+  - type: OpenAPI
+    url: openapi/zebpay-openapi.yml
+  - type: PostmanCollection
+    url: postman/zebpay-api-collection.json
+  - type: Documentation
+    url: https://apidocs.zebpay.com/
+- aid: zebpay:zebpay-spot-api
+  name: ZebPay Spot API v2
+  description: Spot trading API on sapi.zebpay.com (market data, orders, balances), documented in markdown in the zebpay-api-references GitHub repository. No machine-readable contract is published for it.
+  humanURL: https://github.com/zebpay/zebpay-api-references/tree/main/spot/api-reference
+  baseURL: https://sapi.zebpay.com
+  tags:
+  - Cryptocurrency
+  - Trading
+  - Spot
+  properties:
+  - type: Documentation
+    url: https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/README.md
+x-enrichment:
+  date: '2026-10-13'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v5

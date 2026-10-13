@@ -1,0 +1,30 @@
+generated: '2026-10-13'
+method: searched
+source: https://github.com/zebpay/zebpay-api-references/tree/main
+name: ZebPay API Rate Limits
+headers:
+- x-ratelimit-limit
+- x-ratelimit-remaining
+- x-ratelimit-reset
+- Retry-After
+limits:
+- name: Futures REST API (all /api routes)
+  max: 180
+  window: 60 seconds
+  scope: client IP
+  endpoint: https://futuresbe.zebpay.com
+  limit_text: 'Production: 180 requests per 60 seconds per client IP'
+  docs: https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/rate-limits.md
+- name: Spot public endpoints
+  max: 1200
+  window: 1 minute
+  scope: API key or JWT token
+  endpoint: https://sapi.zebpay.com
+  docs: https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/rate-limits.md
+- name: Spot private endpoints
+  max: 600
+  window: 1 minute
+  scope: API key or JWT token
+  endpoint: https://sapi.zebpay.com
+  docs: https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/rate-limits.md
+exceeded: HTTP 429 Too Many Requests with Retry-After

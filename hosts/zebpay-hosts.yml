@@ -1,0 +1,154 @@
+generated: '2026-10-13'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 10
+  own: 9
+  other_domain: 0
+  platform: 1
+  roles:
+  - api
+  - docs
+  - identity
+  - other
+  - source
+  - support
+  - website
+hosts:
+- host: api.zebpay.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: zebpay.com
+  role: api
+  relation: own
+- host: apidocs.zebpay.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - APIReference
+  serves:
+  - docs
+  registrable_domain: zebpay.com
+  role: docs
+  relation: own
+- host: connect.zebpay.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: zebpay.com
+  role: other
+  relation: own
+- host: docs.zebpay.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - Documentation
+  - Postman
+  serves:
+  - docs
+  registrable_domain: zebpay.com
+  role: docs
+  relation: own
+- host: futuresbe.zebpay.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: zebpay.com
+  role: other
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  - apis[]
+  types:
+  - GitHubOrganization
+  serves:
+  - docs
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: help.zebpay.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  - vendor-detect
+  types:
+  - Support
+  serves:
+  - docs
+  - support
+  vendor: freshdesk
+  registrable_domain: zebpay.com
+  role: support
+  relation: own
+- host: onboarding.zebpay.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - SignUp
+  serves: []
+  registrable_domain: zebpay.com
+  role: identity
+  relation: own
+- host: sapi.zebpay.com
+  found_by:
+  - apis[]
+  - vendor-detect
+  types: []
+  serves:
+  - api
+  - api-gateway
+  vendor: aws-api-gateway
+  registrable_domain: zebpay.com
+  role: other
+  relation: own
+- host: zebpay.com
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Security
+  - Website
+  - GettingStarted
+  - Blog
+  - Pricing
+  serves:
+  - docs
+  - cdn
+  vendor: cloudflare
+  registrable_domain: zebpay.com
+  role: website
+  relation: own

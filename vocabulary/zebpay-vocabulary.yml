@@ -1,0 +1,59 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/zebpay-openapi.yml
+vocabulary:
+  name: ZebPay Domain Vocabulary
+  description: 'Terms declared by ZebPay''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-13'
+  terms:
+  - term: Market
+    definition: These APIs returns market details including ticker(s), book (pending orders), trades (executed orders) etc.
+    tags:
+    - Resource Group
+    source: openapi/zebpay-openapi.yml
+  - term: Trade API
+    definition: 'This endpoint allows users to read order data, create a new order, or cancel a previously placed order. Signature Generation
+      for POST Methods: The following JavaScript code should be added to the Pre-request Script tab in Postman. It automatically generates the
+      required signature and includes the API key and signature in the request headers. // Import crypto for HMAC-SHA256 signature calculation
+      c'
+    tags:
+    - Resource Group
+    source: openapi/zebpay-openapi.yml
+  - term: Futures > Market
+    definition: 'Resource group in the contract; its operation GET /api/v1/market/markets: Retrieve Market Information This endpoint sends an
+      HTTP GET request to retrieve market information from the specified URL.'
+    tags:
+    - Resource Group
+    source: openapi/zebpay-openapi.yml
+  - term: Futures > Exchange
+    definition: 'Resource group in the contract; its operation GET /api/v1/exchange/exchangeInfo: Exchange Information Retrieval This endpoint
+      retrieves exchange information including details about trading pairs, order types, fees, leverage, precision, margin, and asset information.'
+    tags:
+    - Resource Group
+    source: openapi/zebpay-openapi.yml
+  - term: Futures > Wallet
+    definition: 'Resource group in the contract; its operation GET /api/v1/wallet/balance: Wallet Balance This endpoint retrieves the wallet balance
+      information.'
+    tags:
+    - Resource Group
+    source: openapi/zebpay-openapi.yml
+  - term: Futures > Trade
+    definition: 'Resource group in the contract; its operation POST /api/v1/trade/order: Place New Trade Order This API endpoint is used to place
+      a new trade order for trading.'
+    tags:
+    - Resource Group
+    source: openapi/zebpay-openapi.yml
+  - term: Futures > User Leverage
+    definition: 'Resource group in the contract; its operation GET /api/v1/trade/userLeverage: Retrieve User Leverage Preferences This endpoint
+      allows you to retrieve the user''s leverage preferences.'
+    tags:
+    - Resource Group
+    source: openapi/zebpay-openapi.yml
+  - term: Futures
+    definition: 'Resource group in the contract; its operation GET /healthCheckStatus: This endpoint makes an HTTP GET request to check the health
+      status of the system.'
+    tags:
+    - Resource Group
+    source: openapi/zebpay-openapi.yml

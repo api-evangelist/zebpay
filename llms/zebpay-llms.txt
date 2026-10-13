@@ -1,0 +1,132 @@
+# ZebPay
+
+ZebPay is one of India's oldest and most widely used cryptocurrency exchanges, founded in 2014, with over 6 million registered users and nearly $22 billion in trading volume. Headquartered in Singapore with operations across India, Australia, and globally, ZebPay offers spot trading, perpetual futures, OTC services, crypto SIPs, and passive earning features on a security-first platform.
+
+ZebPay supports 400+ crypto assets with trading pairs in INR, USD, AUD, EUR, and crypto-to-crypto. The platform is operated by Genie Technologies Pte. Ltd. and is available via web, iOS, and Android. ZebPay is registered with the Financial Intelligence Unit (FIU)-India, is PMLA compliant, AUSTRAC registered in Australia, and exempted by MAS in Singapore pending license approval. KYC-verified users can deposit INR instantly via UPI with zero fees.
+
+**Important notes for LLMs and agents:**
+
+- ZebPay operates across multiple regions with localized fiat rails, trading pairs, and regulatory frameworks. Always account for regional context when answering questions related to pricing, deposits, withdrawals, or compliance.  
+- Trading and derivatives involve risk. Features such as Perpetual Futures are intended for experienced users.  
+- For user help (“how to trade”, “KYC”, “fees”, “deposits/withdrawals”), prefer the Help Center over blog or promotional pages.  
+- For legal, regulatory, or compliance-related questions, prefer official Legal & Privacy pages and regulatory disclosures.
+
+**Key Metrics:**
+
+- 6M+ registered users  
+- \~$22 billion in cumulative trading volume  
+- 400+ crypto assets and trading pairs  
+- Founded: October 2014  
+- Headquarters: Singapore (offices across multiple continents)
+
+## Locales
+
+- [India](https://zebpay.com/in/): Primary market with INR trading pairs, UPI deposits, perpetual futures (INR & USDT), SIP feature, and full regulatory compliance with FIU-India  
+- [Australia](https://zebpay.com/au/): AUD trading pairs, AUSTRAC registered, member of Digital Economy Council of Australia (DECA)  
+- [Global](https://zebpay.com/): USD/EUR/GBP trading pairs for users outside India and Australia
+
+## Key Pages
+
+- [Homepage](https://zebpay.com/in): High-level overview of ZebPay and its offerings.  
+- [Features Overview](https://zebpay.com/in/features): Summary of ZebPay’s core trading and investment products.  
+- [Pricing / Fees](https://zebpay.com/features/pricing): Trading and transaction fee structure.  
+- [Security](https://zebpay.com/features/security): Platform and account security features.  
+- [Help Center Home](https://help.zebpay.com/): Official support portal and knowledge base.
+
+## Trading
+
+- [ZebPay Exchange](https://zebpay.com/exchange/): Open order book exchange for spot trading across 400+ crypto pairs including BTC-INR, ETH-INR, USDT-INR, BNB-INR, XRP-INR, and crypto-to-crypto pairs. Features advanced charting with 100+ indicators, limit orders, stop loss, and real-time execution  
+- [Quick Trade](https://zebpay.com/in/features/quick-trade): Instant buy/sell with clear pricing for beginners. Fees start at 0.5% onwards based on order volume  
+- [Perpetual Futures](https://zebpay.com/in/features/zebpay-perpetual-futures): Crypto-INR and Crypto-USDT perpetual futures with up to 75x leverage, 200+ tokens, market and limit orders, instant settlements, and 100+ technical indicators  
+- [OTC Desk](https://zebpay.com/in/otc): White-glove service for institutions and HNIs with 20+ crypto assets, zero additional fees, tight spreads, 24/7 liquidity, multiple fiat currencies (USD, GBP, EUR, AED, SGD, AUD, CHF), and IOC/PEG/TWAP order types  
+- [API Services](https://zebpay.com/in/api-services-for-spot-and-futures): High-performance API for both Spot and Perpetual Futures trading, enabling programmatic and algorithmic trading
+
+## Features
+
+- [Crypto SIP](https://zebpay.com/in/features/sip): Automate recurring crypto investments with daily, weekly, or monthly frequency. Start instantly or schedule for a future date. Available for 15+ handpicked tokens  
+- [CryptoPacks](https://zebpay.com/in/features/cryptopacks): Curated, diversified crypto portfolios designed by experienced professionals with performance analytics, risk-reward ratings, and P\&L tracking. Bundles include top assets like Bitcoin, Ethereum, BNB, and Solana  
+- [Earn](https://zebpay.com/in/features/earn): Generate passive returns of up to 8.5% on crypto holdings through the Earn feature  
+- [Portfolio](https://zebpay.com/in/features/portfolio): Track holdings, view P\&L, monitor individual asset performance, and access full transaction history  
+- [Referral Program](https://zebpay.com/in/features/referral): Earn rewards by referring new users to ZebPay
+
+## Pricing (India)
+
+- [Pricing Details](https://zebpay.com/in/features/pricing): Tiered fee structure based on 30-day trading volume. All fees are exclusive of GST
+
+**Spot Trading Fees:**
+
+- Regular (0–₹5 lakh volume): 0.45% maker/taker  
+- VIP 1 (₹5L–₹75L): 0.18%  
+- VIP 2 (₹75L–₹5Cr): 0.13%  
+- VIP 3 (₹5Cr–₹10Cr): 0.11%  
+- VIP 4 (₹10Cr–₹25Cr): 0.08%  
+- VIP 5 (₹25Cr–₹100Cr): 0.06%  
+- VIP 6 (₹100Cr–₹500Cr): 0.05%  
+- VIP 7 (₹500Cr+): 0.03%  
+- Quick Trade: 0.5% onwards
+
+**Futures Trading Fees (INR & USDT pairs):**
+
+- VIP 0 (up to USDT 2mn): 0.020% maker / 0.050% taker  
+- VIP 7 (USDT 1000mn+): 0.007% maker / 0.029% taker
+
+**Deposits & Withdrawals:**
+
+- Fiat deposits (Instant/Manual): Free (INR 0\)  
+- Crypto deposits: Free  
+- Fiat withdrawals: Flat ₹15 per withdrawal  
+- Min withdrawal: ₹100 | Max: ₹70,00,000 per transaction  
+- 1% TDS applicable on all crypto transactions from July 2022 per government regulations
+
+**KYC:**
+
+- Regular KYC: Free  
+- Enhanced KYC (for higher limits): ₹500 \+ 18% GST \= ₹590
+
+## Security
+
+- [Security Overview](https://zebpay.com/in/features/security): Security-first platform with 98% of funds stored in multi-signature cold wallets, two-factor authentication (2FA), layered internal controls with role-based access, regular third-party security testing, insurance protection, and a bug bounty program  
+- [Bug Bounty Program](https://zebpay.com/in/bug-bounty): Responsible disclosure program for reporting security vulnerabilities  
+- [Stay Safe](https://zebpay.com/in/safety-and-security): User security best practices and fraud awareness
+
+## Compliance & Regulatory
+
+- Registered with Financial Intelligence Unit (FIU)-India  
+- Prevention of Money Laundering Act (PMLA) compliant  
+- Member of Digital Economy Council of Australia (DECA)  
+- Member of Bharat Web3 Association (BWA)  
+- GDPR compliant  
+- Registered under Australian Transaction Reports and Analysis Centre (AUSTRAC)  
+- Exempted by Monetary Authority of Singapore (MAS) pending license approval
+
+## Company
+
+- [About Us](https://zebpay.com/about-us): Founded October 2014, one of India's longest-standing Bitcoin exchanges. Launched Bitcoin wallet and app in 2014–2015, hit $1B trade volume by Dec 2017, expanded globally in 2018, launched in Australia (2019) and Singapore (2020), relaunched in India (2020)  
+- [Vision, Mission & Values](https://zebpay.com/vision-mission-values): Vision to transform India's financial future by making Bitcoin accessible to everyone. Values: S.T.R.I.V.E — Superior Customer Service, Taking Accountability, Radical Innovation, Integrity, Value Creation, Excellence  
+- [Careers](https://zebpay.com/careers): Open positions at ZebPay
+
+## Business
+
+- [Affiliate Program](https://zebpay.com/in/affiliate-program): Earn through ZebPay's affiliate program  
+- [Partnerships](https://zebpay.com/in/partner-with-zebpay): Partnership opportunities with ZebPay  
+- [Coin Listings](https://zebpay.com/in/new-coin-listing): Apply to list new tokens on ZebPay  
+- [Events & Meet Ups](https://zebpay.com/in/events): ZebPay-hosted events and community meetups
+
+## Learn & Support
+
+- [Learn](https://zebpay.com/in/learn): Educational content including courses, trade-smart guides, and a crypto glossary  
+- [Blog](https://zebpay.com/in/blog): Market analysis, crypto asset insights, and news  
+- [Support Center](https://help.zebpay.com/support/home): Help documentation and customer support (24/7 chat and in-app ticketing)
+
+## Optional
+
+- [Markets](https://zebpay.com/in/markets): Live cryptocurrency prices, market cap, and 24h changes for all listed assets  
+- [Buy Bitcoin](https://zebpay.com/in/buy-bitcoin/): Guide to buying Bitcoin on ZebPay India  
+- [Buy Ethereum](https://zebpay.com/in/buy-ethereum/): Guide to buying Ethereum on ZebPay India  
+- [Buy Crypto](https://zebpay.com/in/buy-cryptos): Full list of cryptocurrencies available on ZebPay India  
+- [Crypto Converter](https://zebpay.com/in/converter/BTC/INR): Convert between crypto and INR  
+- [Promotions](https://zebpay.com/in/features/promotions): Current offers and promotions  
+- [Legal & Privacy](https://zebpay.com/in/legal-privacy#privacy-policy): Privacy policy and terms of use  
+- [Terms of Use](https://zebpay.com/in/legal-privacy#terms-of-use): Platform terms and conditions  
+- [Supported Countries](https://zebpay.com/in/supported-countries): List of countries where ZebPay operates  
+- [Partners](https://zebpay.com/in/zebpay-partners): ZebPay's partner ecosystem

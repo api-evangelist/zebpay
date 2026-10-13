@@ -1,0 +1,12 @@
+generated: '2026-10-13'
+method: derived
+source: openapi/zebpay-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: noauthAuth
+  type: http
+  scheme: noauth
+  sources:
+  - openapi/zebpay-openapi.yml
