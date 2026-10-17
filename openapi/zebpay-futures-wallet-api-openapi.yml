@@ -1,0 +1,184 @@
+openapi: 3.2.0
+info:
+  title: Zebpay Futures > Wallet API
+  version: 1.0.0
+  x-refined-note:
+  - x-generated differs across the merged source definitions and was not carried
+  - x-method differs across the merged source definitions and was not carried
+  - x-source differs across the merged source definitions and was not carried
+  description: 'Operations tagged Futures > Wallet across 2 of this provider''s published API definitions: zebpay-postman-converted.yml, zebpay-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: http://{{baseurl}}
+- url: https://www.zebapi.com
+- url: https://futuresbe.zebpay.com
+- url: https://www.zebapi.com/api/v1
+  description: Spot (legacy), collection baseurl variable
+tags:
+- name: Futures > Wallet
+  description: ''
+paths:
+  /api/v1/wallet/balance:
+    get:
+      tags:
+      - Futures > Wallet
+      summary: Wallet Balance
+      description: 'Wallet Balance
+
+
+        This endpoint retrieves the wallet balance information.
+
+
+        Request
+
+
+        Method: GET
+
+
+        URL: https://futuresbe.zebpay.com/api/v1/wallet/balance
+
+
+        Response
+
+
+        The response will include the following parameters:
+
+
+        statusDescription (string): Description of the status.
+
+
+        data (object):
+
+
+        withdrawableBalance (string): The withdrawable balance.
+
+
+        lockedBalance (string): The locked balance.
+
+
+        availableBalance (string): The available balance.
+
+
+        statusCode (integer): The status code of the response.
+
+
+        customMessage (array of strings): Custom messages, if any.'
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 14 May 2025 16:37:46 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=/P8DGhytTFLS+F0gAPGO/X6NdLZwAMPWdjUA0NgsO5AGfvjxoC8ngEu/Ux9+i56mv91q+Tnv/aGQEmk6TYFn+5q8mJH0u7ryXh8QjmdgSEKZ3lD88hya7Z/vOoKo; Expires=Wed, 21 May 2025 16:37:43 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '180'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '179'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '60'
+            etag:
+              schema:
+                type: string
+                example: W/"bb-J+I0CoCoVTpd91pHnEATxWoe09I"
+            cf-cache-status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 93fbd26059b2002c-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: br
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                - free: 624
+                  used: 138.04
+                  total: 762.1
+                  currency: INR
+                - free: 9.65
+                  used: 0
+                  total: 9.65
+                  currency: USDT
+                statusCode: 200
+                customMessage:
+                - OK
+      operationId: getApiV1WalletBalance
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+x-refined-from:
+- zebpay-postman-converted.yml
+- zebpay-openapi.yml

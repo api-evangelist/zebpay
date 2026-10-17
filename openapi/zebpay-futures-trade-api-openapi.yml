@@ -1,0 +1,5062 @@
+openapi: 3.2.0
+info:
+  title: Zebpay Futures > Trade API
+  version: 1.0.0
+  x-refined-note:
+  - x-generated differs across the merged source definitions and was not carried
+  - x-method differs across the merged source definitions and was not carried
+  - x-source differs across the merged source definitions and was not carried
+  description: 'Operations tagged Futures > Trade across 2 of this provider''s published API definitions: zebpay-postman-converted.yml, zebpay-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: http://{{baseurl}}
+- url: https://www.zebapi.com
+- url: https://futuresbe.zebpay.com
+- url: https://www.zebapi.com/api/v1
+  description: Spot (legacy), collection baseurl variable
+tags:
+- name: Futures > Trade
+  description: ''
+paths:
+  /api/v1/trade/order:
+    post:
+      tags:
+      - Futures > Trade
+      summary: Place an Order
+      description: 'Place New Trade Order
+
+
+        This API endpoint is used to place a new trade order for trading.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                symbol: BTCINR
+                amount: 0.002
+                side: BUY
+                type: MARKET
+                marginAsset: INR
+                timestamp: 1747085713470
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '201':
+          description: Created
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 14 May 2025 16:44:02 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '959'
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=HbWbeBmAtrSEHiBShQP/562aEqybWsGeld6ZN0uMqGRCqRV4gt0kzuSjDPOfnRS0lD/mFbuL934i5b4yIROLJCPlEETRvdwJ8FC5SBTy77ltl+fR9jatmn/LP0gV; Expires=Wed, 21 May 2025 16:44:01 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '180'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '179'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '60'
+            etag:
+              schema:
+                type: string
+                example: W/"3bf-jB/3CUYYSDP4QOMr9fJedUpcJcA"
+            cf-cache-status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 93fbdb9c4f67002c-BOM
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                  clientOrderId: m-de0fc15800a8b391857a-15917-zeb
+                  datetime: '2025-05-14T16:44:01.938Z'
+                  timestamp: 1747241041938
+                  lastTradeTimestamp: null
+                  status: ''
+                  symbol: BTCINR
+                  type: market
+                  timeInForce: GTC
+                  side: buy
+                  price: 9018920
+                  average: null
+                  amount: 0.002
+                  filled: 0
+                  remaining: 0.002
+                  cost: 0
+                  trades: []
+                  fee: null
+                  info:
+                    id: 2704564
+                    clientOrderId: m-de0fc15800a8b391857a-15917-zeb
+                    time: '2025-05-14T16:44:01.938Z'
+                    symbol: BTCINR
+                    contractType: PERPETUAL
+                    type: MARKET
+                    side: BUY
+                    price: 9018920
+                    orderAmount: 0.002
+                    filledAmount: 0
+                    availableBalance: 219.22
+                    linkId: m-de0fc15800a8b391857a-15917-zeb
+                    linkType: ORDER
+                    subType: PRIMARY
+                    placeType: ORDER_FORM
+                    lockedMargin: 404.85
+                    baseAsset: BTC
+                    quoteAsset: INR
+                    marginAsset: INR
+                    lockedMarginInMarginAsset: 404.85
+                    leverage: 45
+                    marginConversionRate: 1
+                  reduceOnly: false
+                  postOnly: false
+                statusCode: 201
+                customMessage:
+                - OK
+      operationId: postApiV1TradeOrder
+      x-operation-id-source: derived
+    delete:
+      tags:
+      - Futures > Trade
+      summary: Delete Order
+      description: 'DELETE /trade/order
+
+
+        This endpoint is used to delete a trade order.
+
+
+        Request Body
+
+
+        clientOrderId (string, required): The client order ID to identify the trade order to be deleted.
+
+
+        Example:
+
+
+        {
+
+        "clientOrderId": "1cc7b55e8aa444265d2f-15917-zeb"
+
+        }
+
+
+        Response
+
+
+        The response is in JSON format and follows the schema below:
+
+
+        {
+
+        "statusDescription": {
+
+        "type": "string"
+
+        },
+
+        "data": {
+
+        "clientOrderId": {
+
+        "type": "string"
+
+        },
+
+        "orderId": {
+
+        "type": "integer"
+
+        },
+
+        "status": {
+
+        "type": "string"
+
+        },
+
+        "success": {
+
+        "type": "boolean"
+
+        }
+
+        },
+
+        "statusCode": {
+
+        "type": "integer"
+
+        },
+
+        "customMessage": {
+
+        "type": "array",
+
+        "items": {
+
+        "type": "string"
+
+        }
+
+        }
+
+        }
+
+
+        This endpoint is used to delete a trade order.
+
+
+        Request Body
+
+
+        clientOrderId (string, required): The client order ID to identify the trade order to be deleted.
+
+
+        Response
+
+
+        The response is in JSON format and follows the schema below:
+
+
+        {
+
+        "type": "object",
+
+        "properties": {
+
+        "statusDescription": {
+
+        "type": "string"
+
+        },
+
+        "data": {
+
+        "type": "object",
+
+        "properties": {
+
+        "clientOrderId": {
+
+        "type": "string"
+
+        },
+
+        "orderId": {
+
+        "type": "integer"
+
+        },
+
+        "status": {
+
+        "type": "string"
+
+        },
+
+        "success": {
+
+        "type": "boolean"
+
+        }
+
+        }
+
+        },
+
+        "statusCode": {
+
+        "type": "integer"
+
+        },
+
+        "customMessage": {
+
+        "type": "array",
+
+        "items": {
+
+        "type": "string"
+
+        }
+
+        }
+
+        }
+
+        }'
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 16 Oct 2024 15:55:38 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            set-cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=0VNr1yo4tziy5+p4O3MvzQImllzPN9KtvzSEZ4xjV3q4gM4HZ5tud3vXLSqwcIw60EMQO8nD0b7CEaPrfo4h32mNa3wmPpk1ncMHMSrzvCgE+Oo4rQEEUzKQKCk/; Expires=Wed, 23 Oct 2024 15:55:38 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            etag:
+              schema:
+                type: string
+                example: W/"b0-cCxnnHIjrSDHaMWBjUqyozXW0Mk"
+            CF-Cache-Status:
+              schema:
+                type: string
+                example: DYNAMIC
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 8d393bfcdc1542ed-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: br
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                  clientOrderId: 82c0040246090501e0fa-15917-zeb
+                  status: canceled
+                  symbol: BTCINR
+                  info:
+                    clientOrderId: 82c0040246090501e0fa-15917-zeb
+                    orderId: 2707544
+                    status: CANCELED
+                    success: true
+                statusCode: 200
+                customMessage:
+                - OK
+      operationId: deleteApiV1TradeOrder
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /api/v1/trade/addMargin:
+    post:
+      tags:
+      - Futures > Trade
+      summary: Add Margin
+      description: 'Add Margin Trade
+
+
+        This endpoint allows the user to add margin to a specific position.
+
+
+        Request Body
+
+
+        symbol (string): The trading symbol for the position.
+
+
+        positionId (string): The unique identifier of the position.
+
+
+        amount (number): The amount of margin to be added.
+
+
+        timestamp (number): The timestamp for the margin addition.
+
+
+        The request body should be in JSON format with the specified keys and their respective data types.
+
+
+        Response
+
+
+        The response is in JSON format and has the following properties:
+
+
+        statusDescription (string): Description of the status.
+
+
+        data (object)
+
+
+        lockedBalance (number): The locked balance after adding margin.
+
+
+        withdrawableBalance (number): The withdrawable balance after adding margin.
+
+
+        asset (string): The asset related to the margin trade.
+
+
+        message (string): Additional message related to the response.
+
+
+        statusCode (number): Status code of the response.
+
+
+        customMessage (array of strings): Custom messages related to the response.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                symbol: BTCINR
+                positionId: 0607c789-8d99-492a-9392-4d9dbc86f6d3
+                amount: 100
+                timestamp: 0
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '201':
+          description: Created
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 14 May 2025 16:49:25 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '271'
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=2ASd7oCddX9oA9wKMkClMTEvzPVvOsoIKWQ7QhMtnj4SoAjF+FU4yXaZQTjsCSVLZg3VV4O+mUfH1HRmwEpGIlU2W55gx0Q8P0JE3y+1sMG7gJG2hT9n2hPkHeBR; Expires=Wed, 21 May 2025 16:49:24 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '180'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '179'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '60'
+            etag:
+              schema:
+                type: string
+                example: W/"10f-EX3/LbCCk/rA/iAvQKH0EUhnsYA"
+            cf-cache-status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 93fbe3813fe2002c-BOM
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                  info:
+                    lockedBalance: 725.85
+                    withdrawableBalance: 19.230000000000018
+                    asset: INR
+                    message: Margin added successfully
+                  type: add
+                  amount: 100
+                  code: INR
+                  symbol: BTCINR
+                  status: ok
+                statusCode: 201
+                customMessage:
+                - OK
+      operationId: postApiV1TradeAddMargin
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /api/v1/trade/reduceMargin:
+    post:
+      tags:
+      - Futures > Trade
+      summary: Reduce Margin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                symbol: BTCINR
+                positionId: 0607c789-8d99-492a-9392-4d9dbc86f6d3
+                amount: 100
+                timestamp: 0
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '201':
+          description: Created
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 14 May 2025 16:53:01 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '276'
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=+1Yza2eZt6jFCa1zsE3pB4+vEeO/x1bBpIi66XySjKhmCSCWUz/Bd/BSHkfCP/d7Tk0+I8YqOpqSDOW8Qp9rDEOXIlzssSMUy4Ce7eR/v4QZfFdL3aK8pKXjt/9z; Expires=Wed, 21 May 2025 16:53:00 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '180'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '178'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '20'
+            etag:
+              schema:
+                type: string
+                example: W/"114-5y4gYbsCMVBUkFLmQF4qCiCmxEs"
+            cf-cache-status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 93fbe8c8d927002c-BOM
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                  info:
+                    lockedBalance: 640.85
+                    withdrawableBalance: 104.23000000000002
+                    asset: INR
+                    message: Margin reduced successfully
+                  type: reduce
+                  amount: 100
+                  code: INR
+                  symbol: BTCINR
+                  status: ok
+                statusCode: 201
+                customMessage:
+                - OK
+      operationId: postApiV1TradeReduceMargin
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /api/v1/trade/order/open-orders:
+    get:
+      tags:
+      - Futures > Trade
+      summary: Get Open Orders
+      description: 'GET /trade/order/open-orders
+
+
+        This endpoint retrieves open orders for trading.
+
+
+        Request
+
+
+        The request for this endpoint includes the following query parameters:
+
+
+        symbol (string, required): The symbol for the open orders.
+
+
+        limit (number, required): The maximum number of open orders to retrieve.
+
+
+        since (string, optional): A timestamp to retrieve open orders since a specific time.
+
+
+        Response
+
+
+        The response for this request is a JSON object with the following properties:
+
+
+        statusDescription (string): Description of the status.
+
+
+        data (array): An array of open order objects with the following properties:
+
+
+        clientOrderId (string): The client order ID.
+
+
+        time (string): The timestamp.
+
+
+        symbol (string): The symbol for the open order.
+
+
+        contractType (string): The contract type.
+
+
+        type (string): The type of order.
+
+
+        side (string): The side of the order.
+
+
+        price (number): The price of the order.
+
+
+        orderAmount (number): The amount of the order.
+
+
+        filledAmount (number): The filled amount of the order.
+
+
+        linkId (string): The ID of the linked order.
+
+
+        linkType (string): The type of the linked order.
+
+
+        subType (string): The subtype of the order.
+
+
+        placeType (string): The type of placement.
+
+
+        baseAsset (string): The base asset.
+
+
+        quoteAsset (string): The quote asset.
+
+
+        iconUrl (string): The URL for the icon.
+
+
+        statusCode (number): The status code of the response.
+
+
+        customMessage (array): An array of custom messages.
+
+
+        The expected response format follows the JSON schema provided.
+
+
+        This endpoint retrieves open orders for trading.
+
+
+        Request
+
+
+        No request body for this request.
+
+
+        Response
+
+
+        The response for this request follows the JSON schema below:
+
+
+        {
+
+        "type": "object",
+
+        "properties": {
+
+        "statusDescription": {
+
+        "type": "string"
+
+        },
+
+        "data": {
+
+        "type": "array",
+
+        "items": {
+
+        "type": "object",
+
+        "properties": {
+
+        "clientOrderId": {
+
+        "type": "string"
+
+        },
+
+        "time": {
+
+        "type": "string"
+
+        },
+
+        "symbol": {
+
+        "type": "string"
+
+        },
+
+        "contractType": {
+
+        "type": "string"
+
+        },
+
+        "type": {
+
+        "type": "string"
+
+        },
+
+        "side": {
+
+        "type": "string"
+
+        },
+
+        "price": {
+
+        "type": "number"
+
+        },
+
+        "orderAmount": {
+
+        "type": "number"
+
+        },
+
+        "filledAmount": {
+
+        "type": "number"
+
+        },
+
+        "linkId": {
+
+        "type": "string"
+
+        },
+
+        "linkType": {
+
+        "type": "string"
+
+        },
+
+        "subType": {
+
+        "type": "string"
+
+        },
+
+        "placeType": {
+
+        "type": "string"
+
+        },
+
+        "baseAsset": {
+
+        "type": "string"
+
+        },
+
+        "quoteAsset": {
+
+        "type": "string"
+
+        },
+
+        "iconUrl": {
+
+        "type": "string"
+
+        }
+
+        }
+
+        }
+
+        },
+
+        "statusCode": {
+
+        "type": "number"
+
+        },
+
+        "customMessage": {
+
+        "type": "array",
+
+        "items": {
+
+        "type": "string"
+
+        }
+
+        }
+
+        }
+
+        }'
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 14 May 2025 16:58:38 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=7tpk+SUXOgZ6rk68ho+nIPTCFP06ZqeogLqkJQ77z/sj/JPVv9lBxs7q2NbOeKudDuyBG5N/nYibSHrLXNXmlSKIlxBNPIt+krjZIp2s2rLtHGSP9JcbO4M3CAWs; Expires=Wed, 21 May 2025 16:58:38 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '180'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '179'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '60'
+            etag:
+              schema:
+                type: string
+                example: W/"3bb-g5d7mdsj4cJefV3H5kQofCxZwJQ"
+            cf-cache-status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 93fbf1069b43002c-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: br
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                  data:
+                  - clientOrderId: 1cc7b55e8aa444265d2f-15917-zeb
+                    datetime: '2025-05-14T16:58:13.932Z'
+                    timestamp: 1747241893932
+                    status: open
+                    symbol: BTCINR
+                    type: limit
+                    timeInForce: GTC
+                    side: sell
+                    price: 9026363
+                    amount: 0.002
+                    filled: null
+                    remaining: 0.002
+                    trades: []
+                    info:
+                      id: 2704669
+                      clientOrderId: 1cc7b55e8aa444265d2f-15917-zeb
+                      time: '2025-05-14T16:58:13.932Z'
+                      symbol: BTCINR
+                      contractType: PERPETUAL
+                      type: LIMIT
+                      side: SELL
+                      price: 9026363
+                      orderAmount: 0.002
+                      filledAmount: 0
+                      linkId: 1cc7b55e8aa444265d2f-15917-zeb
+                      linkType: ORDER
+                      subType: PRIMARY
+                      placeType: POSITION
+                      baseAsset: BTC
+                      quoteAsset: INR
+                      marginAsset: INR
+                      stopPrice: 0
+                      curMarketPrice: 9013076
+                      leverage: 45
+                      lockedMargin: 0
+                      marginConversionRate: 1
+                      iconUrl: https://static.zebpay.com/multicoins/ic_coin_btc.png
+                  totalCount: 1
+                  nextTimestamp: 1747241893932
+                statusCode: 200
+                customMessage:
+                - OK
+      operationId: getApiV1TradeOrderOpenOrders
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /api/v1/trade/order/history:
+    get:
+      tags:
+      - Futures > Trade
+      summary: Get Order History
+      description: The endpoint retrieves the trade order history with pagination.
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 14 May 2025 17:01:51 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=Kanwp/Al7lvlORsfeNbgekgWbQE0dFU27u0vnFlL9M4GwOPCdnnJxRF+dpw1dD1pRJujQScXmshangAM2TKb4ZzHYv5WC4DYGAMcO3w76f/fCqdnFRo9ZqdoZKtY; Expires=Wed, 21 May 2025 17:01:51 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '180'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '179'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '60'
+            etag:
+              schema:
+                type: string
+                example: W/"44d9-2XKaR/Dpa+vPOZux6F4LTl72z9g"
+            cf-cache-status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 93fbf5bc5e2a002c-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: br
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                  data:
+                  - clientOrderId: m-de0fc15800a8b391857a-15917-zeb
+                    datetime: '2025-05-14T16:46:02.947Z'
+                    timestamp: 1747241162947
+                    status: filled
+                    symbol: BTCINR
+                    type: market
+                    timeInForce: GTC
+                    side: BUY
+                    price: 9018920
+                    average: 9019574
+                    amount: 0.002
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-de0fc15800a8b391857a-15917-zeb
+                      symbol: BTCINR
+                      side: BUY
+                      orderType: MARKET
+                      price: '9018920'
+                      origQty: '18039.15'
+                      cumQty: '0.002'
+                      executedQty: '0.002'
+                      leverage: 45
+                      leveragedQty: '0.002'
+                      lockedMargin: '404.85'
+                      orderPrice: '9019574'
+                      subType: PRIMARY
+                      averagePrice: '9019574'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-05-14T16:46:02.947Z'
+                      baseAsset: BTC
+                      quoteAsset: INR
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.754Z'
+                      updatedAt: '2025-05-14T17:01:51.754Z'
+                      positionId: 0607c789-8d99-492a-9392-4d9dbc86f6d3
+                      lpRefId: null
+                  - clientOrderId: m-833802947b070ee3e8b1-15917-zeb
+                    datetime: '2025-05-02T07:47:41.867Z'
+                    timestamp: 1746172061867
+                    status: filled
+                    symbol: 1000FLOKIUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: SELL
+                    price: 0.08478
+                    average: 0.08463
+                    amount: 65
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-833802947b070ee3e8b1-15917-zeb
+                      symbol: 1000FLOKIUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.08478'
+                      origQty: '5.5009'
+                      cumQty: '65'
+                      executedQty: '65'
+                      leverage: 25
+                      leveragedQty: '65'
+                      lockedMargin: '0'
+                      orderPrice: '0.08463'
+                      subType: PRIMARY
+                      averagePrice: '0.08463'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-05-02T07:47:41.867Z'
+                      baseAsset: 1000FLOKI
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.755Z'
+                      updatedAt: '2025-05-14T17:01:51.755Z'
+                      positionId: c908cc25-c073-4f84-bb87-bd273f207cfd
+                      lpRefId: null
+                  - clientOrderId: m-421826eec5fdf60399c3-15917-zeb
+                    datetime: '2025-05-02T07:46:33.650Z'
+                    timestamp: 1746171993650
+                    status: filled
+                    symbol: 1000FLOKIUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: BUY
+                    price: 0.08482
+                    average: 0.0848
+                    amount: 65
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-421826eec5fdf60399c3-15917-zeb
+                      symbol: 1000FLOKIUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.08482'
+                      origQty: '5.5121'
+                      cumQty: '65'
+                      executedQty: '65'
+                      leverage: 25
+                      leveragedQty: '65'
+                      lockedMargin: '0.2228'
+                      orderPrice: '0.0848'
+                      subType: PRIMARY
+                      averagePrice: '0.0848'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-05-02T07:46:33.650Z'
+                      baseAsset: 1000FLOKI
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.755Z'
+                      updatedAt: '2025-05-14T17:01:51.755Z'
+                      positionId: c908cc25-c073-4f84-bb87-bd273f207cfd
+                      lpRefId: null
+                  - clientOrderId: m-c2cdb145205be2fc400c-15917-zeb
+                    datetime: '2025-04-29T23:13:59.514Z'
+                    timestamp: 1745968439514
+                    status: filled
+                    symbol: ADAUSDT
+                    type: stop_market
+                    timeInForce: GTC
+                    side: SELL
+                    price: 0.69
+                    average: 0.6898
+                    amount: 10
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-c2cdb145205be2fc400c-15917-zeb
+                      symbol: ADAUSDT
+                      side: SELL
+                      orderType: STOP_MARKET
+                      price: '0.69'
+                      origQty: '6.898'
+                      cumQty: '10'
+                      executedQty: '10'
+                      leverage: 25
+                      leveragedQty: '10'
+                      lockedMargin: '0'
+                      orderPrice: '0.6898'
+                      subType: STOP_LOSS
+                      averagePrice: '0.6898'
+                      status: FILLED
+                      stopPrice: '0.69'
+                      time: '2025-04-29T23:13:59.514Z'
+                      baseAsset: ADA
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.755Z'
+                      updatedAt: '2025-05-14T17:01:51.755Z'
+                      positionId: 0f6427c2-3fef-47ed-8299-57960b43f598
+                      lpRefId: null
+                  - clientOrderId: m-aba64c7acd289db9b03d-15917-zeb
+                    datetime: '2025-04-29T23:12:00.857Z'
+                    timestamp: 1745968320857
+                    status: expired
+                    symbol: ADAUSDT
+                    type: stop_market
+                    timeInForce: GTC
+                    side: SELL
+                    price: 10
+                    average: 0
+                    amount: 0
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-aba64c7acd289db9b03d-15917-zeb
+                      symbol: ADAUSDT
+                      side: SELL
+                      orderType: STOP_MARKET
+                      price: '10'
+                      origQty: '0'
+                      cumQty: '0'
+                      executedQty: '0'
+                      leverage: 25
+                      leveragedQty: '8'
+                      lockedMargin: '0'
+                      orderPrice: '0'
+                      subType: TAKE_PROFIT
+                      averagePrice: '0'
+                      status: EXPIRED
+                      stopPrice: '10'
+                      time: '2025-04-29T23:12:00.857Z'
+                      baseAsset: ADA
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.755Z'
+                      updatedAt: '2025-05-14T17:01:51.755Z'
+                      positionId: null
+                      lpRefId: null
+                  - clientOrderId: 1a45ab07900d92ef481f-15917-zeb
+                    datetime: '2025-04-28T18:12:30.412Z'
+                    timestamp: 1745863950412
+                    status: filled
+                    symbol: AAVEUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: BUY
+                    price: 164.84
+                    average: 164.92
+                    amount: 0.1
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: 1a45ab07900d92ef481f-15917-zeb
+                      symbol: AAVEUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '164.84'
+                      origQty: '16.492'
+                      cumQty: '0.1'
+                      executedQty: '0.1'
+                      leverage: 10
+                      leveragedQty: '0.1'
+                      lockedMargin: '1.6649'
+                      orderPrice: '164.92'
+                      subType: PRIMARY
+                      averagePrice: '164.92'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T18:12:30.412Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.755Z'
+                      updatedAt: '2025-05-14T17:01:51.755Z'
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: null
+                  - clientOrderId: m-59cd7c0be801065f2ef7-15917-zeb
+                    datetime: '2025-04-28T17:59:52.541Z'
+                    timestamp: 1745863192541
+                    status: filled
+                    symbol: ADAUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: BUY
+                    price: 0.6969
+                    average: 0.697
+                    amount: 10
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-59cd7c0be801065f2ef7-15917-zeb
+                      symbol: ADAUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.6969'
+                      origQty: '6.97'
+                      cumQty: '10'
+                      executedQty: '10'
+                      leverage: 25
+                      leveragedQty: '10'
+                      lockedMargin: '0.2816'
+                      orderPrice: '0.697'
+                      subType: PRIMARY
+                      averagePrice: '0.697'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T17:59:52.541Z'
+                      baseAsset: ADA
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.755Z'
+                      updatedAt: '2025-05-14T17:01:51.755Z'
+                      positionId: 0f6427c2-3fef-47ed-8299-57960b43f598
+                      lpRefId: null
+                  - clientOrderId: m-e3258cd41c13a116c2ab-15917-zeb
+                    datetime: '2025-04-28T17:55:08.066Z'
+                    timestamp: 1745862908066
+                    status: filled
+                    symbol: 1000BONKINR
+                    type: market
+                    timeInForce: GTC
+                    side: SELL
+                    price: 1.7995
+                    average: 1.7987
+                    amount: 1000
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-e3258cd41c13a116c2ab-15917-zeb
+                      symbol: 1000BONKINR
+                      side: SELL
+                      orderType: MARKET
+                      price: '1.7995'
+                      origQty: '1798.7'
+                      cumQty: '1000'
+                      executedQty: '1000'
+                      leverage: 25
+                      leveragedQty: '1000'
+                      lockedMargin: '0'
+                      orderPrice: '1.7987'
+                      subType: PRIMARY
+                      averagePrice: '1.7987'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T17:55:08.066Z'
+                      baseAsset: 1000BONK
+                      quoteAsset: INR
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.755Z'
+                      updatedAt: '2025-05-14T17:01:51.755Z'
+                      positionId: f3096950-25bb-4e59-81c5-c13f5dc9fee5
+                      lpRefId: null
+                  - clientOrderId: m-573f2719705e905f7ac0-15917-zeb
+                    datetime: '2025-04-28T17:53:09.418Z'
+                    timestamp: 1745862789418
+                    status: expired
+                    symbol: 1000BONKINR
+                    type: stop_market
+                    timeInForce: GTC
+                    side: SELL
+                    price: 1.8908
+                    average: 0
+                    amount: 0
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-573f2719705e905f7ac0-15917-zeb
+                      symbol: 1000BONKINR
+                      side: SELL
+                      orderType: STOP_MARKET
+                      price: '1.8908'
+                      origQty: '0'
+                      cumQty: '0'
+                      executedQty: '0'
+                      leverage: 25
+                      leveragedQty: '500'
+                      lockedMargin: '0'
+                      orderPrice: '0'
+                      subType: TAKE_PROFIT
+                      averagePrice: '0'
+                      status: EXPIRED
+                      stopPrice: '1.8908'
+                      time: '2025-04-28T17:53:09.418Z'
+                      baseAsset: 1000BONK
+                      quoteAsset: INR
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.755Z'
+                      updatedAt: '2025-05-14T17:01:51.755Z'
+                      positionId: null
+                      lpRefId: null
+                  - clientOrderId: 5adb156a33b1667f6a22-15917-zeb
+                    datetime: '2025-04-28T17:53:08.176Z'
+                    timestamp: 1745862788176
+                    status: filled
+                    symbol: 1000WHYUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: BUY
+                    price: 4.81e-05
+                    average: 4.81e-05
+                    amount: 1000000
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: 5adb156a33b1667f6a22-15917-zeb
+                      symbol: 1000WHYUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.0000481'
+                      origQty: '48.1001'
+                      cumQty: '1000000'
+                      executedQty: '1000000'
+                      leverage: 10
+                      leveragedQty: '1000000'
+                      lockedMargin: '0'
+                      orderPrice: '0.0000481'
+                      subType: PRIMARY
+                      averagePrice: '0.0000481'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T17:53:08.176Z'
+                      baseAsset: 1000WHY
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.755Z'
+                      updatedAt: '2025-05-14T17:01:51.755Z'
+                      positionId: b8599330-22f2-48e3-a41d-7bb578ab543b
+                      lpRefId: null
+                  - clientOrderId: m-87cae7a1e8f713becb86-15917-zeb
+                    datetime: '2025-04-28T17:52:34.887Z'
+                    timestamp: 1745862754887
+                    status: filled
+                    symbol: 1000BONKINR
+                    type: market
+                    timeInForce: GTC
+                    side: BUY
+                    price: 1.8038
+                    average: 1.8041
+                    amount: 1000
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-87cae7a1e8f713becb86-15917-zeb
+                      symbol: 1000BONKINR
+                      side: BUY
+                      orderType: MARKET
+                      price: '1.8038'
+                      origQty: '1804.11'
+                      cumQty: '1000'
+                      executedQty: '1000'
+                      leverage: 25
+                      leveragedQty: '1000'
+                      lockedMargin: '72.88'
+                      orderPrice: '1.8041'
+                      subType: PRIMARY
+                      averagePrice: '1.8041'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T17:52:34.887Z'
+                      baseAsset: 1000BONK
+                      quoteAsset: INR
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.756Z'
+                      updatedAt: '2025-05-14T17:01:51.756Z'
+                      positionId: f3096950-25bb-4e59-81c5-c13f5dc9fee5
+                      lpRefId: null
+                  - clientOrderId: m-49842243108828ee46fb-15917-zeb
+                    datetime: '2025-04-28T17:51:53.069Z'
+                    timestamp: 1745862713069
+                    status: filled
+                    symbol: 1000PEPEUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: BUY
+                    price: 0.0087424
+                    average: 0.0087445
+                    amount: 1000
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-49842243108828ee46fb-15917-zeb
+                      symbol: 1000PEPEUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.0087424'
+                      origQty: '8.7445'
+                      cumQty: '1000'
+                      executedQty: '1000'
+                      leverage: 35
+                      leveragedQty: '1000'
+                      lockedMargin: '0'
+                      orderPrice: '0.0087445'
+                      subType: PRIMARY
+                      averagePrice: '0.0087445'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T17:51:53.069Z'
+                      baseAsset: 1000PEPE
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.756Z'
+                      updatedAt: '2025-05-14T17:01:51.756Z'
+                      positionId: 2fcba55a-68d2-48a2-a688-d8133612c853
+                      lpRefId: null
+                  - clientOrderId: 9f417ec81a3a0613be24-15917-zeb
+                    datetime: '2025-04-28T17:51:41.946Z'
+                    timestamp: 1745862701946
+                    status: filled
+                    symbol: 1000WHYUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: SELL
+                    price: 4.81e-05
+                    average: 4.8e-05
+                    amount: 1000000
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: 9f417ec81a3a0613be24-15917-zeb
+                      symbol: 1000WHYUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.0000481'
+                      origQty: '48'
+                      cumQty: '1000000'
+                      executedQty: '1000000'
+                      leverage: 10
+                      leveragedQty: '1000000'
+                      lockedMargin: '4.8582'
+                      orderPrice: '0.000048'
+                      subType: PRIMARY
+                      averagePrice: '0.000048'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T17:51:41.946Z'
+                      baseAsset: 1000WHY
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.756Z'
+                      updatedAt: '2025-05-14T17:01:51.756Z'
+                      positionId: b8599330-22f2-48e3-a41d-7bb578ab543b
+                      lpRefId: null
+                  - clientOrderId: m-0ad96db14b31d6fbc4c3-15917-zeb
+                    datetime: '2025-04-28T17:15:20.367Z'
+                    timestamp: 1745860520367
+                    status: filled
+                    symbol: 1000PEPEUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: SELL
+                    price: 0.008648
+                    average: 0.008646
+                    amount: 1000
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-0ad96db14b31d6fbc4c3-15917-zeb
+                      symbol: 1000PEPEUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.008648'
+                      origQty: '8.646'
+                      cumQty: '1000'
+                      executedQty: '1000'
+                      leverage: 35
+                      leveragedQty: '1000'
+                      lockedMargin: '0.2496'
+                      orderPrice: '0.008646'
+                      subType: PRIMARY
+                      averagePrice: '0.008646'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T17:15:20.367Z'
+                      baseAsset: 1000PEPE
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.756Z'
+                      updatedAt: '2025-05-14T17:01:51.756Z'
+                      positionId: 2fcba55a-68d2-48a2-a688-d8133612c853
+                      lpRefId: null
+                  - clientOrderId: m-c75b93823d30edb78a14-15917-zeb
+                    datetime: '2025-04-28T17:15:05.839Z'
+                    timestamp: 1745860505839
+                    status: filled
+                    symbol: 1000PEPEUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: BUY
+                    price: 0.0086493
+                    average: 0.0086491
+                    amount: 1000
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-c75b93823d30edb78a14-15917-zeb
+                      symbol: 1000PEPEUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.0086493'
+                      origQty: '8.6491'
+                      cumQty: '1000'
+                      executedQty: '1000'
+                      leverage: 35
+                      leveragedQty: '1000'
+                      lockedMargin: '0'
+                      orderPrice: '0.0086491'
+                      subType: PRIMARY
+                      averagePrice: '0.0086491'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T17:15:05.839Z'
+                      baseAsset: 1000PEPE
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.756Z'
+                      updatedAt: '2025-05-14T17:01:51.756Z'
+                      positionId: d9053d2e-09c8-4de7-9c3e-cfd38c2739a3
+                      lpRefId: null
+                  - clientOrderId: m-6fb450eddfddc2a175c5-15917-zeb
+                    datetime: '2025-04-28T17:14:58.873Z'
+                    timestamp: 1745860498873
+                    status: filled
+                    symbol: 1000PEPEUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: SELL
+                    price: 0.0086499
+                    average: 0.008647
+                    amount: 1000
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-6fb450eddfddc2a175c5-15917-zeb
+                      symbol: 1000PEPEUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.0086499'
+                      origQty: '8.647'
+                      cumQty: '1000'
+                      executedQty: '1000'
+                      leverage: 35
+                      leveragedQty: '1000'
+                      lockedMargin: '0.2497'
+                      orderPrice: '0.008647'
+                      subType: PRIMARY
+                      averagePrice: '0.008647'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T17:14:58.873Z'
+                      baseAsset: 1000PEPE
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      createdAt: '2025-05-14T17:01:51.756Z'
+                      updatedAt: '2025-05-14T17:01:51.756Z'
+                      positionId: d9053d2e-09c8-4de7-9c3e-cfd38c2739a3
+                      lpRefId: null
+                  - clientOrderId: 06853a01cf71b683ac59-15917-zeb
+                    datetime: '2025-04-28T15:08:32.630Z'
+                    timestamp: 1745852912630
+                    status: filled
+                    symbol: 1000FLOKIUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: SELL
+                    price: 0.07704
+                    average: 0.07695
+                    amount: 100
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: 06853a01cf71b683ac59-15917-zeb
+                      symbol: 1000FLOKIUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.07704'
+                      origQty: '7.695'
+                      cumQty: '100'
+                      executedQty: '100'
+                      leverage: 25
+                      leveragedQty: '100'
+                      lockedMargin: '0'
+                      orderPrice: '0.07695'
+                      subType: PRIMARY
+                      averagePrice: '0.07695'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T15:08:32.630Z'
+                      baseAsset: 1000FLOKI
+                      quoteAsset: USDT
+                      marginAsset: USDT
+                      createdAt: '2025-05-14T17:01:51.756Z'
+                      updatedAt: '2025-05-14T17:01:51.756Z'
+                      positionId: c3dacc29-236a-4aaa-bc44-cc0458335e71
+                      lpRefId: null
+                  - clientOrderId: m-924ba7d8e78ba052089d-15917-zeb
+                    datetime: '2025-04-28T15:08:32.387Z'
+                    timestamp: 1745852912387
+                    status: expired
+                    symbol: 1000FLOKIUSDT
+                    type: stop_market
+                    timeInForce: GTC
+                    side: SELL
+                    price: 0.07988
+                    average: 0
+                    amount: 0
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-924ba7d8e78ba052089d-15917-zeb
+                      symbol: 1000FLOKIUSDT
+                      side: SELL
+                      orderType: STOP_MARKET
+                      price: '0.07988'
+                      origQty: '0'
+                      cumQty: '0'
+                      executedQty: '0'
+                      leverage: 25
+                      leveragedQty: '70'
+                      lockedMargin: '0'
+                      orderPrice: '0'
+                      subType: TAKE_PROFIT
+                      averagePrice: '0'
+                      status: EXPIRED
+                      stopPrice: '0.07988'
+                      time: '2025-04-28T15:08:32.387Z'
+                      baseAsset: 1000FLOKI
+                      quoteAsset: USDT
+                      marginAsset: USDT
+                      createdAt: '2025-05-14T17:01:51.756Z'
+                      updatedAt: '2025-05-14T17:01:51.756Z'
+                      positionId: null
+                      lpRefId: null
+                  - clientOrderId: m-3c011373dead903749a3-15917-zeb
+                    datetime: '2025-04-28T13:19:04.145Z'
+                    timestamp: 1745846344145
+                    status: filled
+                    symbol: 1000FLOKIUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: BUY
+                    price: 0.07967
+                    average: 0.07971
+                    amount: 100
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: m-3c011373dead903749a3-15917-zeb
+                      symbol: 1000FLOKIUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.07967'
+                      origQty: '7.971'
+                      cumQty: '100'
+                      executedQty: '100'
+                      leverage: 25
+                      leveragedQty: '100'
+                      lockedMargin: '0.3219'
+                      orderPrice: '0.07971'
+                      subType: PRIMARY
+                      averagePrice: '0.07971'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T13:19:04.145Z'
+                      baseAsset: 1000FLOKI
+                      quoteAsset: USDT
+                      marginAsset: USDT
+                      createdAt: '2025-05-14T17:01:51.756Z'
+                      updatedAt: '2025-05-14T17:01:51.756Z'
+                      positionId: c3dacc29-236a-4aaa-bc44-cc0458335e71
+                      lpRefId: null
+                  - clientOrderId: fca88da4e94903ae6955-15917-zeb
+                    datetime: '2025-04-28T10:55:23.060Z'
+                    timestamp: 1745837723060
+                    status: filled
+                    symbol: 1000WHYUSDT
+                    type: market
+                    timeInForce: GTC
+                    side: BUY
+                    price: 4.81e-05
+                    average: 4.82e-05
+                    amount: 207468
+                    trades: []
+                    info:
+                      id: null
+                      accountId: 1441301
+                      orderId: fca88da4e94903ae6955-15917-zeb
+                      symbol: 1000WHYUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.0000481'
+                      origQty: '10'
+                      cumQty: '207468'
+                      executedQty: '207468'
+                      leverage: 10
+                      leveragedQty: '207468'
+                      lockedMargin: '0'
+                      orderPrice: '0.0000482'
+                      subType: PRIMARY
+                      averagePrice: '0.0000482'
+                      status: FILLED
+                      stopPrice: '0'
+                      time: '2025-04-28T10:55:23.060Z'
+                      baseAsset: 1000WHY
+                      quoteAsset: USDT
+                      marginAsset: USDT
+                      createdAt: '2025-05-14T17:01:51.756Z'
+                      updatedAt: '2025-05-14T17:01:51.756Z'
+                      positionId: 8cb4d9c8-1203-449a-884e-b160ec3b8598
+                      lpRefId: null
+                  totalCount: 404
+                  nextTimestamp: 1745837723060
+                statusCode: 200
+                customMessage:
+                - OK
+      operationId: getApiV1TradeOrderHistory
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /api/v1/trade/linkedOrders/{clientOrderId}:
+    get:
+      tags:
+      - Futures > Trade
+      summary: Get Linked Orders
+      description: 'The endpoint retrieves linked orders for a specific client order ID.
+
+
+        Request
+
+
+        The request is sent via an HTTP GET method to the following URL:
+
+
+        https://futuresbe.zebpay.com/api/v1/trade/linkedOrders/{{clientOrderId}}
+
+
+        Response
+
+
+        The response is in JSON format and includes the following parameters:
+
+
+        statusDescription (string): Description of the status.
+
+
+        data (array): An array of objects containing the linked order details with the following properties:
+
+
+        id (integer): Unique identifier for the order.
+
+
+        clientOrderId (string): Client order ID.
+
+
+        time (string): Time of the order.
+
+
+        symbol (string): Symbol of the order.
+
+
+        contractType (string): Type of contract.
+
+
+        type (string): Type of order.
+
+
+        side (string): Side of the order.
+
+
+        price (number): Price of the order.
+
+
+        orderAmount (number): Amount of the order.
+
+
+        filledAmount (number): Amount filled.
+
+
+        linkId (string): Linked order ID.
+
+
+        subType (string): Subtype of the order.
+
+
+        linkType (string): Type of linked order.
+
+
+        takeProfitPrice (number, null): Price for take profit.
+
+
+        stopLossPrice (number, null): Price for stop loss.
+
+
+        status (string): Status of the order.
+
+
+        placeType (string): Type of placement.
+
+
+        baseAsset (string): Base asset for the order.
+
+
+        quoteAsset (string): Quote asset for the order.
+
+
+        marginAsset (string): Margin asset for the order.
+
+
+        statusCode (integer): Status code of the response.
+
+
+        customMessage (array): Array of custom messages.
+
+
+        Example
+
+
+        {
+
+        "statusDescription": "",
+
+        "data": [
+
+        {
+
+        "id": 12345,
+
+        "clientOrderId": "ABC123",
+
+        "time": "2022-01-01 12:00:00",
+
+        "symbol": "BTC/USDT",
+
+        "contractType": "Perpetual",
+
+        "type": "Limit",
+
+        "side": "Buy",
+
+        "price": 45000,
+
+        "orderAmount": 1.5,
+
+        "filledAmount": 0.5,
+
+        "linkId": "XYZ789",
+
+        "subType": "Normal",
+
+        "linkType": "OCO",
+
+        "takeProfitPrice": null,
+
+        "stopLossPrice": null,
+
+        "status": "Open",
+
+        "placeType": "Normal",
+
+        "baseAsset": "BTC",
+
+        "quoteAsset": "USDT",
+
+        "marginAsset": "USDT"
+
+        }
+
+        ],
+
+        "statusCode": 200,
+
+        "customMessage": [""]
+
+        }
+
+
+        This API endpoint can be used to retrieve linked orders for a specific client order ID.
+
+
+        {
+
+        "type": "object",
+
+        "properties": {
+
+        "statusDescription": {
+
+        "type": "string"
+
+        },
+
+        "data": {
+
+        "type": "array",
+
+        "items": {
+
+        "type": "object",
+
+        "properties": {
+
+        "id": {
+
+        "type": "integer"
+
+        },
+
+        "clientOrderId": {
+
+        "type": "string"
+
+        },
+
+        "time": {
+
+        "type": "string"
+
+        },
+
+        "symbol": {
+
+        "type": "string"
+
+        },
+
+        "contractType": {
+
+        "type": "string"
+
+        },
+
+        "type": {
+
+        "type": "string"
+
+        },
+
+        "side": {
+
+        "type": "string"
+
+        },
+
+        "price": {
+
+        "type": "number"
+
+        },
+
+        "orderAmount": {
+
+        "type": "number"
+
+        },
+
+        "filledAmount": {
+
+        "type": "number"
+
+        },
+
+        "linkId": {
+
+        "type": "string"
+
+        },
+
+        "subType": {
+
+        "type": "string"
+
+        },
+
+        "linkType": {
+
+        "type": "string"
+
+        },
+
+        "takeProfitPrice": {
+
+        "type": ["number", "null"]
+
+        },
+
+        "stopLossPrice": {
+
+        "type": ["number", "null"]
+
+        },
+
+        "status": {
+
+        "type": "string"
+
+        },
+
+        "placeType": {
+
+        "type": "string"
+
+        },
+
+        "baseAsset": {
+
+        "type": "string"
+
+        },
+
+        "quoteAsset": {
+
+        "type": "string"
+
+        },
+
+        "marginAsset": {
+
+        "type": "string"
+
+        }
+
+        },
+
+        "required": ["id", "clientOrderId", "time", "symbol", "contractType", "type", "side", "price", "orderAmount", "filledAmount", "linkId", "subType", "linkType", "status", "placeType", "baseAsset", "quoteAsset", "marginAsset"]
+
+        }
+
+        },
+
+        "statusCode": {
+
+        "type": "integer"
+
+        },
+
+        "customMessage": {
+
+        "type": "array",
+
+        "items": {
+
+        "type": "string"
+
+        }
+
+        }
+
+        },
+
+        "required": ["statusDescription", "data", "statusCode", "customMessage"]
+
+        }'
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: clientOrderId
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Thu, 07 Nov 2024 15:20:22 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=tMrw3+nHGkltcexqG6ffJnR2dcjhOgbqeJnBHHY19U4k7w4MDv2UcmEukVFUyWoGpD40uJuc22CRSZaECrQl4fJZ2fAaFx1qwYzszkWsiEEeKud2K02+lEj2n0Ud; Expires=Thu, 14 Nov 2024 15:20:21 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '1000'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '999'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '60'
+            etag:
+              schema:
+                type: string
+                example: W/"5d2-MShPomKEvfEkOAgeBuyu7vexiaA"
+            CF-Cache-Status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 8dee4e8e58958572-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: br
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                - id: 1044130
+                  clientOrderId: m-249d3eafe4c3f363fa1e-15674-zeb
+                  time: '2024-11-07T11:41:33.582Z'
+                  symbol: BTCUSDT
+                  contractType: PERPETUAL
+                  type: MARKET
+                  side: BUY
+                  price: 74873.9
+                  orderAmount: 0.002
+                  filledAmount: 0.002
+                  linkId: m-249d3eafe4c3f363fa1e-15674-zeb
+                  subType: PRIMARY
+                  linkType: ORDER_TP_SL
+                  takeProfitPrice: null
+                  stopLossPrice: null
+                  status: FILLED
+                  placeType: ORDER_FORM
+                  baseAsset: BTC
+                  quoteAsset: USDT
+                  marginAsset: USDT
+                - id: 1044131
+                  clientOrderId: m-64859ed944bdd22b33af-15674-zeb
+                  time: '2024-11-07T11:47:04.620Z'
+                  symbol: BTCUSDT
+                  contractType: PERPETUAL
+                  type: STOP_MARKET
+                  side: SELL
+                  price: 74119.4
+                  orderAmount: 0.002
+                  filledAmount: 0
+                  linkId: m-249d3eafe4c3f363fa1e-15674-zeb
+                  subType: STOP_LOSS
+                  linkType: ORDER_TP_SL
+                  takeProfitPrice: null
+                  stopLossPrice: 74119.4
+                  status: EXPIRED
+                  placeType: POSITION
+                  baseAsset: BTC
+                  quoteAsset: USDT
+                  marginAsset: USDT
+                - id: 1044132
+                  clientOrderId: m-f71d4a9e90f0eaaf3a54-15674-zeb
+                  time: '2024-11-07T11:47:04.620Z'
+                  symbol: BTCUSDT
+                  contractType: PERPETUAL
+                  type: STOP_MARKET
+                  side: SELL
+                  price: 75613.2
+                  orderAmount: 0.002
+                  filledAmount: 0
+                  linkId: m-249d3eafe4c3f363fa1e-15674-zeb
+                  subType: TAKE_PROFIT
+                  linkType: ORDER_TP_SL
+                  takeProfitPrice: 75613.2
+                  stopLossPrice: null
+                  status: EXPIRED
+                  placeType: POSITION
+                  baseAsset: BTC
+                  quoteAsset: USDT
+                  marginAsset: USDT
+                statusCode: 200
+                customMessage:
+                - OK
+      operationId: getApiV1TradeLinkedOrdersByClientOrderId
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /api/v1/trade/positions:
+    get:
+      tags:
+      - Futures > Trade
+      summary: Get Positions
+      description: 'GET /trade/positions
+
+
+        This endpoint retrieves the open trade positions.
+
+
+        Request
+
+
+        Method: GET
+
+
+        URL: https://futuresbe.zebpay.com/trade/positions
+
+
+        Query Parameters:
+
+
+        status (string, required): Filter the positions by status.
+
+
+        Request Body
+
+
+        This request does not require a request body.
+
+
+        Response
+
+
+        The response is a JSON object with the following schema:
+
+
+        {
+
+        "statusDescription": "",
+
+        "data": [
+
+        {
+
+        "contractPair": "",
+
+        "entryPrice": 0,
+
+        "leverage": 0,
+
+        "liquidationPrice": 0,
+
+        "marginType": "",
+
+        "marginAsset": "",
+
+        "margin": 0,
+
+        "marginInMarginAsset": 0,
+
+        "positionAmount": 0,
+
+        "positionId": "",
+
+        "positionSize": 0,
+
+        "positionStatus": "",
+
+        "positionType": "",
+
+        "realizedProfit": 0,
+
+        "realizedProfitInMarginAsset": null,
+
+        "quantity": 0,
+
+        "createdAt": "",
+
+        "contractType": "",
+
+        "iconUrl": "",
+
+        "baseAsset": "",
+
+        "quoteAsset": ""
+
+        }
+
+        ],
+
+        "statusCode": 0,
+
+        "customMessage": [""]
+
+        }
+
+
+        statusDescription (string): Description of the status.
+
+
+        data (array): Array of trade position objects.
+
+
+        contractPair (string): Contract pair.
+
+
+        entryPrice (number): Entry price.
+
+
+        leverage (number): Leverage.
+
+
+        liquidationPrice (number): Liquidation price.
+
+
+        marginType (string): Type of margin.
+
+
+        marginAsset (string): Margin asset.
+
+
+        margin (number): Margin amount.
+
+
+        marginInMarginAsset (number): Margin amount in margin asset.
+
+
+        positionAmount (number): Position amount.
+
+
+        positionId (string): Position ID.
+
+
+        positionSize (number): Position size.
+
+
+        positionStatus (string): Position status.
+
+
+        positionType (string): Position type.
+
+
+        realizedProfit (number): Realized profit.
+
+
+        realizedProfitInMarginAsset (number): Realized profit in margin asset.
+
+
+        quantity (number): Quantity.
+
+
+        createdAt (string): Creation timestamp.
+
+
+        contractType (string): Contract type.
+
+
+        iconUrl (string): URL of the icon.
+
+
+        baseAsset (string): Base asset.
+
+
+        quoteAsset (string): Quote asset.
+
+
+        statusCode (number): Status code.
+
+
+        customMessage (array): Custom message.
+
+
+        This endpoint retrieves the open trade positions.
+
+
+        Request
+
+
+        Method: GET
+
+
+        URL: https://futuresbe.zebpay.com/trade/positions
+
+
+        Query Parameters:
+
+
+        status (string, required): Filter the positions by status.
+
+
+        Response
+
+
+        The response is a JSON object with the following schema:
+
+
+        {
+
+        "statusDescription": "",
+
+        "data": [
+
+        {
+
+        "contractPair": "",
+
+        "entryPrice": 0,
+
+        "leverage": 0,
+
+        "liquidationPrice": 0,
+
+        "marginType": "",
+
+        "marginAsset": "",
+
+        "margin": 0,
+
+        "marginInMarginAsset": 0,
+
+        "positionAmount": 0,
+
+        "positionId": "",
+
+        "positionSize": 0,
+
+        "positionStatus": "",
+
+        "positionType": "",
+
+        "realizedProfit": 0,
+
+        "realizedProfitInMarginAsset": null,
+
+        "quantity": 0,
+
+        "createdAt": "",
+
+        "contractType": "",
+
+        "iconUrl": "",
+
+        "baseAsset": "",
+
+        "quoteAsset": ""
+
+        }
+
+        ],
+
+        "statusCode": 0,
+
+        "customMessage": [""]
+
+        }
+
+
+        statusDescription (string): Description of the status.
+
+
+        data (array): Array of trade position objects.
+
+
+        contractPair (string): Contract pair.
+
+
+        entryPrice (number): Entry price.
+
+
+        leverage (number): Leverage.
+
+
+        liquidationPrice (number): Liquidation price.
+
+
+        marginType (string): Type of margin.
+
+
+        marginAsset (string): Margin asset.
+
+
+        margin (number): Margin amount.
+
+
+        marginInMarginAsset (number): Margin amount in margin asset.
+
+
+        positionAmount (number): Position amount.
+
+
+        positionId (string): Position ID.
+
+
+        positionSize (number): Position size.
+
+
+        positionStatus (string): Position status.
+
+
+        positionType (string): Position type.
+
+
+        realizedProfit (number): Realized profit.
+
+
+        realizedProfitInMarginAsset (number): Realized profit in margin asset.
+
+
+        quantity (number): Quantity.
+
+
+        createdAt (string): Creation timestamp.
+
+
+        contractType (string): Contract type.
+
+
+        iconUrl (string): URL of the icon.
+
+
+        baseAsset (string): Base asset.
+
+
+        quoteAsset (string): Quote asset.
+
+
+        statusCode (number): Status code.
+
+
+        customMessage (array): Custom message.'
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 14 May 2025 17:10:42 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=74ZL/nxNiTDKuAmzvDZRfmg7iu/Ov02CuYRhts8BSBYVYIMsF9LXLNcT4GnuguRuWsbJ58443c2RjrP6tA62GMqubZstYXwOBeQL5FtOmEf4DpEIprRgEl3K3Lnt; Expires=Wed, 21 May 2025 17:10:42 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '180'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '179'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '60'
+            etag:
+              schema:
+                type: string
+                example: W/"89d-OfSCQmeG1DdT4Sn6xxiio3YBixw"
+            cf-cache-status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 93fc02b1193a002c-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: br
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                - info:
+                    id: 665452
+                    contractPair: BTCINR
+                    entryPrice: 9019574
+                    leverage: 45
+                    liquidationPrice: 8801025
+                    marginType: ISOLATED
+                    marginAsset: INR
+                    margin: 502.81
+                    marginInMarginAsset: 502.81
+                    positionAmount: 0.002
+                    positionId: 0607c789-8d99-492a-9392-4d9dbc86f6d3
+                    positionSize: 18039.15
+                    positionStatus: OPEN
+                    positionType: LONG
+                    realizedProfit: 0
+                    realizedProfitInMarginAsset: null
+                    quantity: 0.002
+                    createdAt: '2025-05-14T16:44:03.686Z'
+                    maintenanceMarginPercentage: 15
+                    marginConversionRate: 1
+                    marginSettlementRate: 1
+                    autoTopUpEnabled: false
+                    contractType: PERPETUAL
+                    iconUrl: https://static.zebpay.com/multicoins/ic_coin_btc.png
+                    baseAsset: BTC
+                    quoteAsset: INR
+                    primaryOrdersQty: 0.002
+                    stopLossOrdersQty: 0
+                    takeProfitOrdersQty: 0
+                  id: 0607c789-8d99-492a-9392-4d9dbc86f6d3
+                  symbol: BTCINR
+                  timestamp: 1747241043686
+                  datetime: '2025-05-14T16:44:03.686Z'
+                  side: buy
+                  contracts: 0.002
+                  contractSize: 9019575
+                  entryPrice: 9019574
+                  notional: 18039.15
+                  leverage: 45
+                  initialMargin: 502.81
+                  liquidationPrice: 8801025
+                  marginMode: isolated
+                - info:
+                    id: 639072
+                    contractPair: AAVEUSDT
+                    entryPrice: 164.92
+                    leverage: 10
+                    liquidationPrice: 151.86
+                    marginType: ISOLATED
+                    marginAsset: INR
+                    margin: 1.5725
+                    marginInMarginAsset: 138.38
+                    positionAmount: 0.1
+                    positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                    positionSize: 16.492
+                    positionStatus: OPEN
+                    positionType: LONG
+                    realizedProfit: 0
+                    realizedProfitInMarginAsset: null
+                    quantity: 0.1
+                    createdAt: '2025-04-28T18:12:30.163Z'
+                    maintenanceMarginPercentage: 15
+                    marginConversionRate: 88
+                    marginSettlementRate: 88
+                    autoTopUpEnabled: false
+                    contractType: PERPETUAL
+                    iconUrl: https://static.zebpay.com/multicoins/ic_coin_aave.png
+                    baseAsset: AAVE
+                    quoteAsset: USDT
+                    primaryOrdersQty: 0
+                    stopLossOrdersQty: 0
+                    takeProfitOrdersQty: 0
+                  id: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                  symbol: AAVEUSDT
+                  timestamp: 1745863950163
+                  datetime: '2025-04-28T18:12:30.163Z'
+                  side: buy
+                  contracts: 0.1
+                  contractSize: 164.92
+                  entryPrice: 164.92
+                  notional: 16.492
+                  leverage: 10
+                  initialMargin: 1.5725
+                  liquidationPrice: 151.86
+                  marginMode: isolated
+                statusCode: 200
+                customMessage:
+                - OK
+      operationId: getApiV1TradePositions
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /api/v1/trade/history:
+    get:
+      tags:
+      - Futures > Trade
+      summary: Get Trade History
+      description: 'Retrieve Trade History
+
+
+        This endpoint makes an HTTP GET request to retrieve trade history data from the specified page.
+
+
+        Request Parameters
+
+
+        page (integer) - The page number for the trade history.
+
+
+        timestamp (string) - The timestamp for the trade history.
+
+
+        pageSize (integer) - The number of items per page.
+
+
+        Request Body
+
+
+        This request does not require a request body.
+
+
+        Response Body
+
+
+        The response will be in JSON format with the following structure:
+
+
+        {
+
+        "statusDescription": "",
+
+        "data": {
+
+        "totalCount": 0,
+
+        "nextTimestamp": 0,
+
+        "data": [
+
+        {
+
+        "id": "",
+
+        "timestamp": 0,
+
+        "datetime": "",
+
+        "symbol": "",
+
+        "order": "",
+
+        "type": "",
+
+        "side": "",
+
+        "takerOrMaker": "",
+
+        "price": 0,
+
+        "amount": 0,
+
+        "cost": 0,
+
+        "fee": {
+
+        "cost": 0,
+
+        "currency": ""
+
+        }
+
+        }
+
+        ]
+
+        },
+
+        "statusCode": 0,
+
+        "customMessage": [""]
+
+        }
+
+
+        Expected Status Codes
+
+
+        200 OK - The request was successful and the response body contains the trade history data.
+
+
+        404 Not Found - The requested resource could not be found.
+
+
+        Expected Headers
+
+
+        Content-Type: application/json - The format of the response body will be in JSON.
+
+
+        This endpoint makes an HTTP GET request to retrieve trade history data from the specified page.
+
+
+        Request Parameters
+
+
+        page (integer) - The page number for the trade history.
+
+
+        timestamp (string) - The timestamp for the trade history.
+
+
+        pageSize (integer) - The number of items per page.
+
+
+        Response
+
+
+        The response will be in JSON format with the following structure:
+
+
+        statusDescription (string) - Description of the status.
+
+
+        data (object) - Contains trade history data.
+
+
+        totalCount (integer) - Total count of trade history items.
+
+
+        nextTimestamp (integer) - Timestamp for the next page of trade history.
+
+
+        data (array) - Array of trade history items with the following properties:
+
+
+        id (integer) - Trade ID.
+
+
+        time (string) - Timestamp of the trade.
+
+
+        symbol (string) - Trading symbol.
+
+
+        type (string) - Type of trade.
+
+
+        side (string) - Trade side.
+
+
+        price (float) - Trade price.
+
+
+        quantity (float) - Trade quantity.
+
+
+        role (string) - Role in the trade.
+
+
+        fee (float) - Trade fee.
+
+
+        feeInMarginAsset (float) - Trade fee in margin asset.
+
+
+        realizedProfit (float) - Realized profit from the trade.
+
+
+        realizedProfitInMarginAsset (float) - Realized profit in margin asset.
+
+
+        contractType (string) - Type of contract.
+
+
+        clientOrderId (string) - Client order ID.
+
+
+        baseAsset (string) - Base asset for the trade.
+
+
+        quoteAsset (string) - Quote asset for the trade.
+
+
+        marginAsset (string) - Margin asset for the trade.
+
+
+        positionId (string) - Position ID for the trade.
+
+
+        iconUrl (string) - URL for trade icon.
+
+
+        statusCode (integer) - Status code of the response.
+
+
+        customMessage (array) - Custom message array.'
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 14 May 2025 17:09:56 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=IJtIvq0VgbCDNVKbIgMpPRJA7WIbmbphwmF1Vn5U77Z+IasNtBxtJmSpRJB10SI1oyrpsrx4Cs26I1SvdW9kjP1jQVHSDRjGVvucNBurchzt/R9CPKynjCT4H0V1; Expires=Wed, 21 May 2025 17:09:56 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '180'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '179'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '60'
+            etag:
+              schema:
+                type: string
+                example: W/"3e87-7LXBH6B4HrfxwlDDCNNcmwPdQgA"
+            cf-cache-status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 93fc0191daa0002c-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: br
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                  data:
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4569120'
+                      orderId: m-de0fc15800a8b391857a-15917-zeb
+                      symbol: BTCINR
+                      side: BUY
+                      orderType: MARKET
+                      price: '9019574'
+                      quantity: '0.002'
+                      fee: '17.04'
+                      feeInMarginAsset: '17.04'
+                      realizedProfit: '0'
+                      realizedProfitInMarginAsset: '0'
+                      role: TAKER
+                      baseAsset: BTC
+                      quoteAsset: INR
+                      marginAsset: INR
+                      time: '2025-05-14T16:44:03.673Z'
+                      positionId: 0607c789-8d99-492a-9392-4d9dbc86f6d3
+                      lpRefId: 4569120
+                      createdAt: null
+                      updatedAt: null
+                    id: '4569120'
+                    timestamp: 1747241043673
+                    datetime: '2025-05-14T16:44:03.673Z'
+                    symbol: BTCINR
+                    order: m-de0fc15800a8b391857a-15917-zeb
+                    type: market
+                    side: buy
+                    takerOrMaker: taker
+                    price: 9019574
+                    amount: 0.002
+                    cost: 18039.148
+                    fee:
+                      cost: 17.04
+                      currency: INR
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4463835'
+                      orderId: m-833802947b070ee3e8b1-15917-zeb
+                      symbol: 1000FLOKIUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.08463'
+                      quantity: '65'
+                      fee: '0'
+                      feeInMarginAsset: '0'
+                      realizedProfit: '-0.0111'
+                      realizedProfitInMarginAsset: '-0.98'
+                      role: TAKER
+                      baseAsset: 1000FLOKI
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-05-02T07:47:41.813Z'
+                      positionId: c908cc25-c073-4f84-bb87-bd273f207cfd
+                      lpRefId: 4463835
+                      createdAt: null
+                      updatedAt: null
+                    id: '4463835'
+                    timestamp: 1746172061813
+                    datetime: '2025-05-02T07:47:41.813Z'
+                    symbol: 1000FLOKIUSDT
+                    order: m-833802947b070ee3e8b1-15917-zeb
+                    type: market
+                    side: sell
+                    takerOrMaker: taker
+                    price: 0.08463
+                    amount: 65
+                    cost: 5.50095
+                    fee:
+                      cost: 0
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4463832'
+                      orderId: m-421826eec5fdf60399c3-15917-zeb
+                      symbol: 1000FLOKIUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.0848'
+                      quantity: '65'
+                      fee: '0.0041'
+                      feeInMarginAsset: '0.36'
+                      realizedProfit: '0'
+                      realizedProfitInMarginAsset: '0'
+                      role: TAKER
+                      baseAsset: 1000FLOKI
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-05-02T07:46:33.596Z'
+                      positionId: c908cc25-c073-4f84-bb87-bd273f207cfd
+                      lpRefId: 4463832
+                      createdAt: null
+                      updatedAt: null
+                    id: '4463832'
+                    timestamp: 1746171993596
+                    datetime: '2025-05-02T07:46:33.596Z'
+                    symbol: 1000FLOKIUSDT
+                    order: m-421826eec5fdf60399c3-15917-zeb
+                    type: market
+                    side: buy
+                    takerOrMaker: taker
+                    price: 0.0848
+                    amount: 65
+                    cost: 5.5120000000000005
+                    fee:
+                      cost: 0.0041
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4445432'
+                      orderId: m-c2cdb145205be2fc400c-15917-zeb
+                      symbol: ADAUSDT
+                      side: SELL
+                      orderType: STOP_MARKET
+                      price: '0.6898'
+                      quantity: '10'
+                      fee: '0.005'
+                      feeInMarginAsset: '0.44'
+                      realizedProfit: '-0.072'
+                      realizedProfitInMarginAsset: '-6.33'
+                      role: TAKER
+                      baseAsset: ADA
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-04-29T23:12:00.839Z'
+                      positionId: 0f6427c2-3fef-47ed-8299-57960b43f598
+                      lpRefId: 4445432
+                      createdAt: null
+                      updatedAt: null
+                    id: '4445432'
+                    timestamp: 1745968320839
+                    datetime: '2025-04-29T23:12:00.839Z'
+                    symbol: ADAUSDT
+                    order: m-c2cdb145205be2fc400c-15917-zeb
+                    type: null
+                    side: sell
+                    takerOrMaker: taker
+                    price: 0.6898
+                    amount: 10
+                    cost: 6.898
+                    fee:
+                      cost: 0.005
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4437024'
+                      orderId: 1a45ab07900d92ef481f-15917-zeb
+                      symbol: AAVEUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '164.92'
+                      quantity: '0.1'
+                      fee: '0.0118'
+                      feeInMarginAsset: '1.04'
+                      realizedProfit: '0'
+                      realizedProfitInMarginAsset: '0'
+                      role: TAKER
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-04-28T18:12:30.156Z'
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 4437024
+                      createdAt: null
+                      updatedAt: null
+                    id: '4437024'
+                    timestamp: 1745863950156
+                    datetime: '2025-04-28T18:12:30.156Z'
+                    symbol: AAVEUSDT
+                    order: 1a45ab07900d92ef481f-15917-zeb
+                    type: market
+                    side: buy
+                    takerOrMaker: taker
+                    price: 164.92
+                    amount: 0.1
+                    cost: 16.492
+                    fee:
+                      cost: 0.0118
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4436879'
+                      orderId: m-59cd7c0be801065f2ef7-15917-zeb
+                      symbol: ADAUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.697'
+                      quantity: '10'
+                      fee: '0.005'
+                      feeInMarginAsset: '0.44'
+                      realizedProfit: '0'
+                      realizedProfitInMarginAsset: '0'
+                      role: TAKER
+                      baseAsset: ADA
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-04-28T17:57:53.872Z'
+                      positionId: 0f6427c2-3fef-47ed-8299-57960b43f598
+                      lpRefId: 4436879
+                      createdAt: null
+                      updatedAt: null
+                    id: '4436879'
+                    timestamp: 1745863073872
+                    datetime: '2025-04-28T17:57:53.872Z'
+                    symbol: ADAUSDT
+                    order: m-59cd7c0be801065f2ef7-15917-zeb
+                    type: market
+                    side: buy
+                    takerOrMaker: taker
+                    price: 0.697
+                    amount: 10
+                    cost: 6.97
+                    fee:
+                      cost: 0.005
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4436853'
+                      orderId: m-e3258cd41c13a116c2ab-15917-zeb
+                      symbol: 1000BONKINR
+                      side: SELL
+                      orderType: MARKET
+                      price: '1.7987'
+                      quantity: '1000'
+                      fee: '0'
+                      feeInMarginAsset: '0'
+                      realizedProfit: '-5.4'
+                      realizedProfitInMarginAsset: '-5.4'
+                      role: TAKER
+                      baseAsset: 1000BONK
+                      quoteAsset: INR
+                      marginAsset: INR
+                      time: '2025-04-28T17:53:09.403Z'
+                      positionId: f3096950-25bb-4e59-81c5-c13f5dc9fee5
+                      lpRefId: 4436853
+                      createdAt: null
+                      updatedAt: null
+                    id: '4436853'
+                    timestamp: 1745862789403
+                    datetime: '2025-04-28T17:53:09.403Z'
+                    symbol: 1000BONKINR
+                    order: m-e3258cd41c13a116c2ab-15917-zeb
+                    type: market
+                    side: sell
+                    takerOrMaker: taker
+                    price: 1.7987
+                    amount: 1000
+                    cost: 1798.7
+                    fee:
+                      cost: 0
+                      currency: INR
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4436852'
+                      orderId: 5adb156a33b1667f6a22-15917-zeb
+                      symbol: 1000WHYUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.0000481'
+                      quantity: '1000000'
+                      fee: '0'
+                      feeInMarginAsset: '0'
+                      realizedProfit: '-0.1'
+                      realizedProfitInMarginAsset: '-8.8'
+                      role: TAKER
+                      baseAsset: 1000WHY
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-04-28T17:53:07.916Z'
+                      positionId: b8599330-22f2-48e3-a41d-7bb578ab543b
+                      lpRefId: 4436852
+                      createdAt: null
+                      updatedAt: null
+                    id: '4436852'
+                    timestamp: 1745862787916
+                    datetime: '2025-04-28T17:53:07.916Z'
+                    symbol: 1000WHYUSDT
+                    order: 5adb156a33b1667f6a22-15917-zeb
+                    type: market
+                    side: buy
+                    takerOrMaker: taker
+                    price: 4.81e-05
+                    amount: 1000000
+                    cost: 48.099999999999994
+                    fee:
+                      cost: 0
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4436850'
+                      orderId: 9f417ec81a3a0613be24-15917-zeb
+                      symbol: 1000WHYUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.000048'
+                      quantity: '1000000'
+                      fee: '0.034'
+                      feeInMarginAsset: '2.99'
+                      realizedProfit: '0'
+                      realizedProfitInMarginAsset: '0'
+                      role: TAKER
+                      baseAsset: 1000WHY
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-04-28T17:51:41.819Z'
+                      positionId: b8599330-22f2-48e3-a41d-7bb578ab543b
+                      lpRefId: 4436850
+                      createdAt: null
+                      updatedAt: null
+                    id: '4436850'
+                    timestamp: 1745862701819
+                    datetime: '2025-04-28T17:51:41.819Z'
+                    symbol: 1000WHYUSDT
+                    order: 9f417ec81a3a0613be24-15917-zeb
+                    type: market
+                    side: sell
+                    takerOrMaker: taker
+                    price: 4.8e-05
+                    amount: 1000000
+                    cost: 48
+                    fee:
+                      cost: 0.034
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4436846'
+                      orderId: m-87cae7a1e8f713becb86-15917-zeb
+                      symbol: 1000BONKINR
+                      side: BUY
+                      orderType: MARKET
+                      price: '1.8041'
+                      quantity: '1000'
+                      fee: '1.72'
+                      feeInMarginAsset: '1.72'
+                      realizedProfit: '0'
+                      realizedProfitInMarginAsset: '0'
+                      role: TAKER
+                      baseAsset: 1000BONK
+                      quoteAsset: INR
+                      marginAsset: INR
+                      time: '2025-04-28T17:50:36.192Z'
+                      positionId: f3096950-25bb-4e59-81c5-c13f5dc9fee5
+                      lpRefId: 4436846
+                      createdAt: null
+                      updatedAt: null
+                    id: '4436846'
+                    timestamp: 1745862636192
+                    datetime: '2025-04-28T17:50:36.192Z'
+                    symbol: 1000BONKINR
+                    order: m-87cae7a1e8f713becb86-15917-zeb
+                    type: market
+                    side: buy
+                    takerOrMaker: taker
+                    price: 1.8041
+                    amount: 1000
+                    cost: 1804.1000000000001
+                    fee:
+                      cost: 1.72
+                      currency: INR
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4436843'
+                      orderId: m-49842243108828ee46fb-15917-zeb
+                      symbol: 1000PEPEUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.0087445'
+                      quantity: '1000'
+                      fee: '0.0063'
+                      feeInMarginAsset: '0.55'
+                      realizedProfit: '-0.0985'
+                      realizedProfitInMarginAsset: '-8.67'
+                      role: TAKER
+                      baseAsset: 1000PEPE
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-04-28T17:49:54.301Z'
+                      positionId: 2fcba55a-68d2-48a2-a688-d8133612c853
+                      lpRefId: 4436843
+                      createdAt: null
+                      updatedAt: null
+                    id: '4436843'
+                    timestamp: 1745862594301
+                    datetime: '2025-04-28T17:49:54.301Z'
+                    symbol: 1000PEPEUSDT
+                    order: m-49842243108828ee46fb-15917-zeb
+                    type: market
+                    side: buy
+                    takerOrMaker: taker
+                    price: 0.0087445
+                    amount: 1000
+                    cost: 8.7445
+                    fee:
+                      cost: 0.0063
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4436581'
+                      orderId: m-0ad96db14b31d6fbc4c3-15917-zeb
+                      symbol: 1000PEPEUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.008646'
+                      quantity: '1000'
+                      fee: '0.0062'
+                      feeInMarginAsset: '0.55'
+                      realizedProfit: '0'
+                      realizedProfitInMarginAsset: '0'
+                      role: TAKER
+                      baseAsset: 1000PEPE
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-04-28T17:13:21.727Z'
+                      positionId: 2fcba55a-68d2-48a2-a688-d8133612c853
+                      lpRefId: 4436581
+                      createdAt: null
+                      updatedAt: null
+                    id: '4436581'
+                    timestamp: 1745860401727
+                    datetime: '2025-04-28T17:13:21.727Z'
+                    symbol: 1000PEPEUSDT
+                    order: m-0ad96db14b31d6fbc4c3-15917-zeb
+                    type: market
+                    side: sell
+                    takerOrMaker: taker
+                    price: 0.008646
+                    amount: 1000
+                    cost: 8.645999999999999
+                    fee:
+                      cost: 0.0062
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4436580'
+                      orderId: m-c75b93823d30edb78a14-15917-zeb
+                      symbol: 1000PEPEUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.0086491'
+                      quantity: '1000'
+                      fee: '0'
+                      feeInMarginAsset: '0'
+                      realizedProfit: '-0.0021'
+                      realizedProfitInMarginAsset: '-0.18'
+                      role: TAKER
+                      baseAsset: 1000PEPE
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-04-28T17:13:07.187Z'
+                      positionId: d9053d2e-09c8-4de7-9c3e-cfd38c2739a3
+                      lpRefId: 4436580
+                      createdAt: null
+                      updatedAt: null
+                    id: '4436580'
+                    timestamp: 1745860387187
+                    datetime: '2025-04-28T17:13:07.187Z'
+                    symbol: 1000PEPEUSDT
+                    order: m-c75b93823d30edb78a14-15917-zeb
+                    type: market
+                    side: buy
+                    takerOrMaker: taker
+                    price: 0.0086491
+                    amount: 1000
+                    cost: 8.6491
+                    fee:
+                      cost: 0
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4436579'
+                      orderId: m-6fb450eddfddc2a175c5-15917-zeb
+                      symbol: 1000PEPEUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.008647'
+                      quantity: '1000'
+                      fee: '0.0062'
+                      feeInMarginAsset: '0.55'
+                      realizedProfit: '0'
+                      realizedProfitInMarginAsset: '0'
+                      role: TAKER
+                      baseAsset: 1000PEPE
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-04-28T17:13:00.235Z'
+                      positionId: d9053d2e-09c8-4de7-9c3e-cfd38c2739a3
+                      lpRefId: 4436579
+                      createdAt: null
+                      updatedAt: null
+                    id: '4436579'
+                    timestamp: 1745860380235
+                    datetime: '2025-04-28T17:13:00.235Z'
+                    symbol: 1000PEPEUSDT
+                    order: m-6fb450eddfddc2a175c5-15917-zeb
+                    type: market
+                    side: sell
+                    takerOrMaker: taker
+                    price: 0.008647
+                    amount: 1000
+                    cost: 8.647
+                    fee:
+                      cost: 0.0062
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4435489'
+                      orderId: 06853a01cf71b683ac59-15917-zeb
+                      symbol: 1000FLOKIUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.07695'
+                      quantity: '100'
+                      fee: '0.0056'
+                      feeInMarginAsset: '0.0056'
+                      realizedProfit: '-0.276'
+                      realizedProfitInMarginAsset: '-0.276'
+                      role: TAKER
+                      baseAsset: 1000FLOKI
+                      quoteAsset: USDT
+                      marginAsset: USDT
+                      time: '2025-04-28T15:08:32.372Z'
+                      positionId: c3dacc29-236a-4aaa-bc44-cc0458335e71
+                      lpRefId: 4435489
+                      createdAt: null
+                      updatedAt: null
+                    id: '4435489'
+                    timestamp: 1745852912372
+                    datetime: '2025-04-28T15:08:32.372Z'
+                    symbol: 1000FLOKIUSDT
+                    order: 06853a01cf71b683ac59-15917-zeb
+                    type: market
+                    side: sell
+                    takerOrMaker: taker
+                    price: 0.07695
+                    amount: 100
+                    cost: 7.695
+                    fee:
+                      cost: 0.0056
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4434579'
+                      orderId: m-3c011373dead903749a3-15917-zeb
+                      symbol: 1000FLOKIUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.07971'
+                      quantity: '100'
+                      fee: '0.0057'
+                      feeInMarginAsset: '0.0057'
+                      realizedProfit: '0'
+                      realizedProfitInMarginAsset: '0'
+                      role: TAKER
+                      baseAsset: 1000FLOKI
+                      quoteAsset: USDT
+                      marginAsset: USDT
+                      time: '2025-04-28T13:19:04.094Z'
+                      positionId: c3dacc29-236a-4aaa-bc44-cc0458335e71
+                      lpRefId: 4434579
+                      createdAt: null
+                      updatedAt: null
+                    id: '4434579'
+                    timestamp: 1745846344094
+                    datetime: '2025-04-28T13:19:04.094Z'
+                    symbol: 1000FLOKIUSDT
+                    order: m-3c011373dead903749a3-15917-zeb
+                    type: market
+                    side: buy
+                    takerOrMaker: taker
+                    price: 0.07971
+                    amount: 100
+                    cost: 7.971
+                    fee:
+                      cost: 0.0057
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4433419'
+                      orderId: fca88da4e94903ae6955-15917-zeb
+                      symbol: 1000WHYUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.0000482'
+                      quantity: '207468'
+                      fee: '0'
+                      feeInMarginAsset: '0'
+                      realizedProfit: '-0.0208'
+                      realizedProfitInMarginAsset: '-0.0208'
+                      role: TAKER
+                      baseAsset: 1000WHY
+                      quoteAsset: USDT
+                      marginAsset: USDT
+                      time: '2025-04-28T10:55:22.798Z'
+                      positionId: 8cb4d9c8-1203-449a-884e-b160ec3b8598
+                      lpRefId: 4433419
+                      createdAt: null
+                      updatedAt: null
+                    id: '4433419'
+                    timestamp: 1745837722798
+                    datetime: '2025-04-28T10:55:22.798Z'
+                    symbol: 1000WHYUSDT
+                    order: fca88da4e94903ae6955-15917-zeb
+                    type: market
+                    side: buy
+                    takerOrMaker: taker
+                    price: 4.82e-05
+                    amount: 207468
+                    cost: 9.9999576
+                    fee:
+                      cost: 0
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4433417'
+                      orderId: 2f07d8ed65ed6326d5f1-15917-zeb
+                      symbol: 1000WHYUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.0000481'
+                      quantity: '207468'
+                      fee: '0.0071'
+                      feeInMarginAsset: '0.0071'
+                      realizedProfit: '0'
+                      realizedProfitInMarginAsset: '0'
+                      role: TAKER
+                      baseAsset: 1000WHY
+                      quoteAsset: USDT
+                      marginAsset: USDT
+                      time: '2025-04-28T10:55:15.364Z'
+                      positionId: 8cb4d9c8-1203-449a-884e-b160ec3b8598
+                      lpRefId: 4433417
+                      createdAt: null
+                      updatedAt: null
+                    id: '4433417'
+                    timestamp: 1745837715364
+                    datetime: '2025-04-28T10:55:15.364Z'
+                    symbol: 1000WHYUSDT
+                    order: 2f07d8ed65ed6326d5f1-15917-zeb
+                    type: market
+                    side: sell
+                    takerOrMaker: taker
+                    price: 4.81e-05
+                    amount: 207468
+                    cost: 9.979210799999999
+                    fee:
+                      cost: 0.0071
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4433406'
+                      orderId: m-73a8cc881c8a6ea2c4d2-15917-zeb
+                      symbol: 1000FLOKIUSDT
+                      side: SELL
+                      orderType: MARKET
+                      price: '0.08015'
+                      quantity: '100'
+                      fee: '0'
+                      feeInMarginAsset: '0'
+                      realizedProfit: '-0.024'
+                      realizedProfitInMarginAsset: '-2.11'
+                      role: TAKER
+                      baseAsset: 1000FLOKI
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-04-28T10:52:40.259Z'
+                      positionId: 8edc3331-f522-4afa-8877-6fb1167919b9
+                      lpRefId: 4433406
+                      createdAt: null
+                      updatedAt: null
+                    id: '4433406'
+                    timestamp: 1745837560259
+                    datetime: '2025-04-28T10:52:40.259Z'
+                    symbol: 1000FLOKIUSDT
+                    order: m-73a8cc881c8a6ea2c4d2-15917-zeb
+                    type: market
+                    side: sell
+                    takerOrMaker: taker
+                    price: 0.08015
+                    amount: 100
+                    cost: 8.015
+                    fee:
+                      cost: 0
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      tradeId: '4433399'
+                      orderId: m-64c9f33a73afcd23290a-15917-zeb
+                      symbol: 1000FLOKIUSDT
+                      side: BUY
+                      orderType: MARKET
+                      price: '0.08039'
+                      quantity: '100'
+                      fee: '0.0058'
+                      feeInMarginAsset: '0.51'
+                      realizedProfit: '0'
+                      realizedProfitInMarginAsset: '0'
+                      role: TAKER
+                      baseAsset: 1000FLOKI
+                      quoteAsset: USDT
+                      marginAsset: INR
+                      time: '2025-04-28T10:51:19.829Z'
+                      positionId: 8edc3331-f522-4afa-8877-6fb1167919b9
+                      lpRefId: 4433399
+                      createdAt: null
+                      updatedAt: null
+                    id: '4433399'
+                    timestamp: 1745837479829
+                    datetime: '2025-04-28T10:51:19.829Z'
+                    symbol: 1000FLOKIUSDT
+                    order: m-64c9f33a73afcd23290a-15917-zeb
+                    type: market
+                    side: buy
+                    takerOrMaker: taker
+                    price: 0.08039
+                    amount: 100
+                    cost: 8.039
+                    fee:
+                      cost: 0.0058
+                      currency: USDT
+                  totalCount: 342
+                  nextTimestamp: 1745837479829
+                statusCode: 200
+                customMessage:
+                - OK
+      operationId: getApiV1TradeHistory
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /api/v1/trade/transaction/history:
+    get:
+      tags:
+      - Futures > Trade
+      summary: Get Transaction History
+      description: 'Retrieve Transaction History
+
+
+        Description
+
+
+        This endpoint is used to retrieve the transaction history for trades.
+
+
+        Request
+
+
+        Method: GET
+
+
+        URL: https://futuresbe.zebpay.com/api/v1/trade/transaction/history
+
+
+        Query Parameters:
+
+
+        page (integer)
+
+
+        timestamp (string)
+
+
+        pageSize (integer)
+
+
+        Response
+
+
+        The response for this request is a JSON object with the following properties:
+
+
+        statusDescription (string)
+
+
+        data (object)
+
+
+        totalCount (integer)
+
+
+        nextTimestamp (integer)
+
+
+        data (array)
+
+
+        id (integer)
+
+
+        tradeId (integer)
+
+
+        positionId (integer or null)
+
+
+        time (string)
+
+
+        type (string)
+
+
+        amount (integer)
+
+
+        asset (string)
+
+
+        symbol (string)
+
+
+        contractType (string)
+
+
+        baseAsset (string)
+
+
+        quoteAsset (string)
+
+
+        iconUrl (string)
+
+
+        statusCode (integer)
+
+
+        customMessage (array of strings)
+
+
+        Example
+
+
+        Request:
+
+
+        GET https://futuresbe.zebpay.com/api/v1/trade/transaction/history?page=1×tamp=null&pageSize=20
+
+
+        Response:
+
+
+        {
+
+        "statusDescription": "",
+
+        "data": {
+
+        "totalCount": 0,
+
+        "nextTimestamp": 0,
+
+        "data": [
+
+        {
+
+        "id": null,
+
+        "tradeId": null,
+
+        "positionId": null,
+
+        "time": "",
+
+        "type": "",
+
+        "amount": "",
+
+        "asset": "",
+
+        "symbol": "",
+
+        "contractType": "",
+
+        "baseAsset": "",
+
+        "quoteAsset": "",
+
+        "iconUrl": ""
+
+        }
+
+        ],
+
+        "statusCode": 0,
+
+        "customMessage": [""]
+
+        }
+
+        }
+
+
+        The response for this request can be documented as a JSON schema:
+
+
+        {
+
+        "type": "object",
+
+        "properties": {
+
+        "statusDescription": {
+
+        "type": "string"
+
+        },
+
+        "data": {
+
+        "type": "object",
+
+        "properties": {
+
+        "totalCount": {
+
+        "type": "integer"
+
+        },
+
+        "nextTimestamp": {
+
+        "type": "integer"
+
+        },
+
+        "data": {
+
+        "type": "array",
+
+        "items": {
+
+        "type": "object",
+
+        "properties": {
+
+        "id": {
+
+        "type": "integer"
+
+        },
+
+        "tradeId": {
+
+        "type": "integer"
+
+        },
+
+        "positionId": {
+
+        "type": ["integer", "null"]
+
+        },
+
+        "time": {
+
+        "type": "string"
+
+        },
+
+        "type": {
+
+        "type": "string"
+
+        },
+
+        "amount": {
+
+        "type": "integer"
+
+        },
+
+        "asset": {
+
+        "type": "string"
+
+        },
+
+        "symbol": {
+
+        "type": "string"
+
+        },
+
+        "contractType": {
+
+        "type": "string"
+
+        },
+
+        "baseAsset": {
+
+        "type": "string"
+
+        },
+
+        "quoteAsset": {
+
+        "type": "string"
+
+        },
+
+        "iconUrl": {
+
+        "type": "string"
+
+        }
+
+        },
+
+        "required": ["id", "tradeId", "time", "type", "amount", "asset", "symbol", "contractType", "baseAsset", "quoteAsset", "iconUrl"]
+
+        }
+
+        }
+
+        },
+
+        "required": ["totalCount", "nextTimestamp", "data"]
+
+        },
+
+        "statusCode": {
+
+        "type": "integer"
+
+        },
+
+        "customMessage": {
+
+        "type": "array",
+
+        "items": {
+
+        "type": "string"
+
+        }
+
+        }
+
+        },
+
+        "required": ["data", "statusCode"]
+
+        }'
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 14 May 2025 17:06:55 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=ohSzs2zTQc+qkxh/+0XlmYxLzgsoq0izWP3OB+XUqSgAj2Ww/V6J0gw4GX2QJtI81mmxqKEv5ECPfuhZJ1G8Z9lwrBKxEWnwz2bLE8WMJygIV8vSZc9HOE8MA/pb; Expires=Wed, 21 May 2025 17:06:55 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '180'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '179'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '60'
+            etag:
+              schema:
+                type: string
+                example: W/"2a30-pPipYjaV1Cx8BCzxvCVe6ryK4y8"
+            cf-cache-status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 93fbfd29698b002c-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: br
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                  data:
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27146468'
+                      asset: INR
+                      symbol: BTCINR
+                      type: COMMISSION
+                      amount: '-14.44'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-14T16:44:03.673Z'
+                      baseAsset: BTC
+                      quoteAsset: INR
+                      tradeId: '4569120'
+                      positionId: null
+                      lpRefId: 27146468
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27146468'
+                    timestamp: 1747241043673
+                    datetime: '2025-05-14T16:44:03.673Z'
+                    type: COMMISSION
+                    amount: -14.44
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: INR
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27146469'
+                      asset: INR
+                      symbol: BTCINR
+                      type: GST_ON_COMMISSION
+                      amount: '-2.6'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-14T16:44:03.673Z'
+                      baseAsset: BTC
+                      quoteAsset: INR
+                      tradeId: '4569120'
+                      positionId: null
+                      lpRefId: 27146469
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27146469'
+                    timestamp: 1747241043673
+                    datetime: '2025-05-14T16:44:03.673Z'
+                    type: GST_ON_COMMISSION
+                    amount: -2.6
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: INR
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27144598'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: FUNDING_FEE
+                      amount: '-0.18'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-14T16:00:20.427Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27144598
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27144598'
+                    timestamp: 1747238420427
+                    datetime: '2025-05-14T16:00:20.427Z'
+                    type: FUNDING_FEE
+                    amount: -0.18
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27144599'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: GST_ON_FUNDING_FEE
+                      amount: '-0.04'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-14T16:00:20.427Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27144599
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27144599'
+                    timestamp: 1747238420427
+                    datetime: '2025-05-14T16:00:20.427Z'
+                    type: GST_ON_FUNDING_FEE
+                    amount: -0.04
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27121309'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: FUNDING_FEE
+                      amount: '-0.18'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-14T08:00:20.202Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27121309
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27121309'
+                    timestamp: 1747209620202
+                    datetime: '2025-05-14T08:00:20.202Z'
+                    type: FUNDING_FEE
+                    amount: -0.18
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27121310'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: GST_ON_FUNDING_FEE
+                      amount: '-0.04'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-14T08:00:20.202Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27121310
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27121310'
+                    timestamp: 1747209620202
+                    datetime: '2025-05-14T08:00:20.202Z'
+                    type: GST_ON_FUNDING_FEE
+                    amount: -0.04
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27101022'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: FUNDING_FEE
+                      amount: '-0.18'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-14T00:00:18.641Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27101022
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27101022'
+                    timestamp: 1747180818641
+                    datetime: '2025-05-14T00:00:18.641Z'
+                    type: FUNDING_FEE
+                    amount: -0.18
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27101023'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: GST_ON_FUNDING_FEE
+                      amount: '-0.04'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-14T00:00:18.641Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27101023
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27101023'
+                    timestamp: 1747180818641
+                    datetime: '2025-05-14T00:00:18.641Z'
+                    type: GST_ON_FUNDING_FEE
+                    amount: -0.04
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27078745'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: FUNDING_FEE
+                      amount: '-0.18'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-13T16:00:19.941Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27078745
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27078745'
+                    timestamp: 1747152019941
+                    datetime: '2025-05-13T16:00:19.941Z'
+                    type: FUNDING_FEE
+                    amount: -0.18
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27078746'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: GST_ON_FUNDING_FEE
+                      amount: '-0.04'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-13T16:00:19.941Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27078746
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27078746'
+                    timestamp: 1747152019941
+                    datetime: '2025-05-13T16:00:19.941Z'
+                    type: GST_ON_FUNDING_FEE
+                    amount: -0.04
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27054574'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: FUNDING_FEE
+                      amount: '-0.18'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-13T08:00:21.976Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27054574
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27054574'
+                    timestamp: 1747123221976
+                    datetime: '2025-05-13T08:00:21.976Z'
+                    type: FUNDING_FEE
+                    amount: -0.18
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27054575'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: GST_ON_FUNDING_FEE
+                      amount: '-0.04'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-13T08:00:21.976Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27054575
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27054575'
+                    timestamp: 1747123221976
+                    datetime: '2025-05-13T08:00:21.976Z'
+                    type: GST_ON_FUNDING_FEE
+                    amount: -0.04
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27033468'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: FUNDING_FEE
+                      amount: '-0.18'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-13T00:00:19.759Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27033468
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27033468'
+                    timestamp: 1747094419759
+                    datetime: '2025-05-13T00:00:19.759Z'
+                    type: FUNDING_FEE
+                    amount: -0.18
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27033469'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: GST_ON_FUNDING_FEE
+                      amount: '-0.04'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-13T00:00:19.759Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27033469
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27033469'
+                    timestamp: 1747094419759
+                    datetime: '2025-05-13T00:00:19.759Z'
+                    type: GST_ON_FUNDING_FEE
+                    amount: -0.04
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27012019'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: FUNDING_FEE
+                      amount: '-0.11'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-12T16:00:20.962Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27012019
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27012019'
+                    timestamp: 1747065620962
+                    datetime: '2025-05-12T16:00:20.962Z'
+                    type: FUNDING_FEE
+                    amount: -0.11
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '27012020'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: GST_ON_FUNDING_FEE
+                      amount: '-0.03'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-12T16:00:20.962Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 27012020
+                      createdAt: null
+                      updatedAt: null
+                    txid: '27012020'
+                    timestamp: 1747065620962
+                    datetime: '2025-05-12T16:00:20.962Z'
+                    type: GST_ON_FUNDING_FEE
+                    amount: -0.03
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '26982501'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: FUNDING_FEE
+                      amount: '-0.18'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-12T08:00:20.844Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 26982501
+                      createdAt: null
+                      updatedAt: null
+                    txid: '26982501'
+                    timestamp: 1747036820844
+                    datetime: '2025-05-12T08:00:20.844Z'
+                    type: FUNDING_FEE
+                    amount: -0.18
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '26982502'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: GST_ON_FUNDING_FEE
+                      amount: '-0.04'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-12T08:00:20.844Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 26982502
+                      createdAt: null
+                      updatedAt: null
+                    txid: '26982502'
+                    timestamp: 1747036820844
+                    datetime: '2025-05-12T08:00:20.844Z'
+                    type: GST_ON_FUNDING_FEE
+                    amount: -0.04
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '26955604'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: FUNDING_FEE
+                      amount: '-0.18'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-12T00:00:19.806Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 26955604
+                      createdAt: null
+                      updatedAt: null
+                    txid: '26955604'
+                    timestamp: 1747008019806
+                    datetime: '2025-05-12T00:00:19.806Z'
+                    type: FUNDING_FEE
+                    amount: -0.18
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  - info:
+                      id: null
+                      accountId: 1441301
+                      txnId: '26955605'
+                      asset: INR
+                      symbol: AAVEUSDT
+                      type: GST_ON_FUNDING_FEE
+                      amount: '-0.04'
+                      contractType: PERPETUAL
+                      txnTime: '2025-05-12T00:00:19.806Z'
+                      baseAsset: AAVE
+                      quoteAsset: USDT
+                      tradeId: null
+                      positionId: 9c6549be-0f2a-4b2e-9fb6-1c8e5d5aefa0
+                      lpRefId: 26955605
+                      createdAt: null
+                      updatedAt: null
+                    txid: '26955605'
+                    timestamp: 1747008019806
+                    datetime: '2025-05-12T00:00:19.806Z'
+                    type: GST_ON_FUNDING_FEE
+                    amount: -0.04
+                    currency: INR
+                    status: ok
+                    fee:
+                      currency: USDT
+                  totalCount: 1780
+                  nextTimestamp: 1747008019806
+                statusCode: 200
+                customMessage:
+                - OK
+      operationId: getApiV1TradeTransactionHistory
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+x-refined-from:
+- zebpay-postman-converted.yml
+- zebpay-openapi.yml

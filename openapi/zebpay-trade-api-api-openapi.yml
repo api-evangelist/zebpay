@@ -1,0 +1,501 @@
+openapi: 3.2.0
+info:
+  title: Zebpay Trade API
+  version: 1.0.0
+  x-refined-note:
+  - x-generated differs across the merged source definitions and was not carried
+  - x-method differs across the merged source definitions and was not carried
+  - x-source differs across the merged source definitions and was not carried
+  description: 'Operations tagged Trade API across 2 of this provider''s published API definitions: zebpay-postman-converted.yml, zebpay-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: http://{{baseurl}}
+- url: https://www.zebapi.com
+- url: https://futuresbe.zebpay.com
+- url: https://www.zebapi.com/api/v1
+  description: Spot (legacy), collection baseurl variable
+tags:
+- name: Trade API
+  description: This endpoint allows users to read order data, create a new order, or cancel a previously placed order.
+paths:
+  /orders:
+    post:
+      tags:
+      - Trade API
+      summary: Place a New Market Sell Order
+      description: User can place a market order, which will be executed immediately at the current market price. The amount of quote currency for the given pair will be kept on hold for the duration of the order.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                trade_pair: BTC-INR
+                side: ask
+                size: 1.0e-05
+                tradeType: 2
+                platform: API_Trading
+                timestamp: 0
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Tue, 12 Nov 2024 13:31:28 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            access-control-expose-headers:
+              schema:
+                type: string
+                example: Order-Total-Count
+            CF-Cache-Status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 8e16e1f0d9e0401f-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                data:
+                  id: 1395508961
+                  price: 0
+                  side: ask
+                  size: 1.0e-05
+                  status: pending
+                  trade_pair: BTC-INR
+                  type: Market
+                  created_at: 1753340818725
+                statusCode: 200
+                statusDescription: Success
+      operationId: postOrders
+      x-operation-id-source: derived
+    get:
+      tags:
+      - Trade API
+      summary: List Trade Complete Orders
+      description: Users can list their current orders and can also view open as well as settled orders. User needs to pass ORDER STATUS "Pending" to get all unsettled orders, "all" to get all orders.
+      security:
+      - noauthAuth: []
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 16 Oct 2024 15:46:11 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            access-control-expose-headers:
+              schema:
+                type: string
+                example: Order-Total-Count
+            CF-Cache-Status:
+              schema:
+                type: string
+                example: DYNAMIC
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 8d392e25f983414e-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                data:
+                - id: 616239111
+                  price: 4400000
+                  size: 0.00020455
+                  type: limit
+                  trade_pair: BTC-INR
+                  side: Bid
+                  created_at: 1729093567540
+                  executed_value: 900.02
+                  open_size: 0.00020455
+                  filled_size: 0
+                  status: pending
+                  market_order_amt: 0
+                  stop_price: 0
+                statusCode: 200
+                statusDescription: Success
+      operationId: getOrders
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /orders/{orderId}/fills:
+    get:
+      tags:
+      - Trade API
+      summary: Fills
+      description: Users can get a single order's detail/fills by order id by using this API.
+      security:
+      - noauthAuth: []
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: orderId
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+      operationId: getOrdersByOrderIdFills
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /orders/{orderId}:
+    delete:
+      tags:
+      - Trade API
+      summary: Cancel Trade Order
+      description: Users can cancel previously placed order by using this API.
+      security:
+      - noauthAuth: []
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: orderId
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+      operationId: deleteOrdersByOrderId
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /orders/cancelall:
+    delete:
+      tags:
+      - Trade API
+      summary: Cancel All Trade Orders
+      description: Users can cancel all the previously placed order(s) for trade pair by using this API.
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+      operationId: deleteOrdersCancelall
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /tradefees/BTC-INR:
+    get:
+      tags:
+      - Trade API
+      summary: TDS and Fees
+      description: Provides TDS and Fees information.
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+      operationId: getTradefeesBTCINR
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /orders/balance:
+    get:
+      tags:
+      - Trade API
+      summary: Trade Balance
+      description: 'Get Balance for Trade Pair
+
+
+        This request retrieves the balance information for a specific trade pair for a user.
+
+
+        Purpose
+
+
+        The purpose of this request is to provide the user with balance information for a specific trade pair. If the trade_pair is not provided, the request will return balances for all coins.
+
+
+        Parameters
+
+
+        trade_pair (optional): The specific trade pair for which balance information is requested. If not provided, the request will return balances for all coins.'
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+      operationId: getOrdersBalance
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /wallet/balance:
+    get:
+      tags:
+      - Trade API
+      summary: Wallet Balance
+      description: 'Request Description
+
+
+        This request retrieves the balances of all coins for a user.
+
+
+        Purpose
+
+
+        The purpose of this request is to provide user balances of all coins.
+
+
+        Parameters
+
+
+        trade_pair (optional): If not provided, the request will return balances for all coins.'
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+      operationId: getWalletBalance
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /tradepairs/IN:
+    get:
+      tags:
+      - Trade API
+      summary: Trade Pairs
+      description: Trade Pairs API retrieves a list of available trading pairs.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+      operationId: getTradepairsIN
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /Instantcoins/IN:
+    get:
+      tags:
+      - Trade API
+      summary: QT Pairs
+      description: QT Pairs API provides a list of active Quick Trade pairs.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+      operationId: getInstantcoinsIN
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+x-refined-from:
+- zebpay-postman-converted.yml
+- zebpay-openapi.yml

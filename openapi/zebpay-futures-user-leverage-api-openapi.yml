@@ -1,0 +1,622 @@
+openapi: 3.2.0
+info:
+  title: Zebpay Futures > User Leverage API
+  version: 1.0.0
+  x-refined-note:
+  - x-generated differs across the merged source definitions and was not carried
+  - x-method differs across the merged source definitions and was not carried
+  - x-source differs across the merged source definitions and was not carried
+  description: 'Operations tagged Futures > User Leverage across 2 of this provider''s published API definitions: zebpay-postman-converted.yml, zebpay-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: http://{{baseurl}}
+- url: https://www.zebapi.com
+- url: https://futuresbe.zebpay.com
+- url: https://www.zebapi.com/api/v1
+  description: Spot (legacy), collection baseurl variable
+tags:
+- name: Futures > User Leverage
+  description: ''
+paths:
+  /api/v1/trade/userLeverage:
+    get:
+      tags:
+      - Futures > User Leverage
+      summary: Get Leverage
+      description: 'Retrieve User Leverage Preferences
+
+
+        This endpoint allows you to retrieve the user''s leverage preferences.
+
+
+        Request
+
+
+        Method: GET
+
+
+        URL: https://futuresbe.zebpay.com/api/v1/trade/userLeverage?symbol=BTCINR
+
+
+        Response Body
+
+
+        The response will be a JSON object with the following schema:
+
+
+        {
+
+        "statusDescription": "string",
+
+        "data": {
+
+        "info": {
+
+        "contractName": "string",
+
+        "leverage": 0,
+
+        "openPositionCount": 0
+
+        },
+
+        "symbol": "string",
+
+        "marginMode": "string",
+
+        "longLeverage": 0,
+
+        "shortLeverage": 0
+
+        },
+
+        "statusCode": 0,
+
+        "customMessage": ["string"]
+
+        }
+
+
+        The response contains:
+
+
+        statusDescription: A string describing the status.
+
+
+        data: An object containing user leverage preferences and favorite pairs.
+
+
+        info: An object with contract name, leverage, and open position count.
+
+
+        contractName: The name of the contract.
+
+
+        leverage: The leverage value.
+
+
+        openPositionCount: The count of open positions.
+
+
+        symbol: A string representing the symbol.
+
+
+        marginMode: A string representing the margin mode.
+
+
+        longLeverage: The long leverage value.
+
+
+        shortLeverage: The short leverage value.
+
+
+        statusCode: The status code of the response.
+
+
+        customMessage: An array of custom messages.
+
+
+        This endpoint allows you to retrieve the user''s leverage preferences.
+
+
+        Request Body
+
+        This is a GET request and does not require a request body.
+
+
+        Response Body
+
+        The response will be a JSON object with the following schema:
+
+
+        {
+
+        "statusDescription": "string",
+
+        "data": {
+
+        "leveragePreferences": [
+
+        {
+
+        "contractName": "string",
+
+        "leverage": 0,
+
+        "openPositionCount": 0
+
+        }
+
+        ],
+
+        "favouritePair": []
+
+        },
+
+        "statusCode": 0,
+
+        "customMessage": [ "string" ]
+
+        }
+
+
+        The response contains:
+
+
+        statusDescription: A string describing the status.
+
+
+        data: An object containing user leverage preferences and favorite pairs.
+
+
+        leveragePreferences: An array of objects with contract name, leverage, and open position count.
+
+
+        contractName: The name of the contract.
+
+
+        leverage: The leverage value.
+
+
+        openPositionCount: The count of open positions.
+
+
+        favouritePair: An array of favorite pairs.
+
+
+        statusCode: The status code of the response.
+
+
+        customMessage: An array of custom messages.'
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 14 May 2025 17:03:45 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=sq8M4GnRJDULiRuYsY070hEZ6SQhIhwVe4y8IpXq3+0JhYk6i5KF+XZNm9gJwktRjPpO9s2c50n/v0xY0a2vmznDeAsGq3iKn3WI5q7q5qfCCEo/iSqxoWEwTTFJ; Expires=Wed, 21 May 2025 17:03:44 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '180'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '179'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '60'
+            etag:
+              schema:
+                type: string
+                example: W/"df-MnBBTwxDCodAu3wBjgy36cSiGGU"
+            cf-cache-status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 93fbf8803b24002c-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: br
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                  info:
+                    contractName: BTCINR
+                    leverage: 45
+                    openPositionCount: 1
+                  symbol: BTCINR
+                  marginMode: isolated
+                  longLeverage: 45
+                  shortLeverage: 45
+                statusCode: 200
+                customMessage:
+                - OK
+      operationId: getApiV1TradeUserLeverage
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /api/v1/trade/update/userLeverage:
+    post:
+      tags:
+      - Futures > User Leverage
+      summary: Update User Leverage
+      description: 'Update User Leverage
+
+
+        This endpoint allows the user to update the leverage for a specific contract.
+
+
+        Request Body
+
+
+        symbol (string, required): The symbol of the contract for which the leverage is to be updated.
+
+
+        leverage (number, required): The leverage value to be updated.
+
+
+        Response
+
+
+        The response is in JSON format and follows the schema below:
+
+
+        {
+
+        "type": "object",
+
+        "properties": {
+
+        "statusDescription": {
+
+        "type": "string"
+
+        },
+
+        "data": {
+
+        "type": "object",
+
+        "properties": {
+
+        "info": {
+
+        "type": "object",
+
+        "properties": {
+
+        "updatedLeverage": {
+
+        "type": "number"
+
+        },
+
+        "contractName": {
+
+        "type": "string"
+
+        },
+
+        "openPositionCount": {
+
+        "type": "number"
+
+        }
+
+        }
+
+        },
+
+        "symbol": {
+
+        "type": "string"
+
+        },
+
+        "marginMode": {
+
+        "type": "string"
+
+        },
+
+        "longLeverage": {
+
+        "type": "number"
+
+        },
+
+        "shortLeverage": {
+
+        "type": "number"
+
+        }
+
+        }
+
+        },
+
+        "statusCode": {
+
+        "type": "number"
+
+        },
+
+        "customMessage": {
+
+        "type": "array",
+
+        "items": {
+
+        "type": "string"
+
+        }
+
+        }
+
+        }
+
+        }
+
+
+        This endpoint allows the user to update the leverage for a specific contract.
+
+
+        Request Body
+
+
+        leverage (number, required): The leverage value to be updated.
+
+
+        contractName (string, required): The name of the contract for which the leverage is to be updated.
+
+
+        Response
+
+
+        The response is in JSON format and follows the schema below:
+
+
+        {
+
+        "type": "object",
+
+        "properties": {
+
+        "statusDescription": {
+
+        "type": "string"
+
+        },
+
+        "data": {
+
+        "type": "object",
+
+        "properties": {
+
+        "updatedLeverage": {
+
+        "type": "number"
+
+        },
+
+        "contractName": {
+
+        "type": "string"
+
+        }
+
+        }
+
+        },
+
+        "statusCode": {
+
+        "type": "number"
+
+        },
+
+        "customMessage": {
+
+        "type": "array",
+
+        "items": {
+
+        "type": "string"
+
+        }
+
+        }
+
+        }
+
+        }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                symbol: ETHINR
+                leverage: 10
+                timestamp: 0
+      parameters:
+      - name: X-AUTH-APIKEY
+        in: header
+        schema:
+          type: string
+        example: '{{APIKEY}}'
+      - name: X-AUTH-SIGNATURE
+        in: header
+        schema:
+          type: string
+        example: '{{ApiSignature}}'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '201':
+          description: Created
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 14 May 2025 17:05:44 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '230'
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Set-Cookie:
+              schema:
+                type: string
+                example: AWSALBCORS=0UrnjBVtSTtVFQqkKvoEfSU+FEZiajU2ZinzCgDZ/zFFW8TpIyLw2fq2Q8/DtA7bs2P1rTAUGxruiEUi4dkaxjw1Jk9nvwLCk77kM+kk4jRnDnh255Q82QBF215w; Expires=Wed, 21 May 2025 17:05:43 GMT; Path=/; SameSite=None; Secure
+            x-powered-by:
+              schema:
+                type: string
+                example: Express
+            vary:
+              schema:
+                type: string
+                example: Origin
+            access-control-allow-credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            x-ratelimit-limit:
+              schema:
+                type: integer
+                example: '180'
+            x-ratelimit-remaining:
+              schema:
+                type: integer
+                example: '179'
+            x-ratelimit-reset:
+              schema:
+                type: integer
+                example: '60'
+            etag:
+              schema:
+                type: string
+                example: W/"e6-m7jAQqvYGUwpzO8Hukom5e7rPXY"
+            cf-cache-status:
+              schema:
+                type: string
+                example: DYNAMIC
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 93fbfb691857002c-BOM
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                statusDescription: OK
+                data:
+                  info:
+                    updatedLeverage: 10
+                    contractName: ETHINR
+                    openPositionCount: 0
+                  symbol: ETHINR
+                  marginMode: isolated
+                  longLeverage: 10
+                  shortLeverage: 10
+                statusCode: 201
+                customMessage:
+                - OK
+      operationId: postApiV1TradeUpdateUserLeverage
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+x-refined-from:
+- zebpay-postman-converted.yml
+- zebpay-openapi.yml

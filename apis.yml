@@ -77,26 +77,11 @@ common:
 - type: Postman
   url: https://docs.zebpay.com/
 apis:
-- aid: zebpay:zebpay-api
-  name: ZebPay API
-  description: 'REST API for ZebPay spot and futures trading: market data, orders, balances, positions, leverage and margin. The local contract is converted from ZebPay''s public Postman collection.'
-  humanURL: https://apidocs.zebpay.com/
-  baseURL: https://futuresbe.zebpay.com
-  tags:
-  - Cryptocurrency
-  - Trading
-  - Futures
-  - Market Data
-  properties:
-  - type: OpenAPI
-    url: openapi/zebpay-openapi.yml
-  - type: PostmanCollection
-    url: postman/zebpay-api-collection.json
-  - type: Documentation
-    url: https://apidocs.zebpay.com/
 - aid: zebpay:zebpay-spot-api
   name: ZebPay Spot API v2
-  description: Spot trading API on sapi.zebpay.com (market data, orders, balances), documented in markdown in the zebpay-api-references GitHub repository. No machine-readable contract is published for it.
+  description: >-
+    Spot trading API on sapi.zebpay.com (market data, orders, balances), documented in markdown in the
+    zebpay-api-references GitHub repository. No machine-readable contract is published for it.
   humanURL: https://github.com/zebpay/zebpay-api-references/tree/main/spot/api-reference
   baseURL: https://sapi.zebpay.com
   tags:
@@ -106,6 +91,259 @@ apis:
   properties:
   - type: Documentation
     url: https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/README.md
+- aid: zebpay:zebpay-futures-api
+  name: ZebPay Futures API
+  description: The Futures API from ZebPay — 1 operation(s) for futures.
+  humanURL: https://apidocs.zebpay.com/
+  baseURL: https://futuresbe.zebpay.com
+  tags:
+  - Futures
+  properties:
+  - type: OpenAPI
+    url: openapi/zebpay-futures-api-openapi.yml
+  - type: PostmanCollection
+    url: postman/zebpay-api-collection.json
+  - type: Documentation
+    url: https://apidocs.zebpay.com/
+- aid: zebpay:zebpay-futures-exchange-api
+  name: ZebPay Futures > Exchange API
+  description: The Futures > Exchange API from ZebPay — 2 operation(s) for futures > exchange.
+  humanURL: https://apidocs.zebpay.com/
+  baseURL: https://futuresbe.zebpay.com
+  tags:
+  - Futures > Exchange
+  properties:
+  - type: OpenAPI
+    url: openapi/zebpay-futures-exchange-api-openapi.yml
+  - type: PostmanCollection
+    url: postman/zebpay-api-collection.json
+  - type: Documentation
+    url: https://apidocs.zebpay.com/
+- aid: zebpay:zebpay-futures-market-api
+  name: ZebPay Futures > Market API
+  description: The Futures > Market API from ZebPay — 5 operation(s) for futures > market.
+  humanURL: https://apidocs.zebpay.com/
+  baseURL: https://futuresbe.zebpay.com
+  tags:
+  - Futures > Market
+  properties:
+  - type: OpenAPI
+    url: openapi/zebpay-futures-market-api-openapi.yml
+  - type: PostmanCollection
+    url: postman/zebpay-api-collection.json
+  - type: Documentation
+    url: https://apidocs.zebpay.com/
+- aid: zebpay:zebpay-futures-trade-api
+  name: ZebPay Futures > Trade API
+  description: The Futures > Trade API from ZebPay — 9 operation(s) for futures > trade.
+  humanURL: https://apidocs.zebpay.com/
+  baseURL: https://futuresbe.zebpay.com
+  tags:
+  - Futures > Trade
+  properties:
+  - type: OpenAPI
+    url: openapi/zebpay-futures-trade-api-openapi.yml
+  - type: PostmanCollection
+    url: postman/zebpay-api-collection.json
+  - type: Documentation
+    url: https://apidocs.zebpay.com/
+- aid: zebpay:zebpay-futures-user-leverage-api
+  name: ZebPay Futures > User Leverage API
+  description: >-
+    The Futures > User Leverage API from ZebPay — 2 operation(s) for futures > user leverage.
+  humanURL: https://apidocs.zebpay.com/
+  baseURL: https://futuresbe.zebpay.com
+  tags:
+  - Futures > User Leverage
+  properties:
+  - type: OpenAPI
+    url: openapi/zebpay-futures-user-leverage-api-openapi.yml
+  - type: PostmanCollection
+    url: postman/zebpay-api-collection.json
+  - type: Documentation
+    url: https://apidocs.zebpay.com/
+- aid: zebpay:zebpay-futures-wallet-api
+  name: ZebPay Futures > Wallet API
+  description: The Futures > Wallet API from ZebPay — 1 operation(s) for futures > wallet.
+  humanURL: https://apidocs.zebpay.com/
+  baseURL: https://futuresbe.zebpay.com
+  tags:
+  - Futures > Wallet
+  properties:
+  - type: OpenAPI
+    url: openapi/zebpay-futures-wallet-api-openapi.yml
+  - type: PostmanCollection
+    url: postman/zebpay-api-collection.json
+  - type: Documentation
+    url: https://apidocs.zebpay.com/
+- aid: zebpay:zebpay-market-api
+  name: ZebPay Market API
+  description: >-
+    <p>These APIs returns market details including ticker(s), book (pending orders), trades (executed
+    orders) etc.</p>
+  humanURL: https://apidocs.zebpay.com/
+  baseURL: https://futuresbe.zebpay.com
+  tags:
+  - Market
+  properties:
+  - type: OpenAPI
+    url: openapi/zebpay-market-api-openapi.yml
+  - type: PostmanCollection
+    url: postman/zebpay-api-collection.json
+  - type: Documentation
+    url: https://apidocs.zebpay.com/
+- aid: zebpay:zebpay-trade-api-api
+  name: ZebPay Trade API
+  description: >-
+    <p>This endpoint allows users to read order data, create a new order, or cancel a previously placed
+    order.</p>
+
+    <h3 id="signature-generation-for-post-methods"><strong>Signature Generation for POST Methods:</strong></h3>
+
+    <p>The following JavaScript code should be added to the <strong>Pre-request Script</strong> tab in
+    Postman. It automatically generates the required signature and includes the API key and signature
+    in the request headers.</p>
+
+    <pre class="click-to-expand-wrapper is-snippet-wrapper"><code class="language-javascript">// Import
+    crypto for HMAC-SHA256 signature calculation
+
+    const CryptoJS = require('crypto-js');
+
+    // API key and secret
+
+    const APIKEY = '';
+
+    const SECRET = '';
+
+    // Generate the current timestamp
+
+    const timestamp = Date.now(); // Unix time in milliseconds
+
+    //read boday data and pass update timestamp
+
+    const body = pm.request.body.raw
+
+    const payload = JSON.parse(body);
+
+    payload.timestamp = timestamp;
+
+    // Stringify the payload
+
+    const payloadString = JSON.stringify(payload);
+
+    // Function to calculate HMAC-SHA256 signature
+
+    function calculateSignature(payload, secret) {
+        const hash = CryptoJS.HmacSHA256(payload, secret);
+        return hash.toString(CryptoJS.enc.Hex);
+    }
+
+    // Calculate the signature
+
+    const signature = calculateSignature(payloadString, SECRET);
+
+    // Set headers dynamically
+
+    pm.request.headers.upsert({
+        key: "X-AUTH-APIKEY",
+        value: APIKEY,
+    });
+
+    pm.request.headers.upsert({
+        key: "X-AUTH-SIGNATURE",
+        value: signature,
+    });
+
+    // Replace request body with the dynamically generated payload
+
+    pm.request.body.update(payloadString);
+
+
+    </code></pre>
+
+    <h3 id="signature-generation-for-get-methods"><strong>Signature Generation for GET Methods:</strong></h3>
+
+    <pre class="click-to-expand-wrapper is-snippet-wrapper"><code class="language-javascript">// Import
+    crypto for HMAC-SHA256 signature calculation
+
+    const CryptoJS = require('crypto-js');
+
+    // API key and secret
+
+    const APIKEY = '';
+
+    const SECRET = '';
+
+    // Function to calculate HMAC-SHA256 signature
+
+    function calculateSignature(payload, secret) {
+        const hash = CryptoJS.HmacSHA256(payload, secret); // Use CryptoJS for HMAC
+        return hash.toString(CryptoJS.enc.Hex); // Convert to hexadecimal
+    }
+
+    // Generate a timestamp
+
+    const timestamp = Date.now(); // Current Unix timestamp in milliseconds
+
+    // Access the query parameters from the request URL
+
+    let queryParams = pm.request.url.query;
+
+    // Convert query parameters into a key-value object
+
+    let queryObject = {};
+
+    queryParams.each(param =&gt; {
+        queryObject[param.key] = param.value;
+    });
+
+    // Update or set the parameter dynamically
+
+    queryObject['timestamp'] = Date.now() // Update 'timestamp' parameter
+
+    // Convert query parameters to query string
+
+    const queryString = Object.entries(queryObject)
+        .map(([key, value]) =&gt; `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+        .join('&amp;');
+    // Generate the signature
+
+    const signature = calculateSignature(queryString, SECRET);
+
+    // Set headers dynamically
+
+    pm.request.headers.upsert({
+        key: "X-AUTH-APIKEY",
+        value: APIKEY,
+    });
+
+    pm.request.headers.upsert({
+        key: "X-AUTH-SIGNATURE",
+        value: signature,
+    });
+
+    // Update the URL with the query parameters
+
+    pm.request.url.query.clear(); // Clear existing query params
+
+    queryString.split('&amp;').forEach((param) =&gt; {
+        const [key, value] = param.split('=');
+        pm.request.url.query.add({ key, value });
+    });
+
+
+    </code></pre>
+  humanURL: https://apidocs.zebpay.com/
+  baseURL: https://futuresbe.zebpay.com
+  tags:
+  - Trade API
+  properties:
+  - type: OpenAPI
+    url: openapi/zebpay-trade-api-api-openapi.yml
+  - type: PostmanCollection
+    url: postman/zebpay-api-collection.json
+  - type: Documentation
+    url: https://apidocs.zebpay.com/
 x-enrichment:
   date: '2026-10-13'
   status: enriched

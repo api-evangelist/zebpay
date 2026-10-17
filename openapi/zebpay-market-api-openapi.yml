@@ -1,0 +1,3616 @@
+openapi: 3.2.0
+info:
+  title: Zebpay Market API
+  version: 1.0.0
+  x-refined-note:
+  - x-generated differs across the merged source definitions and was not carried
+  - x-method differs across the merged source definitions and was not carried
+  - x-source differs across the merged source definitions and was not carried
+  description: 'Operations tagged Market across 2 of this provider''s published API definitions: zebpay-postman-converted.yml, zebpay-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: http://{{baseurl}}
+- url: https://www.zebapi.com
+- url: https://futuresbe.zebpay.com
+- url: https://www.zebapi.com/api/v1
+  description: Spot (legacy), collection baseurl variable
+tags:
+- name: Market
+  description: These APIs returns market details including ticker(s), book (pending orders), trades (executed orders) etc.
+paths:
+  /market:
+    get:
+      tags:
+      - Market
+      summary: Market
+      description: 'Users can get a list of 24 hr stats for available pair by this API. Volume is in base currency units.
+
+
+        Note: Pass query string parameter ?group=singapore'
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 16 Oct 2024 13:07:36 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            CF-Cache-Status:
+              schema:
+                type: string
+                example: DYNAMIC
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 8d3845da0f113ae5-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+              - market: '561.5'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.13'
+                quickTradePrice: '561.5'
+                pair: BNB-EUR
+                virtualCurrency: BNB
+                currency: EUR
+                volume: 0
+              - market: '1329.8725'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-7.43'
+                quickTradePrice: '1329.8725'
+                pair: MKR-EUR
+                virtualCurrency: MKR
+                currency: EUR
+                volume: 0
+              - market: '29.06'
+                volumeEx: 0
+                volumeQt: 599.560425
+                pricechange: '-0.02'
+                quickTradePrice: '29.06'
+                pair: GLM-INR
+                virtualCurrency: GLM
+                currency: INR
+                volume: 599.560425
+              - market: '0.004032'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.23'
+                quickTradePrice: '0.004032'
+                pair: AMP-INR
+                virtualCurrency: AMP
+                currency: INR
+                volume: 0
+              - market: '5090.4'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.05'
+                quickTradePrice: '5090.4'
+                pair: YFI-AUD
+                virtualCurrency: YFI
+                currency: AUD
+                volume: 0
+              - market: '0.155338'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.85'
+                quickTradePrice: '0.155338'
+                pair: ENJ-INR
+                virtualCurrency: ENJ
+                currency: INR
+                volume: 0
+              - market: '0.128227'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.71'
+                quickTradePrice: '0.128227'
+                pair: LRC-INR
+                virtualCurrency: LRC
+                currency: INR
+                volume: 0
+              - market: '13.37'
+                volumeEx: 0
+                volumeQt: 80.98
+                pricechange: '-0.48'
+                quickTradePrice: '13.37'
+                pair: PIXEL-INR
+                virtualCurrency: PIXEL
+                currency: INR
+                volume: 80.98
+              - market: '108.06'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '6.6'
+                quickTradePrice: '108.06'
+                pair: LTC-AUD
+                virtualCurrency: LTC
+                currency: AUD
+                volume: 0
+              - market: '0.074888'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.47'
+                quickTradePrice: '0.074888'
+                pair: OXT-INR
+                virtualCurrency: OXT
+                currency: INR
+                volume: 0
+              - market: '0.45'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.51'
+                quickTradePrice: '0.45'
+                pair: EOS-EUR
+                virtualCurrency: EOS
+                currency: EUR
+                volume: 0
+              - market: '1326.82'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-7.64'
+                quickTradePrice: '1326.82'
+                pair: MKR-SGD
+                virtualCurrency: MKR
+                currency: SGD
+                volume: 0
+              - market: '5090.4'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.05'
+                quickTradePrice: '5090.4'
+                pair: YFI-EUR
+                virtualCurrency: YFI
+                currency: EUR
+                volume: 0
+              - market: '170.6'
+                volumeEx: 0
+                volumeQt: 187.878007
+                pricechange: '-8.55'
+                quickTradePrice: '170.6'
+                pair: IO-INR
+                virtualCurrency: IO
+                currency: INR
+                volume: 187.878007
+              - market: '6.78'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.19'
+                quickTradePrice: '6.78'
+                pair: ATOM-AUD
+                virtualCurrency: ATOM
+                currency: AUD
+                volume: 0
+              - market: '32.057013'
+                volumeEx: 0
+                volumeQt: 116.104352
+                pricechange: '2.37'
+                quickTradePrice: '32.057013'
+                pair: KAVA-INR
+                virtualCurrency: KAVA
+                currency: INR
+                volume: 116.104352
+              - market: '10.784621'
+                volumeEx: 0
+                volumeQt: 402.929899
+                pricechange: '-0.13'
+                quickTradePrice: '10.784621'
+                pair: AUDIO-INR
+                virtualCurrency: AUDIO
+                currency: INR
+                volume: 402.929899
+              - market: '0.827751'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.52'
+                quickTradePrice: '0.827751'
+                pair: XRP-AUD
+                virtualCurrency: XRP
+                currency: AUD
+                volume: 0
+              - market: '0.038374'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.9'
+                quickTradePrice: '0.038374'
+                pair: DATA-AUD
+                virtualCurrency: DATA
+                currency: AUD
+                volume: 0
+              - market: '0.2'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.95'
+                quickTradePrice: '0.2'
+                pair: GMT-AUD
+                virtualCurrency: GMT
+                currency: AUD
+                volume: 0
+              - market: '0.269586'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.15'
+                quickTradePrice: '0.269586'
+                pair: CRV-AUD
+                virtualCurrency: CRV
+                currency: AUD
+                volume: 0
+              - market: '148.42'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.93'
+                quickTradePrice: '148.42'
+                pair: JUV-INR
+                virtualCurrency: JUV
+                currency: INR
+                volume: 0
+              - market: '15783.71'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.64'
+                quickTradePrice: '15783.71'
+                pair: GNO-INR
+                virtualCurrency: GNO
+                currency: INR
+                volume: 0
+              - buy: '8.080000'
+                sell: '7.890000'
+                market: '7.985'
+                volumeEx: 1657.870314
+                volumeQt: 0
+                pricechange: '-1.18'
+                24hoursHigh: '8.09'
+                24hoursLow: '7.835'
+                quickTradePrice: '0.096044'
+                pair: XLM-INR
+                virtualCurrency: XLM
+                currency: INR
+                volume: 1657.870314
+              - market: '5.073255'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.77'
+                quickTradePrice: '5.073255'
+                pair: NEAR-EUR
+                virtualCurrency: NEAR
+                currency: EUR
+                volume: 0
+              - market: '23.514411'
+                volumeEx: 0
+                volumeQt: 150
+                pricechange: '4.26'
+                quickTradePrice: '23.514411'
+                pair: BAKE-INR
+                virtualCurrency: BAKE
+                currency: INR
+                volume: 150
+              - market: '0.000029'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '5.01'
+                quickTradePrice: '0.000029'
+                pair: SHIB-AUD
+                virtualCurrency: SHIB
+                currency: AUD
+                volume: 0
+              - market: '3988.05'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.81'
+                quickTradePrice: '3988.05'
+                pair: ETH-AUD
+                virtualCurrency: ETH
+                currency: AUD
+                volume: 0
+              - market: '0.155338'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.85'
+                quickTradePrice: '0.155338'
+                pair: ENJ-AUD
+                virtualCurrency: ENJ
+                currency: AUD
+                volume: 0
+              - buy: '667.480000'
+                sell: '657.350000'
+                market: '661.715'
+                volumeEx: 2.515716
+                volumeQt: 0
+                pricechange: '-2.06'
+                24hoursHigh: '678.665'
+                24hoursLow: '589.02'
+                quickTradePrice: '7.929022'
+                pair: UNI-INR
+                virtualCurrency: UNI
+                currency: INR
+                volume: 2.515716
+              - market: '981.57'
+                volumeEx: 0
+                volumeQt: 11.213383
+                pricechange: '-0.79'
+                quickTradePrice: '981.57'
+                pair: RPL-INR
+                virtualCurrency: RPL
+                currency: INR
+                volume: 11.213383
+              - market: '194.75'
+                volumeEx: 0
+                volumeQt: 145.17088235
+                pricechange: '-0.44'
+                quickTradePrice: '194.75'
+                pair: JTO-INR
+                virtualCurrency: JTO
+                currency: INR
+                volume: 145.17088235
+              - market: '0.074888'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.47'
+                quickTradePrice: '0.074888'
+                pair: OXT-AUD
+                virtualCurrency: OXT
+                currency: AUD
+                volume: 0
+              - market: '0.128227'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.71'
+                quickTradePrice: '0.128227'
+                pair: LRC-EUR
+                virtualCurrency: LRC
+                currency: EUR
+                volume: 0
+              - market: '2709.1675'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.09'
+                quickTradePrice: '2709.1675'
+                pair: PAXG-INR
+                virtualCurrency: PAXG
+                currency: INR
+                volume: 0
+              - buy: '3827.900000'
+                sell: '3771.630000'
+                market: '3803.175'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.18'
+                24hoursHigh: '3802.325'
+                24hoursLow: '3799.765'
+                quickTradePrice: '45.279'
+                pair: COMP-INR
+                virtualCurrency: COMP
+                currency: INR
+                volume: 0
+              - market: '63186.07'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '3.39'
+                quickTradePrice: '63186.07'
+                pair: BTC-EUR
+                virtualCurrency: BTC
+                currency: EUR
+                volume: 0
+              - market: '0.27511'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.48'
+                quickTradePrice: '0.27511'
+                pair: SAND-INR
+                virtualCurrency: SAND
+                currency: INR
+                volume: 0
+              - buy: '1525.510000'
+                sell: '1503.080000'
+                market: '1515.14'
+                volumeEx: 0.392515
+                volumeQt: 0
+                pricechange: '-0.41'
+                24hoursHigh: '1537.38'
+                24hoursLow: '1400.01'
+                quickTradePrice: '18.27575'
+                pair: ENS-INR
+                virtualCurrency: ENS
+                currency: INR
+                volume: 0.392515
+              - market: '2.389195'
+                volumeEx: 0
+                volumeQt: 532.392828
+                pricechange: '0.91'
+                quickTradePrice: '2.389195'
+                pair: ANKR-INR
+                virtualCurrency: ANKR
+                currency: INR
+                volume: 532.392828
+              - market: '0.178555'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.11'
+                quickTradePrice: '0.178555'
+                pair: GRT-AUD
+                virtualCurrency: GRT
+                currency: AUD
+                volume: 0
+              - market: '20.84'
+                volumeEx: 0
+                volumeQt: 1018.22
+                pricechange: '-3.4'
+                quickTradePrice: '20.84'
+                pair: BLUR-INR
+                virtualCurrency: BLUR
+                currency: INR
+                volume: 1018.22
+              - market: '3980.2'
+                volumeEx: 0
+                volumeQt: 5.435549
+                pricechange: '17.58'
+                quickTradePrice: '3980.2'
+                pair: METIS-INR
+                virtualCurrency: METIS
+                currency: INR
+                volume: 5.435549
+              - market: '20.53'
+                volumeEx: 0
+                volumeQt: 811.798663
+                pricechange: '-2.72'
+                quickTradePrice: '20.53'
+                pair: SUNDOG-INR
+                virtualCurrency: SUNDOG
+                currency: INR
+                volume: 811.798663
+              - market: '0.127187'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.95'
+                quickTradePrice: '0.127187'
+                pair: ALGO-AUD
+                virtualCurrency: ALGO
+                currency: AUD
+                volume: 0
+              - market: '165.93'
+                volumeEx: 0
+                volumeQt: 129.550955
+                pricechange: '3.68'
+                quickTradePrice: '165.93'
+                pair: ARKM-INR
+                virtualCurrency: ARKM
+                currency: INR
+                volume: 129.550955
+              - market: '161.37114'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.38'
+                quickTradePrice: '161.37114'
+                pair: AAVE-AUD
+                virtualCurrency: AAVE
+                currency: AUD
+                volume: 0
+              - market: '457.54'
+                volumeEx: 0
+                volumeQt: 1.729486
+                pricechange: '0.55'
+                quickTradePrice: '457.54'
+                pair: TON-INR
+                virtualCurrency: TON
+                currency: INR
+                volume: 1.729486
+              - market: '0.365282'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.47'
+                quickTradePrice: '0.365282'
+                pair: ADA-SGD
+                virtualCurrency: ADA
+                currency: SGD
+                volume: 0
+              - market: '0.119257'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '10.46'
+                quickTradePrice: '0.119257'
+                pair: DOGE-EUR
+                virtualCurrency: DOGE
+                currency: EUR
+                volume: 0
+              - market: '108.24'
+                volumeEx: 0
+                volumeQt: 1180.937835
+                pricechange: '-7.47'
+                quickTradePrice: '108.24'
+                pair: POPCAT-INR
+                virtualCurrency: POPCAT
+                currency: INR
+                volume: 1180.937835
+              - market: '133.39'
+                volumeEx: 0
+                volumeQt: 1.294742
+                pricechange: '-3.08'
+                quickTradePrice: '133.39'
+                pair: OM-INR
+                virtualCurrency: OM
+                currency: INR
+                volume: 1.294742
+              - market: '2.036017'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '5.7'
+                quickTradePrice: '2.036017'
+                pair: BAR-EUR
+                virtualCurrency: BAR
+                currency: EUR
+                volume: 0
+              - market: '33.71'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.23'
+                quickTradePrice: '33.71'
+                pair: ID-INR
+                virtualCurrency: ID
+                currency: INR
+                volume: 0
+              - market: '0.013717'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.67'
+                quickTradePrice: '0.013717'
+                pair: CELR-INR
+                virtualCurrency: CELR
+                currency: INR
+                volume: 0
+              - market: '18.27575'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.16'
+                quickTradePrice: '18.27575'
+                pair: ENS-EUR
+                virtualCurrency: ENS
+                currency: EUR
+                volume: 0
+              - market: '31.443148'
+                volumeEx: 0
+                volumeQt: 1558.65648309
+                pricechange: '4.6'
+                quickTradePrice: '31.443148'
+                pair: PYTH-INR
+                virtualCurrency: PYTH
+                currency: INR
+                volume: 1558.65648309
+              - buy: '97.150000'
+                sell: '95.730000'
+                market: '96.42'
+                volumeEx: 0
+                volumeQt: 173.418728
+                pricechange: '0.07'
+                24hoursHigh: '96.41'
+                24hoursLow: '96.27'
+                quickTradePrice: '98.08'
+                pair: LDO-INR
+                virtualCurrency: LDO
+                currency: INR
+                volume: 173.418728
+              - market: '0.269382'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.16'
+                quickTradePrice: '0.269382'
+                pair: CRV-SGD
+                virtualCurrency: CRV
+                currency: SGD
+                volume: 0
+              - market: '2450.41'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.39'
+                quickTradePrice: '2450.41'
+                pair: ETH-EUR
+                virtualCurrency: ETH
+                currency: EUR
+                volume: 0
+              - market: '1.55904'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.66'
+                quickTradePrice: '1.55904'
+                pair: ALPINE-SGD
+                virtualCurrency: ALPINE
+                currency: SGD
+                volume: 0
+              - market: '71.6688'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '6.05'
+                quickTradePrice: '71.6688'
+                pair: LTC-SGD
+                virtualCurrency: LTC
+                currency: SGD
+                volume: 0
+              - market: '0.1498'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.04'
+                quickTradePrice: '0.1498'
+                pair: TRX-EUR
+                virtualCurrency: TRX
+                currency: EUR
+                volume: 0
+              - market: '0.263772'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.04'
+                quickTradePrice: '0.263772'
+                pair: SXP-SGD
+                virtualCurrency: SXP
+                currency: SGD
+                volume: 0
+              - market: '1582.982134'
+                volumeEx: 0
+                volumeQt: 1.008301
+                pricechange: '-2.8'
+                quickTradePrice: '1582.982134'
+                pair: KSM-INR
+                virtualCurrency: KSM
+                currency: INR
+                volume: 1.008301
+              - buy: '29.000000'
+                sell: '28.100000'
+                market: '28.55'
+                volumeEx: 367.696817
+                volumeQt: 260.865174
+                pricechange: '0.6'
+                24hoursHigh: '29'
+                24hoursLow: '27.3'
+                quickTradePrice: '28.848215'
+                pair: ZRX-INR
+                virtualCurrency: ZRX
+                currency: INR
+                volume: 628.561991
+              - market: '31.65'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.13'
+                quickTradePrice: '31.65'
+                pair: SLF-INR
+                virtualCurrency: SLF
+                currency: INR
+                volume: 0
+              - market: '0.583434'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.97'
+                quickTradePrice: '0.583434'
+                pair: ARB-AUD
+                virtualCurrency: ARB
+                currency: AUD
+                volume: 0
+              - market: '1.11315'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.89'
+                quickTradePrice: '1.11315'
+                pair: ALICE-INR
+                virtualCurrency: ALICE
+                currency: INR
+                volume: 0
+              - market: '51.289553'
+                volumeEx: 0
+                volumeQt: 246.165161
+                pricechange: '-1.11'
+                quickTradePrice: '51.289553'
+                pair: KDA-INR
+                virtualCurrency: KDA
+                currency: INR
+                volume: 246.165161
+              - market: '235.39'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '2.09'
+                quickTradePrice: '235.39'
+                pair: SOL-AUD
+                virtualCurrency: SOL
+                currency: AUD
+                volume: 0
+              - market: '0.365486'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.47'
+                quickTradePrice: '0.365486'
+                pair: ADA-EUR
+                virtualCurrency: ADA
+                currency: EUR
+                volume: 0
+              - market: '21.5303'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.11'
+                quickTradePrice: '21.5303'
+                pair: INJ-SGD
+                virtualCurrency: INJ
+                currency: SGD
+                volume: 0
+              - market: '18.25525'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.38'
+                quickTradePrice: '18.25525'
+                pair: ENS-SGD
+                virtualCurrency: ENS
+                currency: SGD
+                volume: 0
+              - market: '0.020276'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.4'
+                quickTradePrice: '0.020276'
+                pair: ACH-AUD
+                virtualCurrency: ACH
+                currency: AUD
+                volume: 0
+              - buy: '41.999999'
+                sell: '40.010000'
+                market: '41.004999'
+                volumeEx: 0.996977
+                volumeQt: 857.650807
+                pricechange: '0'
+                24hoursHigh: '41.0049995'
+                24hoursLow: '39.07'
+                quickTradePrice: '40.299721'
+                pair: KNC-INR
+                virtualCurrency: KNC
+                currency: INR
+                volume: 858.647784
+              - market: '0.27676'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1'
+                quickTradePrice: '0.27676'
+                pair: 1INCH-INR
+                virtualCurrency: 1INCH
+                currency: INR
+                volume: 0
+              - market: '0.093534'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.07'
+                quickTradePrice: '0.093534'
+                pair: ASTR-AUD
+                virtualCurrency: ASTR
+                currency: AUD
+                volume: 0
+              - market: '2.838625'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '5.32'
+                quickTradePrice: '2.838625'
+                pair: STX-AUD
+                virtualCurrency: STX
+                currency: AUD
+                volume: 0
+              - market: '0.079105'
+                volumeEx: 0
+                volumeQt: 35578.257028
+                pricechange: '-2.34'
+                quickTradePrice: '0.079105'
+                pair: DENT-INR
+                virtualCurrency: DENT
+                currency: INR
+                volume: 35578.257028
+              - market: '162.361411'
+                volumeEx: 0
+                volumeQt: 120.62368425
+                pricechange: '4.07'
+                quickTradePrice: '162.361411'
+                pair: STX-INR
+                virtualCurrency: STX
+                currency: INR
+                volume: 120.62368425
+              - market: '39.25'
+                volumeEx: 0
+                volumeQt: 1938.244479
+                pricechange: '-1.89'
+                quickTradePrice: '39.25'
+                pair: AI-INR
+                virtualCurrency: AI
+                currency: INR
+                volume: 1938.244479
+              - market: '0.89'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.06'
+                quickTradePrice: '0.89'
+                pair: KDA-AUD
+                virtualCurrency: KDA
+                currency: AUD
+                volume: 0
+              - market: '3.429544'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.13'
+                quickTradePrice: '3.429544'
+                pair: PSG-EUR
+                virtualCurrency: PSG
+                currency: EUR
+                volume: 0
+              - buy: '508.150000'
+                sell: '500.690000'
+                market: '504.505'
+                volumeEx: 3.798165
+                volumeQt: 17.414739
+                pricechange: '-3.39'
+                24hoursHigh: '530.51'
+                24hoursLow: '496.71'
+                quickTradePrice: '514.46'
+                pair: TIA-INR
+                virtualCurrency: TIA
+                currency: INR
+                volume: 21.212904
+              - market: '1.55904'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.66'
+                quickTradePrice: '1.55904'
+                pair: ALPINE-AUD
+                virtualCurrency: ALPINE
+                currency: AUD
+                volume: 0
+              - market: '0.000001'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0'
+                quickTradePrice: '0.000001'
+                pair: BTTC-EUR
+                virtualCurrency: BTTC
+                currency: EUR
+                volume: 0
+              - market: '114.126721'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.95'
+                quickTradePrice: '114.126721'
+                pair: THETA-INR
+                virtualCurrency: THETA
+                currency: INR
+                volume: 0
+              - market: '151.623663'
+                volumeEx: 0
+                volumeQt: 35.297599
+                pricechange: '-0.95'
+                quickTradePrice: '151.623663'
+                pair: OP-INR
+                virtualCurrency: OP
+                currency: INR
+                volume: 35.297599
+              - market: '342.19'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.28'
+                quickTradePrice: '342.19'
+                pair: BCH-EUR
+                virtualCurrency: BCH
+                currency: EUR
+                volume: 0
+              - market: '66.1'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '6.16'
+                quickTradePrice: '66.1'
+                pair: LTC-EUR
+                virtualCurrency: LTC
+                currency: EUR
+                volume: 0
+              - market: '1.55904'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.66'
+                quickTradePrice: '1.55904'
+                pair: ALPINE-INR
+                virtualCurrency: ALPINE
+                currency: INR
+                volume: 0
+              - market: '1329.8725'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-7.43'
+                quickTradePrice: '1329.8725'
+                pair: MKR-AUD
+                virtualCurrency: MKR
+                currency: AUD
+                volume: 0
+              - market: '0.020276'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.4'
+                quickTradePrice: '0.020276'
+                pair: ACH-INR
+                virtualCurrency: ACH
+                currency: INR
+                volume: 0
+              - buy: '5899000.000000'
+                sell: '5820000.000000'
+                market: '5859500'
+                volumeEx: 2.24679534
+                volumeQt: 0.00010419
+                pricechange: '4.24'
+                24hoursHigh: '5899000'
+                24hoursLow: '5361000'
+                quickTradePrice: '68187.86514'
+                pair: BTC-INR
+                virtualCurrency: BTC
+                currency: INR
+                volume: 2.24689953
+              - market: '688.808599'
+                volumeEx: 0
+                volumeQt: 14.33532
+                pricechange: '-1.81'
+                quickTradePrice: '688.808599'
+                pair: ICP-INR
+                virtualCurrency: ICP
+                currency: INR
+                volume: 14.33532
+              - market: '0.178555'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.11'
+                quickTradePrice: '0.178555'
+                pair: GRT-INR
+                virtualCurrency: GRT
+                currency: INR
+                volume: 0
+              - market: '5.567964'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.72'
+                quickTradePrice: '5.567964'
+                pair: PSG-AUD
+                virtualCurrency: PSG
+                currency: AUD
+                volume: 0
+              - market: '18.27575'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.16'
+                quickTradePrice: '18.27575'
+                pair: ENS-AUD
+                virtualCurrency: ENS
+                currency: AUD
+                volume: 0
+              - market: '14.868343'
+                volumeEx: 0
+                volumeQt: 996.720602
+                pricechange: '-3.29'
+                quickTradePrice: '14.868343'
+                pair: GLMR-INR
+                virtualCurrency: GLMR
+                currency: INR
+                volume: 996.720602
+              - market: '177.52'
+                volumeEx: 0
+                volumeQt: 1357.75756364
+                pricechange: '-4.34'
+                quickTradePrice: '177.52'
+                pair: SUI-INR
+                virtualCurrency: SUI
+                currency: INR
+                volume: 1357.75756364
+              - market: '1.163375'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.47'
+                quickTradePrice: '1.163375'
+                pair: AGLD-INR
+                virtualCurrency: AGLD
+                currency: INR
+                volume: 0
+              - market: '0.258756'
+                volumeEx: 0
+                volumeQt: 266573.56069
+                pricechange: '-6.38'
+                quickTradePrice: '0.258756'
+                pair: 1MBABYDOGE-INR
+                virtualCurrency: 1MBABYDOGE
+                currency: INR
+                volume: 266573.56069
+              - buy: '31.950700'
+                sell: '31.481000'
+                market: '31.7259'
+                volumeEx: 4939.649205
+                volumeQt: 0
+                pricechange: '-0.2'
+                24hoursHigh: '32.5147'
+                24hoursLow: '31.21'
+                quickTradePrice: '0.379425'
+                pair: POL-INR
+                virtualCurrency: POL
+                currency: INR
+                volume: 4939.649205
+              - market: '0.155338'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.85'
+                quickTradePrice: '0.155338'
+                pair: ENJ-EUR
+                virtualCurrency: ENJ
+                currency: EUR
+                volume: 0
+              - market: '161.218365'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.55'
+                quickTradePrice: '161.218365'
+                pair: AAVE-SGD
+                virtualCurrency: AAVE
+                currency: SGD
+                volume: 0
+              - market: '0.00009'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.11'
+                quickTradePrice: '0.00009'
+                pair: WIN-INR
+                virtualCurrency: WIN
+                currency: INR
+                volume: 0
+              - market: '0.004029'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.05'
+                quickTradePrice: '0.004029'
+                pair: AMP-SGD
+                virtualCurrency: AMP
+                currency: SGD
+                volume: 0
+              - market: '0.191869'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.29'
+                quickTradePrice: '0.191869'
+                pair: CHR-AUD
+                virtualCurrency: CHR
+                currency: AUD
+                volume: 0
+              - buy: '6250.700000'
+                sell: '6055.000000'
+                market: '6152.85'
+                volumeEx: 43.8822415
+                volumeQt: 0
+                pricechange: '6.16'
+                24hoursHigh: '6281.545'
+                24hoursLow: '5401.02'
+                quickTradePrice: '71.65872'
+                pair: LTC-INR
+                virtualCurrency: LTC
+                currency: INR
+                volume: 43.8822415
+              - market: '0.081385'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.75'
+                quickTradePrice: '0.081385'
+                pair: CHZ-EUR
+                virtualCurrency: CHZ
+                currency: EUR
+                volume: 0
+              - market: '9.117292'
+                volumeEx: 0
+                volumeQt: 13360.959793
+                pricechange: '-3.53'
+                quickTradePrice: '9.117292'
+                pair: BRETT-INR
+                virtualCurrency: BRETT
+                currency: INR
+                volume: 13360.959793
+              - market: '3267.26'
+                volumeEx: 0
+                volumeQt: 1.00781665
+                pricechange: '-1.51'
+                quickTradePrice: '3267.26'
+                pair: ORDI-INR
+                virtualCurrency: ORDI
+                currency: INR
+                volume: 1.00781665
+              - market: '4.933325'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.55'
+                quickTradePrice: '4.933325'
+                pair: AXS-EUR
+                virtualCurrency: AXS
+                currency: EUR
+                volume: 0
+              - market: '0.081385'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.75'
+                quickTradePrice: '0.081385'
+                pair: CHZ-INR
+                virtualCurrency: CHZ
+                currency: INR
+                volume: 0
+              - market: '0.1652'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.88'
+                quickTradePrice: '0.1652'
+                pair: TRX-SGD
+                virtualCurrency: TRX
+                currency: SGD
+                volume: 0
+              - market: '2031.31'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.06'
+                quickTradePrice: '2031.31'
+                pair: GMX-INR
+                virtualCurrency: GMX
+                currency: INR
+                volume: 0
+              - buy: '0.000912'
+                sell: '0.000891'
+                market: '0.0009'
+                volumeEx: 229143725.150383
+                volumeQt: 502885748.338128
+                pricechange: '1.35'
+                24hoursHigh: '0.00095'
+                24hoursLow: '0.00085'
+                quickTradePrice: '0.000936'
+                pair: PEPE-INR
+                virtualCurrency: PEPE
+                currency: INR
+                volume: 732029473.488511
+              - market: '0.128227'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.71'
+                quickTradePrice: '0.128227'
+                pair: LRC-AUD
+                virtualCurrency: LRC
+                currency: AUD
+                volume: 0
+              - market: '0.182527'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.82'
+                quickTradePrice: '0.182527'
+                pair: BAT-SGD
+                virtualCurrency: BAT
+                currency: SGD
+                volume: 0
+              - market: '7.29'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.56'
+                quickTradePrice: '7.29'
+                pair: UNI-EUR
+                virtualCurrency: UNI
+                currency: EUR
+                volume: 0
+              - market: '0.242'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.46'
+                quickTradePrice: '0.242'
+                pair: TRX-AUD
+                virtualCurrency: TRX
+                currency: AUD
+                volume: 0
+              - market: '0.003289'
+                volumeEx: 0
+                volumeQt: 11948792.165828
+                pricechange: '0.57'
+                quickTradePrice: '0.003289'
+                pair: XEC-INR
+                virtualCurrency: XEC
+                currency: INR
+                volume: 11948792.165828
+              - buy: '46.540000'
+                sell: '46.070000'
+                market: '46.24'
+                volumeEx: 55209.364383
+                volumeQt: 0
+                pricechange: '-0.48'
+                24hoursHigh: '46.999999'
+                24hoursLow: '45.01'
+                quickTradePrice: '0.555693'
+                pair: XRP-INR
+                virtualCurrency: XRP
+                currency: INR
+                volume: 55209.364383
+              - buy: '86.350000'
+                sell: '85.850000'
+                market: '86.1'
+                volumeEx: 231.615518
+                volumeQt: 267.809999
+                pricechange: '0'
+                24hoursHigh: '86.35'
+                24hoursLow: '85.85'
+                quickTradePrice: '85.4018'
+                pair: USDC-INR
+                virtualCurrency: USDC
+                currency: INR
+                volume: 499.425517
+              - market: '0.191869'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.29'
+                quickTradePrice: '0.191869'
+                pair: CHR-EUR
+                virtualCurrency: CHR
+                currency: EUR
+                volume: 0
+              - buy: '0.012831'
+                sell: '0.012471'
+                market: '0.012654'
+                volumeEx: 922047.28882
+                volumeQt: 2069778.093272
+                pricechange: '-1.24'
+                24hoursHigh: '0.013891'
+                24hoursLow: '0.012322'
+                quickTradePrice: '0.013156'
+                pair: FLOKI-INR
+                virtualCurrency: FLOKI
+                currency: INR
+                volume: 2991825.382092
+              - market: '2.036017'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '5.7'
+                quickTradePrice: '2.036017'
+                pair: BAR-AUD
+                virtualCurrency: BAR
+                currency: AUD
+                volume: 0
+              - buy: '427.040000'
+                sell: '420.760000'
+                market: '424.15'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.06'
+                24hoursHigh: '423.985'
+                24hoursLow: '423.7000005'
+                quickTradePrice: '5.073255'
+                pair: NEAR-INR
+                virtualCurrency: NEAR
+                currency: INR
+                volume: 0
+              - market: '1.20713'
+                volumeEx: 0
+                volumeQt: 1126.30538
+                pricechange: '-2.32'
+                quickTradePrice: '1.20713'
+                pair: ONE-INR
+                virtualCurrency: ONE
+                currency: INR
+                volume: 1126.30538
+              - market: '11.036097'
+                volumeEx: 0
+                volumeQt: 534.695246
+                pricechange: '-1.61'
+                quickTradePrice: '11.036097'
+                pair: C98-INR
+                virtualCurrency: C98
+                currency: INR
+                volume: 534.695246
+              - market: '0.020276'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.4'
+                quickTradePrice: '0.020276'
+                pair: ACH-EUR
+                virtualCurrency: ACH
+                currency: EUR
+                volume: 0
+              - market: '2.029912'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '5.38'
+                quickTradePrice: '2.029912'
+                pair: BAR-SGD
+                virtualCurrency: BAR
+                currency: SGD
+                volume: 0
+              - market: '2646.0042'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.19'
+                quickTradePrice: '2646.0042'
+                pair: ETH-SGD
+                virtualCurrency: ETH
+                currency: SGD
+                volume: 0
+              - market: '9.757316'
+                volumeEx: 0
+                volumeQt: 1519.068327
+                pricechange: '-8.39'
+                quickTradePrice: '9.757316'
+                pair: MYRO-INR
+                virtualCurrency: MYRO
+                currency: INR
+                volume: 1519.068327
+              - market: '5.06715'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.1'
+                quickTradePrice: '5.06715'
+                pair: NEAR-SGD
+                virtualCurrency: NEAR
+                currency: SGD
+                volume: 0
+              - market: '0.27511'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.48'
+                quickTradePrice: '0.27511'
+                pair: SAND-AUD
+                virtualCurrency: SAND
+                currency: AUD
+                volume: 0
+              - market: '0.074786'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.6'
+                quickTradePrice: '0.074786'
+                pair: OXT-SGD
+                virtualCurrency: OXT
+                currency: SGD
+                volume: 0
+              - buy: '228200.000000'
+                sell: '215500.000000'
+                market: '222445.98'
+                volumeEx: 12.93489
+                volumeQt: 0
+                pricechange: '-2.18'
+                24hoursHigh: '228751.635'
+                24hoursLow: '215500.01'
+                quickTradePrice: '2648.34585'
+                pair: ETH-INR
+                virtualCurrency: ETH
+                currency: INR
+                volume: 12.93489
+              - market: '0.128125'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.71'
+                quickTradePrice: '0.128125'
+                pair: LRC-SGD
+                virtualCurrency: LRC
+                currency: SGD
+                volume: 0
+              - market: '60.23041'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.61'
+                quickTradePrice: '60.23041'
+                pair: XTZ-INR
+                virtualCurrency: XTZ
+                currency: INR
+                volume: 0
+              - market: '3.307725'
+                volumeEx: 0
+                volumeQt: 2686.449515
+                pricechange: '-3.4'
+                quickTradePrice: '3.307725'
+                pair: SKL-INR
+                virtualCurrency: SKL
+                currency: INR
+                volume: 2686.449515
+              - market: '287.87'
+                volumeEx: 0
+                volumeQt: 17.558842
+                pricechange: '-5.06'
+                quickTradePrice: '287.87'
+                pair: EIGEN-INR
+                virtualCurrency: EIGEN
+                currency: INR
+                volume: 17.558842
+              - market: '0.269586'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.15'
+                quickTradePrice: '0.269586'
+                pair: CRV-INR
+                virtualCurrency: CRV
+                currency: INR
+                volume: 0
+              - market: '4.423072'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.53'
+                quickTradePrice: '4.423072'
+                pair: DOT-SGD
+                virtualCurrency: DOT
+                currency: SGD
+                volume: 0
+              - market: '0.348998'
+                volumeEx: 0
+                volumeQt: 236821.764731
+                pricechange: '-6.15'
+                quickTradePrice: '0.348998'
+                pair: HMSTR-INR
+                virtualCurrency: HMSTR
+                currency: INR
+                volume: 236821.764731
+              - market: '0.755116'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.49'
+                quickTradePrice: '0.755116'
+                pair: FTM-SGD
+                virtualCurrency: FTM
+                currency: SGD
+                volume: 0
+              - market: '2.24112'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.82'
+                quickTradePrice: '2.24112'
+                pair: CITY-EUR
+                virtualCurrency: CITY
+                currency: EUR
+                volume: 0
+              - market: '3.561965'
+                volumeEx: 0
+                volumeQt: 4772.376908
+                pricechange: '-0.98'
+                quickTradePrice: '3.561965'
+                pair: IOTX-INR
+                virtualCurrency: IOTX
+                currency: INR
+                volume: 4772.376908
+              - market: '4.933325'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.55'
+                quickTradePrice: '4.933325'
+                pair: AXS-AUD
+                virtualCurrency: AXS
+                currency: AUD
+                volume: 0
+              - market: '10.14'
+                volumeEx: 0
+                volumeQt: 144.78847
+                pricechange: '-1.22'
+                quickTradePrice: '10.14'
+                pair: PHA-INR
+                virtualCurrency: PHA
+                currency: INR
+                volume: 144.78847
+              - market: '160.96'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.04'
+                quickTradePrice: '160.96'
+                pair: CVX-INR
+                virtualCurrency: CVX
+                currency: INR
+                volume: 0
+              - buy: '0.001618'
+                sell: '0.001591'
+                market: '0.001603'
+                volumeEx: 720613177.645778
+                volumeQt: 0
+                pricechange: '3.15'
+                24hoursHigh: '0.001638'
+                24hoursLow: '0.00149'
+                quickTradePrice: '0.000019'
+                pair: SHIB-INR
+                virtualCurrency: SHIB
+                currency: INR
+                volume: 720613177.645778
+              - market: '0.178247'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.05'
+                quickTradePrice: '0.178247'
+                pair: GRT-SGD
+                virtualCurrency: GRT
+                currency: SGD
+                volume: 0
+              - market: '0.1679'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.72'
+                quickTradePrice: '0.1679'
+                pair: BAT-EUR
+                virtualCurrency: BAT
+                currency: EUR
+                volume: 0
+              - market: '1.610321'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.16'
+                quickTradePrice: '1.610321'
+                pair: JUV-EUR
+                virtualCurrency: JUV
+                currency: EUR
+                volume: 0
+              - market: '0.128713'
+                volumeEx: 0
+                volumeQt: 1893.267523
+                pricechange: '-0.7'
+                quickTradePrice: '0.128713'
+                pair: WRX-INR
+                virtualCurrency: WRX
+                currency: INR
+                volume: 1893.267523
+              - market: '0.004032'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.23'
+                quickTradePrice: '0.004032'
+                pair: AMP-EUR
+                virtualCurrency: AMP
+                currency: EUR
+                volume: 0
+              - market: '102835.18'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '3.82'
+                quickTradePrice: '102835.18'
+                pair: BTC-AUD
+                virtualCurrency: BTC
+                currency: AUD
+                volume: 0
+              - market: '5822.463024'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.76'
+                quickTradePrice: '5822.463024'
+                pair: QNT-INR
+                virtualCurrency: QNT
+                currency: INR
+                volume: 0
+              - market: '0.54'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.34'
+                quickTradePrice: '0.54'
+                pair: KDA-EUR
+                virtualCurrency: KDA
+                currency: EUR
+                volume: 0
+              - market: '0.020265'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.55'
+                quickTradePrice: '0.020265'
+                pair: ACH-SGD
+                virtualCurrency: ACH
+                currency: SGD
+                volume: 0
+              - market: '8.62597'
+                volumeEx: 0
+                volumeQt: 103.121719
+                pricechange: '-1.11'
+                quickTradePrice: '8.62597'
+                pair: REQ-INR
+                virtualCurrency: REQ
+                currency: INR
+                volume: 103.121719
+              - market: '5.073255'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.77'
+                quickTradePrice: '5.073255'
+                pair: NEAR-AUD
+                virtualCurrency: NEAR
+                currency: AUD
+                volume: 0
+              - market: '0.12851'
+                volumeEx: 0
+                volumeQt: 1893.267523
+                pricechange: '-0.94'
+                quickTradePrice: '0.12851'
+                pair: WRX-SGD
+                virtualCurrency: WRX
+                currency: SGD
+                volume: 1893.267523
+              - market: '0.583434'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.97'
+                quickTradePrice: '0.583434'
+                pair: ARB-EUR
+                virtualCurrency: ARB
+                currency: EUR
+                volume: 0
+              - buy: '132.570000'
+                sell: '130.620000'
+                market: '131.765'
+                volumeEx: 31.914894
+                volumeQt: 16.261262
+                pricechange: '-5.68'
+                24hoursHigh: '141'
+                24hoursLow: '131.085'
+                quickTradePrice: '135.57'
+                pair: IMX-INR
+                virtualCurrency: IMX
+                currency: INR
+                volume: 48.176156
+              - market: '161.37114'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.38'
+                quickTradePrice: '161.37114'
+                pair: AAVE-EUR
+                virtualCurrency: AAVE
+                currency: EUR
+                volume: 0
+              - market: '8.696041'
+                volumeEx: 0
+                volumeQt: 1932.265402
+                pricechange: '-3.02'
+                quickTradePrice: '8.696041'
+                pair: COTI-INR
+                virtualCurrency: COTI
+                currency: INR
+                volume: 1932.265402
+              - market: '1.55904'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.66'
+                quickTradePrice: '1.55904'
+                pair: ALPINE-EUR
+                virtualCurrency: ALPINE
+                currency: EUR
+                volume: 0
+              - market: '0.27676'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1'
+                quickTradePrice: '0.27676'
+                pair: 1INCH-AUD
+                virtualCurrency: 1INCH
+                currency: AUD
+                volume: 0
+              - market: '0.081282'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.41'
+                quickTradePrice: '0.081282'
+                pair: CHZ-SGD
+                virtualCurrency: CHZ
+                currency: SGD
+                volume: 0
+              - market: '1.163375'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.81'
+                quickTradePrice: '1.163375'
+                pair: AGLD-SGD
+                virtualCurrency: AGLD
+                currency: SGD
+                volume: 0
+              - buy: '373.980000'
+                sell: '364.750000'
+                market: '369.66'
+                volumeEx: 15.477553
+                volumeQt: 0
+                pricechange: '-2.34'
+                24hoursHigh: '384.95'
+                24hoursLow: '364.97'
+                quickTradePrice: '4.422055'
+                pair: DOT-INR
+                virtualCurrency: DOT
+                currency: INR
+                volume: 15.477553
+              - buy: '2403.590000'
+                sell: '2368.250000'
+                market: '2385.07'
+                volumeEx: 263.717236
+                volumeQt: 0
+                pricechange: '-2.37'
+                24hoursHigh: '2699.89'
+                24hoursLow: '2225.01'
+                quickTradePrice: '28.7615'
+                pair: AVAX-INR
+                virtualCurrency: AVAX
+                currency: INR
+                volume: 263.717236
+              - market: '146.07'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.66'
+                quickTradePrice: '146.07'
+                pair: SOL-EUR
+                virtualCurrency: SOL
+                currency: EUR
+                volume: 0
+              - market: '0.127187'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.95'
+                quickTradePrice: '0.127187'
+                pair: ALGO-INR
+                virtualCurrency: ALGO
+                currency: INR
+                volume: 0
+              - market: '1.739858'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '4.88'
+                quickTradePrice: '1.739858'
+                pair: STX-EUR
+                virtualCurrency: STX
+                currency: EUR
+                volume: 0
+              - buy: '63.390000'
+                sell: '62.460000'
+                market: '62.935'
+                volumeEx: 351.214103
+                volumeQt: 0
+                pricechange: '-5.23'
+                24hoursHigh: '70'
+                24hoursLow: '62.55'
+                quickTradePrice: '0.756547'
+                pair: FTM-INR
+                virtualCurrency: FTM
+                currency: INR
+                volume: 351.214103
+              - market: '48.99'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.22'
+                quickTradePrice: '48.99'
+                pair: OSMO-INR
+                virtualCurrency: OSMO
+                currency: INR
+                volume: 0
+              - market: '6.539099'
+                volumeEx: 0
+                volumeQt: 41.52637
+                pricechange: '0.74'
+                quickTradePrice: '6.539099'
+                pair: ROSE-INR
+                virtualCurrency: ROSE
+                currency: INR
+                volume: 41.52637
+              - market: '4.769662'
+                volumeEx: 0
+                volumeQt: 19.4819289
+                pricechange: '-3.09'
+                quickTradePrice: '4.769662'
+                pair: HBAR-INR
+                virtualCurrency: HBAR
+                currency: INR
+                volume: 19.4819289
+              - market: '0.038323'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.01'
+                quickTradePrice: '0.038323'
+                pair: DATA-SGD
+                virtualCurrency: DATA
+                currency: SGD
+                volume: 0
+              - market: '0.500598'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.35'
+                quickTradePrice: '0.500598'
+                pair: EOS-INR
+                virtualCurrency: EOS
+                currency: INR
+                volume: 0
+              - market: '1.531824'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.87'
+                quickTradePrice: '1.531824'
+                pair: SNX-SGD
+                virtualCurrency: SNX
+                currency: SGD
+                volume: 0
+              - buy: '13579.460000'
+                sell: '13379.840000'
+                market: '13483.905'
+                volumeEx: 0.87819
+                volumeQt: 0
+                pricechange: '0.43'
+                24hoursHigh: '13704.815'
+                24hoursLow: '13109.11'
+                quickTradePrice: '161.37114'
+                pair: AAVE-INR
+                virtualCurrency: AAVE
+                currency: INR
+                volume: 0.87819
+              - market: '0.13617'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.37'
+                quickTradePrice: '0.13617'
+                pair: GMT-INR
+                virtualCurrency: GMT
+                currency: INR
+                volume: 0
+              - market: '2.614403'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.75'
+                quickTradePrice: '2.614403'
+                pair: JUV-AUD
+                virtualCurrency: JUV
+                currency: AUD
+                volume: 0
+              - market: '45.279'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.24'
+                quickTradePrice: '45.279'
+                pair: COMP-AUD
+                virtualCurrency: COMP
+                currency: AUD
+                volume: 0
+              - market: '0.562947'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.76'
+                quickTradePrice: '0.562947'
+                pair: POL-AUD
+                virtualCurrency: POL
+                currency: AUD
+                volume: 0
+              - market: '5091.408'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.01'
+                quickTradePrice: '5091.408'
+                pair: YFI-SGD
+                virtualCurrency: YFI
+                currency: SGD
+                volume: 0
+              - market: '5.299818'
+                volumeEx: 0
+                volumeQt: 1922.144278
+                pricechange: '-1.26'
+                quickTradePrice: '5.299818'
+                pair: ASTR-INR
+                virtualCurrency: ASTR
+                currency: INR
+                volume: 1922.144278
+              - market: '0.74'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.93'
+                quickTradePrice: '0.74'
+                pair: EOS-AUD
+                virtualCurrency: EOS
+                currency: AUD
+                volume: 0
+              - market: '0.37912'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.18'
+                quickTradePrice: '0.37912'
+                pair: POL-SGD
+                virtualCurrency: POL
+                currency: SGD
+                volume: 0
+              - market: '0.013696'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.82'
+                quickTradePrice: '0.013696'
+                pair: CELR-SGD
+                virtualCurrency: CELR
+                currency: SGD
+                volume: 0
+              - market: '76.68'
+                volumeEx: 0
+                volumeQt: 181.97284988
+                pricechange: '1.45'
+                quickTradePrice: '76.68'
+                pair: JUP-INR
+                virtualCurrency: JUP
+                currency: INR
+                volume: 181.97284988
+              - market: '475.65'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.14'
+                quickTradePrice: '475.65'
+                pair: RENDER-INR
+                virtualCurrency: RENDER
+                currency: INR
+                volume: 0
+              - market: '0.270679'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.31'
+                quickTradePrice: '0.270679'
+                pair: BAT-AUD
+                virtualCurrency: BAT
+                currency: AUD
+                volume: 0
+              - market: '323.233673'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.58'
+                quickTradePrice: '323.233673'
+                pair: FIL-INR
+                virtualCurrency: FIL
+                currency: INR
+                volume: 0
+              - market: '1.308142'
+                volumeEx: 0
+                volumeQt: 3563.011186
+                pricechange: '-0.61'
+                quickTradePrice: '1.308142'
+                pair: ZIL-INR
+                virtualCurrency: ZIL
+                currency: INR
+                volume: 3563.011186
+              - market: '0.27511'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.48'
+                quickTradePrice: '0.27511'
+                pair: SAND-EUR
+                virtualCurrency: SAND
+                currency: EUR
+                volume: 0
+              - market: '205.76'
+                volumeEx: 0
+                volumeQt: 108.669105
+                pricechange: '-6.68'
+                quickTradePrice: '205.76'
+                pair: WLD-INR
+                virtualCurrency: WLD
+                currency: INR
+                volume: 108.669105
+              - market: '1.163375'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.47'
+                quickTradePrice: '1.163375'
+                pair: AGLD-EUR
+                virtualCurrency: AGLD
+                currency: EUR
+                volume: 0
+              - market: '132.231957'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.19'
+                quickTradePrice: '132.231957'
+                pair: RLC-INR
+                virtualCurrency: RLC
+                currency: INR
+                volume: 0
+              - market: '42.36'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.97'
+                quickTradePrice: '42.36'
+                pair: AVAX-AUD
+                virtualCurrency: AVAX
+                currency: AUD
+                volume: 0
+              - market: '70.36'
+                volumeEx: 0
+                volumeQt: 303.520396
+                pricechange: '-1.83'
+                quickTradePrice: '70.36'
+                pair: MANTA-INR
+                virtualCurrency: MANTA
+                currency: INR
+                volume: 303.520396
+              - market: '225.83'
+                volumeEx: 0
+                volumeQt: 3962.06473
+                pricechange: '-3.17'
+                quickTradePrice: '225.83'
+                pair: WIF-INR
+                virtualCurrency: WIF
+                currency: INR
+                volume: 3962.06473
+              - market: '10.74'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.62'
+                quickTradePrice: '10.74'
+                pair: LINK-EUR
+                virtualCurrency: LINK
+                currency: EUR
+                volume: 0
+              - market: '0.555388'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.88'
+                quickTradePrice: '0.555388'
+                pair: XRP-SGD
+                virtualCurrency: XRP
+                currency: SGD
+                volume: 0
+              - market: '0.191564'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.13'
+                quickTradePrice: '0.191564'
+                pair: CHR-SGD
+                virtualCurrency: CHR
+                currency: SGD
+                volume: 0
+              - market: '4.929225'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.59'
+                quickTradePrice: '4.929225'
+                pair: AXS-SGD
+                virtualCurrency: AXS
+                currency: SGD
+                volume: 0
+              - market: '70.199338'
+                volumeEx: 0
+                volumeQt: 607.609068
+                pricechange: '1.99'
+                quickTradePrice: '70.199338'
+                pair: CELO-INR
+                virtualCurrency: CELO
+                currency: INR
+                volume: 607.609068
+              - buy: '31496.180000'
+                sell: '31033.180000'
+                market: '31281.71'
+                volumeEx: 0.57120145
+                volumeQt: 0
+                pricechange: '-0.54'
+                24hoursHigh: '34699.99'
+                24hoursLow: '29698.875'
+                quickTradePrice: '373.52'
+                pair: BCH-INR
+                virtualCurrency: BCH
+                currency: INR
+                volume: 0.57120145
+              - market: '0.127187'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.95'
+                quickTradePrice: '0.127187'
+                pair: ALGO-EUR
+                virtualCurrency: ALGO
+                currency: EUR
+                volume: 0
+              - market: '1.163375'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.47'
+                quickTradePrice: '1.163375'
+                pair: AGLD-AUD
+                virtualCurrency: AGLD
+                currency: AUD
+                volume: 0
+              - market: '70.84'
+                volumeEx: 0
+                volumeQt: 70.426302
+                pricechange: '1.7'
+                quickTradePrice: '70.84'
+                pair: AXL-INR
+                virtualCurrency: AXL
+                currency: INR
+                volume: 70.426302
+              - market: '0.067425'
+                volumeEx: 0
+                volumeQt: 146115.519115
+                pricechange: '-4.3'
+                quickTradePrice: '0.067425'
+                pair: DOGS-INR
+                virtualCurrency: DOGS
+                currency: INR
+                volume: 146115.519115
+              - market: '372.4035'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.82'
+                quickTradePrice: '372.4035'
+                pair: BCH-SGD
+                virtualCurrency: BCH
+                currency: SGD
+                volume: 0
+              - market: '15.94'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.78'
+                quickTradePrice: '15.94'
+                pair: WOO-INR
+                virtualCurrency: WOO
+                currency: INR
+                volume: 0
+              - market: '349.13'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.58'
+                quickTradePrice: '349.13'
+                pair: ZRO-INR
+                virtualCurrency: ZRO
+                currency: INR
+                volume: 0
+              - market: '607.6805'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.82'
+                quickTradePrice: '607.6805'
+                pair: BNB-SGD
+                virtualCurrency: BNB
+                currency: SGD
+                volume: 0
+              - buy: '51478.390000'
+                sell: '49000.010000'
+                market: '50860.59'
+                volumeEx: 5.59263225
+                volumeQt: 0
+                pricechange: '-0.13'
+                24hoursHigh: '51474.43'
+                24hoursLow: '49000.000001'
+                quickTradePrice: '608.391'
+                pair: BNB-INR
+                virtualCurrency: BNB
+                currency: INR
+                volume: 5.59263225
+              - market: '0.038374'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.9'
+                quickTradePrice: '0.038374'
+                pair: DATA-EUR
+                virtualCurrency: DATA
+                currency: EUR
+                volume: 0
+              - market: '84.04'
+                volumeEx: 0
+                volumeQt: 36.79894722
+                pricechange: '-3.81'
+                quickTradePrice: '84.04'
+                pair: DYDX-INR
+                virtualCurrency: DYDX
+                currency: INR
+                volume: 36.79894722
+              - market: '11.66055'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.95'
+                quickTradePrice: '11.66055'
+                pair: LINK-SGD
+                virtualCurrency: LINK
+                currency: SGD
+                volume: 0
+              - market: '0.45'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.97'
+                quickTradePrice: '0.45'
+                pair: MANA-AUD
+                virtualCurrency: MANA
+                currency: AUD
+                volume: 0
+              - market: '0.309828'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.29'
+                quickTradePrice: '0.309828'
+                pair: MANA-SGD
+                virtualCurrency: MANA
+                currency: SGD
+                volume: 0
+              - market: '0.178555'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.11'
+                quickTradePrice: '0.178555'
+                pair: GRT-EUR
+                virtualCurrency: GRT
+                currency: EUR
+                volume: 0
+              - market: '26.28'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.38'
+                quickTradePrice: '26.28'
+                pair: AVAX-EUR
+                virtualCurrency: AVAX
+                currency: EUR
+                volume: 0
+              - market: '0.802372'
+                volumeEx: 0
+                volumeQt: 123035.080319
+                pricechange: '-4.17'
+                quickTradePrice: '0.802372'
+                pair: BOME-INR
+                virtualCurrency: BOME
+                currency: INR
+                volume: 123035.080319
+              - market: '0.12'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.53'
+                quickTradePrice: '0.12'
+                pair: GMT-EUR
+                virtualCurrency: GMT
+                currency: EUR
+                volume: 0
+              - market: '0.209764'
+                volumeEx: 0
+                volumeQt: 10226.854093
+                pricechange: '-2.37'
+                quickTradePrice: '0.209764'
+                pair: SLP-INR
+                virtualCurrency: SLP
+                currency: INR
+                volume: 10226.854093
+              - market: '11.221736'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.71'
+                quickTradePrice: '11.221736'
+                pair: KLAY-INR
+                virtualCurrency: KLAY
+                currency: INR
+                volume: 0
+              - market: '2.036017'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '5.7'
+                quickTradePrice: '2.036017'
+                pair: BAR-INR
+                virtualCurrency: BAR
+                currency: INR
+                volume: 0
+              - market: '10.639747'
+                volumeEx: 0
+                volumeQt: 7515.744672
+                pricechange: '-2.83'
+                quickTradePrice: '10.639747'
+                pair: ALT-INR
+                virtualCurrency: ALT
+                currency: INR
+                volume: 7515.744672
+              - market: '0.096044'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.07'
+                quickTradePrice: '0.096044'
+                pair: XLM-SGD
+                virtualCurrency: XLM
+                currency: SGD
+                volume: 0
+              - buy: '13389.000000'
+                sell: '13168.610000'
+                market: '13278.805'
+                volumeEx: 65.327462
+                volumeQt: 104.92644948
+                pricechange: '-1.8'
+                24hoursHigh: '13586.045'
+                24hoursLow: '12851'
+                quickTradePrice: '13364.452338'
+                pair: SOL-INR
+                virtualCurrency: SOL
+                currency: INR
+                volume: 170.25391148
+              - market: '0.155136'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.1'
+                quickTradePrice: '0.155136'
+                pair: ENJ-SGD
+                virtualCurrency: ENJ
+                currency: SGD
+                volume: 0
+              - market: '20.87'
+                volumeEx: 0
+                volumeQt: 1514.890769
+                pricechange: '-1.92'
+                quickTradePrice: '20.87'
+                pair: FIDA-INR
+                virtualCurrency: FIDA
+                currency: INR
+                volume: 1514.890769
+              - buy: '412.370000'
+                sell: '405.970000'
+                market: '409.43'
+                volumeEx: 14.289332
+                volumeQt: 0
+                pricechange: '-0.16'
+                24hoursHigh: '413.955'
+                24hoursLow: '405.44'
+                quickTradePrice: '4.933325'
+                pair: AXS-INR
+                virtualCurrency: AXS
+                currency: INR
+                volume: 14.289332
+              - buy: '385.020000'
+                sell: '379.360000'
+                market: '382.45'
+                volumeEx: 124.339614
+                volumeQt: 0
+                pricechange: '-2.53'
+                24hoursHigh: '394.03'
+                24hoursLow: '373.5'
+                quickTradePrice: '4.572645'
+                pair: ATOM-INR
+                virtualCurrency: ATOM
+                currency: INR
+                volume: 124.339614
+              - market: '0.276454'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.85'
+                quickTradePrice: '0.276454'
+                pair: 1INCH-SGD
+                virtualCurrency: 1INCH
+                currency: SGD
+                volume: 0
+              - market: '0.3493'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.34'
+                quickTradePrice: '0.3493'
+                pair: POL-EUR
+                virtualCurrency: POL
+                currency: EUR
+                volume: 0
+              - market: '0.013717'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.67'
+                quickTradePrice: '0.013717'
+                pair: CELR-AUD
+                virtualCurrency: CELR
+                currency: AUD
+                volume: 0
+              - market: '14.779849'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.79'
+                quickTradePrice: '14.779849'
+                pair: CFX-INR
+                virtualCurrency: CFX
+                currency: INR
+                volume: 0
+              - market: '1.505347'
+                volumeEx: 0
+                volumeQt: 2084.732447
+                pricechange: '4.23'
+                quickTradePrice: '1.505347'
+                pair: BEAMX-INR
+                virtualCurrency: BEAMX
+                currency: INR
+                volume: 2084.732447
+              - buy: '10.820000'
+                sell: '10.600000'
+                market: '10.705'
+                volumeEx: 7535.161894
+                volumeQt: 12402.978682
+                pricechange: '10.47'
+                24hoursHigh: '10.85'
+                24hoursLow: '9.64'
+                quickTradePrice: '10.80521'
+                pair: DOGE-INR
+                virtualCurrency: DOGE
+                currency: INR
+                volume: 19938.140576
+              - market: '64.02'
+                volumeEx: 0
+                volumeQt: 5973.402375
+                pricechange: '-1.46'
+                quickTradePrice: '64.02'
+                pair: ONDO-INR
+                virtualCurrency: ONDO
+                currency: INR
+                volume: 5973.402375
+              - market: '0.26469'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.7'
+                quickTradePrice: '0.26469'
+                pair: SXP-INR
+                virtualCurrency: SXP
+                currency: INR
+                volume: 0
+              - market: '5603.85'
+                volumeEx: 0
+                volumeQt: 2.092855
+                pricechange: '-2.31'
+                quickTradePrice: '5603.85'
+                pair: TRB-INR
+                virtualCurrency: TRB
+                currency: INR
+                volume: 2.092855
+              - market: '4.2'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.22'
+                quickTradePrice: '4.2'
+                pair: ATOM-EUR
+                virtualCurrency: ATOM
+                currency: EUR
+                volume: 0
+              - market: '6.62'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.03'
+                quickTradePrice: '6.62'
+                pair: DOT-AUD
+                virtualCurrency: DOT
+                currency: AUD
+                volume: 0
+              - market: '0.081385'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.75'
+                quickTradePrice: '0.081385'
+                pair: CHZ-AUD
+                virtualCurrency: CHZ
+                currency: AUD
+                volume: 0
+              - market: '0.000001'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0'
+                quickTradePrice: '0.000001'
+                pair: BTTC-AUD
+                virtualCurrency: BTTC
+                currency: AUD
+                volume: 0
+              - buy: '26.110000'
+                sell: '25.680000'
+                market: '25.91'
+                volumeEx: 358.745733
+                volumeQt: 0
+                pricechange: '1.07'
+                24hoursHigh: '26.55'
+                24hoursLow: '25.22'
+                quickTradePrice: '0.310032'
+                pair: MANA-INR
+                virtualCurrency: MANA
+                currency: INR
+                volume: 358.745733
+              - market: '0.142359'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.65'
+                quickTradePrice: '0.142359'
+                pair: XLM-AUD
+                virtualCurrency: XLM
+                currency: AUD
+                volume: 0
+              - market: '5090.4'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.05'
+                quickTradePrice: '5090.4'
+                pair: YFI-INR
+                virtualCurrency: YFI
+                currency: INR
+                volume: 0
+              - market: '0.057611'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.49'
+                quickTradePrice: '0.057611'
+                pair: ASTR-EUR
+                virtualCurrency: ASTR
+                currency: EUR
+                volume: 0
+              - market: '0.765912'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.18'
+                quickTradePrice: '0.765912'
+                pair: SUSHI-SGD
+                virtualCurrency: SUSHI
+                currency: SGD
+                volume: 0
+              - market: '2.021714'
+                volumeEx: 0
+                volumeQt: 180.620405
+                pricechange: '0.36'
+                quickTradePrice: '2.021714'
+                pair: VET-INR
+                virtualCurrency: VET
+                currency: INR
+                volume: 180.620405
+              - market: '2.24112'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.82'
+                quickTradePrice: '2.24112'
+                pair: CITY-AUD
+                virtualCurrency: CITY
+                currency: AUD
+                volume: 0
+              - market: '2709.1675'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.09'
+                quickTradePrice: '2709.1675'
+                pair: PAXG-SGD
+                virtualCurrency: PAXG
+                currency: SGD
+                volume: 0
+              - market: '4.569592'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.57'
+                quickTradePrice: '4.569592'
+                pair: ATOM-SGD
+                virtualCurrency: ATOM
+                currency: SGD
+                volume: 0
+              - market: '9.39'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-4.32'
+                quickTradePrice: '9.39'
+                pair: APT-EUR
+                virtualCurrency: APT
+                currency: EUR
+                volume: 0
+              - market: '2.242135'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.86'
+                quickTradePrice: '2.242135'
+                pair: CITY-SGD
+                virtualCurrency: CITY
+                currency: SGD
+                volume: 0
+              - market: '0.000001'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0'
+                quickTradePrice: '0.000001'
+                pair: BTTC-INR
+                virtualCurrency: BTTC
+                currency: INR
+                volume: 0
+              - market: '0.27676'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1'
+                quickTradePrice: '0.27676'
+                pair: 1INCH-EUR
+                virtualCurrency: 1INCH
+                currency: EUR
+                volume: 0
+              - market: '48.373354'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.26'
+                quickTradePrice: '48.373354'
+                pair: FLOW-INR
+                virtualCurrency: FLOW
+                currency: INR
+                volume: 0
+              - market: '63.915217'
+                volumeEx: 0
+                volumeQt: 620.19485005
+                pricechange: '-4.27'
+                quickTradePrice: '63.915217'
+                pair: APE-INR
+                virtualCurrency: APE
+                currency: INR
+                volume: 620.19485005
+              - market: '0.269586'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.15'
+                quickTradePrice: '0.269586'
+                pair: CRV-EUR
+                virtualCurrency: CRV
+                currency: EUR
+                volume: 0
+              - market: '0.2854'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.55'
+                quickTradePrice: '0.2854'
+                pair: MANA-EUR
+                virtualCurrency: MANA
+                currency: EUR
+                volume: 0
+              - market: '0.76693'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.05'
+                quickTradePrice: '0.76693'
+                pair: SUSHI-INR
+                virtualCurrency: SUSHI
+                currency: INR
+                volume: 0
+              - market: '0.61251'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '21.55'
+                quickTradePrice: '0.61251'
+                pair: STORJ-SGD
+                virtualCurrency: STORJ
+                currency: SGD
+                volume: 0
+              - market: '45.21825'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.37'
+                quickTradePrice: '45.21825'
+                pair: COMP-SGD
+                virtualCurrency: COMP
+                currency: SGD
+                volume: 0
+              - market: '0.000018'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '4.57'
+                quickTradePrice: '0.000018'
+                pair: SHIB-EUR
+                virtualCurrency: SHIB
+                currency: EUR
+                volume: 0
+              - market: '117.07'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.58'
+                quickTradePrice: '117.07'
+                pair: SUPER-INR
+                virtualCurrency: SUPER
+                currency: INR
+                volume: 0
+              - market: '17.44'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.2'
+                quickTradePrice: '17.44'
+                pair: LINK-AUD
+                virtualCurrency: LINK
+                currency: AUD
+                volume: 0
+              - market: '45.279'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.24'
+                quickTradePrice: '45.279'
+                pair: COMP-EUR
+                virtualCurrency: COMP
+                currency: EUR
+                volume: 0
+              - market: '1.1111'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.07'
+                quickTradePrice: '1.1111'
+                pair: ALICE-SGD
+                virtualCurrency: ALICE
+                currency: SGD
+                volume: 0
+              - market: '0.000172'
+                volumeEx: 0
+                volumeQt: 557989153.196037
+                pricechange: '1.46'
+                quickTradePrice: '0.000172'
+                pair: MOG-INR
+                virtualCurrency: MOG
+                currency: INR
+                volume: 557989153.196037
+              - market: '2.24112'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.82'
+                quickTradePrice: '2.24112'
+                pair: CITY-INR
+                virtualCurrency: CITY
+                currency: INR
+                volume: 0
+              - market: '4.07'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.44'
+                quickTradePrice: '4.07'
+                pair: DOT-EUR
+                virtualCurrency: DOT
+                currency: EUR
+                volume: 0
+              - market: '1.534879'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.07'
+                quickTradePrice: '1.534879'
+                pair: SNX-INR
+                virtualCurrency: SNX
+                currency: INR
+                volume: 0
+              - market: '36.53'
+                volumeEx: 0
+                volumeQt: 1520.48011
+                pricechange: '-4.34'
+                quickTradePrice: '36.53'
+                pair: CATI-INR
+                virtualCurrency: CATI
+                currency: INR
+                volume: 1520.48011
+              - market: '21.632994'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.36'
+                quickTradePrice: '21.632994'
+                pair: UFT-INR
+                virtualCurrency: UFT
+                currency: INR
+                volume: 0
+              - market: '0.004032'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.23'
+                quickTradePrice: '0.004032'
+                pair: AMP-AUD
+                virtualCurrency: AMP
+                currency: AUD
+                volume: 0
+              - market: '2.097081'
+                volumeEx: 0
+                volumeQt: 2445.910665
+                pricechange: '-0.03'
+                quickTradePrice: '2.097081'
+                pair: T-INR
+                virtualCurrency: T
+                currency: INR
+                volume: 2445.910665
+              - market: '1695.83'
+                volumeEx: 0
+                volumeQt: 5.239165
+                pricechange: '1.71'
+                quickTradePrice: '1695.83'
+                pair: ETC-INR
+                virtualCurrency: ETC
+                currency: INR
+                volume: 5.239165
+              - market: '31.55'
+                volumeEx: 0
+                volumeQt: 124.109129
+                pricechange: '-1.89'
+                quickTradePrice: '31.55'
+                pair: AEVO-INR
+                virtualCurrency: AEVO
+                currency: INR
+                volume: 124.109129
+              - market: '2312.681118'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.11'
+                quickTradePrice: '2312.681118'
+                pair: EGLD-INR
+                virtualCurrency: EGLD
+                currency: INR
+                volume: 0
+              - buy: '49.160000'
+                sell: '48.440000'
+                market: '48.78'
+                volumeEx: 52.190725
+                volumeQt: 0
+                pricechange: '-1.18'
+                24hoursHigh: '50'
+                24hoursLow: '46.75'
+                quickTradePrice: '0.583434'
+                pair: ARB-INR
+                virtualCurrency: ARB
+                currency: INR
+                volume: 52.190725
+              - market: '0.756547'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.29'
+                quickTradePrice: '0.756547'
+                pair: FTM-AUD
+                virtualCurrency: FTM
+                currency: AUD
+                volume: 0
+              - market: '0.191869'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.29'
+                quickTradePrice: '0.191869'
+                pair: CHR-INR
+                virtualCurrency: CHR
+                currency: INR
+                volume: 0
+              - market: '0.190321'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '10.92'
+                quickTradePrice: '0.190321'
+                pair: DOGE-AUD
+                virtualCurrency: DOGE
+                currency: AUD
+                volume: 0
+              - market: '0.0892'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.23'
+                quickTradePrice: '0.0892'
+                pair: XLM-EUR
+                virtualCurrency: XLM
+                currency: EUR
+                volume: 0
+              - market: '0.923002'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.15'
+                quickTradePrice: '0.923002'
+                pair: USDT-EUR
+                virtualCurrency: USDT
+                currency: EUR
+                volume: 0
+              - buy: '3799.690000'
+                sell: '3799.689999'
+                market: '3799.689999'
+                volumeEx: 0.05835
+                volumeQt: 0
+                pricechange: '3.35'
+                24hoursHigh: '3899.989995'
+                24hoursLow: '3676.5'
+                quickTradePrice: '3645.16443'
+                pair: FARM-INR
+                virtualCurrency: FARM
+                currency: INR
+                volume: 0.05835
+              - buy: '15.490000'
+                sell: '15.036000'
+                market: '15.263'
+                volumeEx: 249.316375
+                volumeQt: 0
+                pricechange: '0'
+                24hoursHigh: '15.49'
+                24hoursLow: '15.036'
+                quickTradePrice: '0.182527'
+                pair: BAT-INR
+                virtualCurrency: BAT
+                currency: INR
+                volume: 249.316375
+              - market: '0.000001'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0'
+                quickTradePrice: '0.000001'
+                pair: BTTC-SGD
+                virtualCurrency: BTTC
+                currency: SGD
+                volume: 0
+              - market: '26.12'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-4.77'
+                quickTradePrice: '26.12'
+                pair: W-INR
+                virtualCurrency: W
+                currency: INR
+                volume: 0
+              - market: '1.946513'
+                volumeEx: 0
+                volumeQt: 9595.446806
+                pricechange: '-1.83'
+                quickTradePrice: '1.946513'
+                pair: GALA-INR
+                virtualCurrency: GALA
+                currency: INR
+                volume: 9595.446806
+              - buy: '978.710000'
+                sell: '966.570000'
+                market: '972.215'
+                volumeEx: 12.289329
+                volumeQt: 0
+                pricechange: '3'
+                24hoursHigh: '983.655'
+                24hoursLow: '936.22'
+                quickTradePrice: '11.670725'
+                pair: LINK-INR
+                virtualCurrency: LINK
+                currency: INR
+                volume: 12.289329
+              - market: '28.73075'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.6'
+                quickTradePrice: '28.73075'
+                pair: AVAX-SGD
+                virtualCurrency: AVAX
+                currency: SGD
+                volume: 0
+              - market: '151.46'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-4.67'
+                quickTradePrice: '151.46'
+                pair: DYM-INR
+                virtualCurrency: DYM
+                currency: INR
+                volume: 0
+              - market: '0.038374'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.9'
+                quickTradePrice: '0.038374'
+                pair: DATA-INR
+                virtualCurrency: DATA
+                currency: INR
+                volume: 0
+              - market: '0.00009'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.11'
+                quickTradePrice: '0.00009'
+                pair: WIN-SGD
+                virtualCurrency: WIN
+                currency: SGD
+                volume: 0
+              - market: '904.88'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.55'
+                quickTradePrice: '904.88'
+                pair: BNB-AUD
+                virtualCurrency: BNB
+                currency: AUD
+                volume: 0
+              - buy: '0.002500'
+                sell: '0.001935'
+                market: '0.00202'
+                volumeEx: 9038988.086019
+                volumeQt: 592696397.2229857
+                pricechange: '4.18'
+                24hoursHigh: '0.0020385'
+                24hoursLow: '0.0018'
+                quickTradePrice: '0.00208'
+                pair: BONK-INR
+                virtualCurrency: BONK
+                currency: INR
+                volume: 601735385.3090048
+              - market: '7.912726'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.78'
+                quickTradePrice: '7.912726'
+                pair: UNI-SGD
+                virtualCurrency: UNI
+                currency: SGD
+                volume: 0
+              - market: '0.583129'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.99'
+                quickTradePrice: '0.583129'
+                pair: ARB-SGD
+                virtualCurrency: ARB
+                currency: SGD
+                volume: 0
+              - market: '1.771718'
+                volumeEx: 0
+                volumeQt: 17527.113741
+                pricechange: '-1.05'
+                quickTradePrice: '1.771718'
+                pair: JASMY-INR
+                virtualCurrency: JASMY
+                currency: INR
+                volume: 17527.113741
+              - market: '0.000019'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '4.49'
+                quickTradePrice: '0.000019'
+                pair: SHIB-SGD
+                virtualCurrency: SHIB
+                currency: SGD
+                volume: 0
+              - market: '0.365486'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.47'
+                quickTradePrice: '0.365486'
+                pair: ADA-AUD
+                virtualCurrency: ADA
+                currency: AUD
+                volume: 0
+              - market: '0.983207'
+                volumeEx: 0
+                volumeQt: 224507.467547
+                pricechange: '-2.02'
+                quickTradePrice: '0.983207'
+                pair: TURBO-INR
+                virtualCurrency: TURBO
+                currency: INR
+                volume: 224507.467547
+              - buy: '111904.480000'
+                sell: '110592.230000'
+                market: '111077.86'
+                volumeEx: 0.000905
+                volumeQt: 0
+                pricechange: '1.47'
+                24hoursHigh: '111248.355'
+                24hoursLow: '109081.305'
+                quickTradePrice: '1329.8725'
+                pair: MKR-INR
+                virtualCurrency: MKR
+                currency: INR
+                volume: 0.000905
+              - market: '378.86'
+                volumeEx: 0
+                volumeQt: 16.925007
+                pricechange: '0.98'
+                quickTradePrice: '378.86'
+                pair: PENDLE-INR
+                virtualCurrency: PENDLE
+                currency: INR
+                volume: 16.925007
+              - market: '15.29'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.92'
+                quickTradePrice: '15.29'
+                pair: APT-AUD
+                virtualCurrency: APT
+                currency: AUD
+                volume: 0
+              - market: '0.14554'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.66'
+                quickTradePrice: '0.14554'
+                pair: HOT-INR
+                virtualCurrency: HOT
+                currency: INR
+                volume: 0
+              - market: '21.5303'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.11'
+                quickTradePrice: '21.5303'
+                pair: INJ-INR
+                virtualCurrency: INJ
+                currency: INR
+                volume: 0
+              - market: '555.55'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.7'
+                quickTradePrice: '555.55'
+                pair: BCH-AUD
+                virtualCurrency: BCH
+                currency: AUD
+                volume: 0
+              - market: '0.000625'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.85'
+                quickTradePrice: '0.000625'
+                pair: SPELL-SGD
+                virtualCurrency: SPELL
+                currency: SGD
+                volume: 0
+              - market: '37.19'
+                volumeEx: 0
+                volumeQt: 455.942415
+                pricechange: '-0.71'
+                quickTradePrice: '37.19'
+                pair: STRK-INR
+                virtualCurrency: STRK
+                currency: INR
+                volume: 455.942415
+              - market: '68154.00705'
+                volumeEx: 0
+                volumeQt: 0.00010419
+                pricechange: '3.21'
+                quickTradePrice: '68154.00705'
+                pair: BTC-SGD
+                virtualCurrency: BTC
+                currency: SGD
+                volume: 0.00010419
+              - market: '35.55'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-7.56'
+                quickTradePrice: '35.55'
+                pair: ENA-INR
+                virtualCurrency: ENA
+                currency: INR
+                volume: 0
+              - market: '223.012281'
+                volumeEx: 0
+                volumeQt: 10.749856
+                pricechange: '-3.76'
+                quickTradePrice: '223.012281'
+                pair: UMA-INR
+                virtualCurrency: UMA
+                currency: INR
+                volume: 10.749856
+              - market: '0.5086'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.1'
+                quickTradePrice: '0.5086'
+                pair: XRP-EUR
+                virtualCurrency: XRP
+                currency: EUR
+                volume: 0
+              - buy: '13.700000'
+                sell: '13.490000'
+                market: '13.59'
+                volumeEx: 28417.71002
+                volumeQt: 0
+                pricechange: '0'
+                24hoursHigh: '13.9999'
+                24hoursLow: '12.71'
+                quickTradePrice: '0.1652'
+                pair: TRX-INR
+                virtualCurrency: TRX
+                currency: INR
+                volume: 28417.71002
+              - market: '0.126984'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.1'
+                quickTradePrice: '0.126984'
+                pair: ALGO-SGD
+                virtualCurrency: ALGO
+                currency: SGD
+                volume: 0
+              - market: '27.880565'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.94'
+                quickTradePrice: '27.880565'
+                pair: ONG-INR
+                virtualCurrency: ONG
+                currency: INR
+                volume: 0
+              - market: '160.84355'
+                volumeEx: 0
+                volumeQt: 17.67443025
+                pricechange: '-1.51'
+                quickTradePrice: '160.84355'
+                pair: CAKE-INR
+                virtualCurrency: CAKE
+                currency: INR
+                volume: 17.67443025
+              - buy: '85.070000'
+                sell: '85.000000'
+                market: '85.035'
+                volumeEx: 105320.51283
+                volumeQt: 4670.36540985
+                pricechange: '-0.75'
+                24hoursHigh: '86.12495'
+                24hoursLow: '85'
+                quickTradePrice: '85.4528'
+                pair: USDT-INR
+                virtualCurrency: USDT
+                currency: INR
+                volume: 109990.87823985
+              - market: '0.756547'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.29'
+                quickTradePrice: '0.756547'
+                pair: FTM-EUR
+                virtualCurrency: FTM
+                currency: EUR
+                volume: 0
+              - market: '0.736516'
+                volumeEx: 0
+                volumeQt: 13359.58233
+                pricechange: '-6.75'
+                quickTradePrice: '0.736516'
+                pair: NOT-INR
+                virtualCurrency: NOT
+                currency: INR
+                volume: 13359.58233
+              - market: '11.84'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.15'
+                quickTradePrice: '11.84'
+                pair: UNI-AUD
+                virtualCurrency: UNI
+                currency: AUD
+                volume: 0
+              - market: '866.05'
+                volumeEx: 0
+                volumeQt: 23.25024546
+                pricechange: '-5.06'
+                quickTradePrice: '866.05'
+                pair: APT-INR
+                virtualCurrency: APT
+                currency: INR
+                volume: 23.25024546
+              - market: '0.614856'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '21.8'
+                quickTradePrice: '0.614856'
+                pair: STORJ-INR
+                virtualCurrency: STORJ
+                currency: INR
+                volume: 0
+              - sell: '115.040000'
+                market: '120.88'
+                volumeEx: 0
+                volumeQt: 2300.777996
+                pricechange: '0'
+                24hoursHigh: '120.88'
+                24hoursLow: '120.88'
+                quickTradePrice: '127.03'
+                pair: FET-INR
+                virtualCurrency: FET
+                currency: INR
+                volume: 2300.777996
+              - market: '930.64198'
+                volumeEx: 0
+                volumeQt: 0.144441
+                pricechange: '1.15'
+                quickTradePrice: '930.64198'
+                pair: NEO-INR
+                virtualCurrency: NEO
+                currency: INR
+                volume: 0.144441
+              - market: '17.123995'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.51'
+                quickTradePrice: '17.123995'
+                pair: DUSK-INR
+                virtualCurrency: DUSK
+                currency: INR
+                volume: 0
+              - market: '0.181957'
+                volumeEx: 0
+                volumeQt: 449898.292804
+                pricechange: '2.53'
+                quickTradePrice: '0.181957'
+                pair: NEIRO-INR
+                virtualCurrency: NEIRO
+                currency: INR
+                volume: 449898.292804
+              - market: '0.013717'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-3.67'
+                quickTradePrice: '0.013717'
+                pair: CELR-EUR
+                virtualCurrency: CELR
+                currency: EUR
+                volume: 0
+              - market: '176.75'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-2.84'
+                quickTradePrice: '176.75'
+                pair: FXS-INR
+                virtualCurrency: FXS
+                currency: INR
+                volume: 0
+              - buy: '6.900000'
+                sell: '6.650000'
+                market: '6.775'
+                volumeEx: 2164.167246
+                volumeQt: 0
+                pricechange: '1.19'
+                24hoursHigh: '6.98'
+                24hoursLow: '6.4'
+                pair: PUSH-INR
+                virtualCurrency: PUSH
+                currency: INR
+                volume: 2164.167246
+              - market: '0.27511'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.51'
+                quickTradePrice: '0.27511'
+                pair: SAND-SGD
+                virtualCurrency: SAND
+                currency: SGD
+                volume: 0
+              - market: '0.000626'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-0.98'
+                quickTradePrice: '0.000626'
+                pair: SPELL-INR
+                virtualCurrency: SPELL
+                currency: INR
+                volume: 0
+              - market: '0.074888'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '-1.47'
+                quickTradePrice: '0.074888'
+                pair: OXT-EUR
+                virtualCurrency: OXT
+                currency: EUR
+                volume: 0
+              - market: '316.11'
+                volumeEx: 0
+                volumeQt: 32.866428
+                pricechange: '-1.9'
+                quickTradePrice: '316.11'
+                pair: PSG-INR
+                virtualCurrency: PSG
+                currency: INR
+                volume: 32.866428
+              - market: '0.500395'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.39'
+                quickTradePrice: '0.500395'
+                pair: EOS-SGD
+                virtualCurrency: EOS
+                currency: SGD
+                volume: 0
+              - market: '451.305197'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '1.54'
+                quickTradePrice: '451.305197'
+                pair: RUNE-INR
+                virtualCurrency: RUNE
+                currency: INR
+                volume: 0
+              - market: '1.509648'
+                volumeEx: 0
+                volumeQt: 0
+                pricechange: '0.57'
+                quickTradePrice: '1.509648'
+                pair: USDT-AUD
+                virtualCurrency: USDT
+                currency: AUD
+                volume: 0
+              - buy: '30.770000'
+                sell: '30.330000'
+                market: '30.55'
+                volumeEx: 2503.250042
+                volumeQt: 0
+                pricechange: '-2.61'
+                24hoursHigh: '31.84'
+                24hoursLow: '30.07'
+                quickTradePrice: '0.365486'
+                pair: ADA-INR
+                virtualCurrency: ADA
+                currency: INR
+                volume: 2503.250042
+      operationId: getMarket
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /api/v1/market/BTC-INR/ticker:
+    get:
+      tags:
+      - Market
+      summary: Ticker
+      description: Users can get the ticker information for the current Trade Pair with daily volume and current Price by using this API.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 16 Oct 2024 13:09:18 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            CF-Cache-Status:
+              schema:
+                type: string
+                example: DYNAMIC
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 8d384852ed113ae5-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                buy: '5899000.000000'
+                sell: '5820000.000000'
+                market: '5859500'
+                volumeEx: 2.22234018
+                volumeQt: 0.00010419
+                pricechange: '4.26'
+                24hoursHigh: '5899000'
+                24hoursLow: '5361000'
+                quickTradePrice: '68034.179115'
+                pair: BTC-INR
+                virtualCurrency: BTC
+                currency: INR
+                volume: 2.2224443700000003
+      operationId: getApiV1MarketBTCINRTicker
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+  /market/BTC-INR/book:
+    get:
+      tags:
+      - Market
+      summary: Book
+      description: 'Users can get a list of open orders for a trade pair by using this API.
+
+
+        Note:
+
+
+        - Pass query string parameter ?group=singapore
+
+
+        - Pass query string parameter ?converted=1 to get the amount in BTC. Default value will be 0.
+
+
+        - This endpoint provides bid and ask of the size 15. To fetch the size of 50, use the endpoint /market/{tradepair}/book_long.'
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 16 Oct 2024 13:09:54 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            CF-Cache-Status:
+              schema:
+                type: string
+                example: DYNAMIC
+            Server:
+              schema:
+                type: string
+                example: cloudflare
+            CF-RAY:
+              schema:
+                type: string
+                example: 8d384936c9da3ae5-BOM
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                asks:
+                - price: '5899000.000000'
+                  amount: 0.00925398
+                - price: '5900000.000000'
+                  amount: 0.0052169
+                - price: '5920000.000000'
+                  amount: 0.00170608
+                - price: '5943000.000000'
+                  amount: 0.0004178
+                - price: '5950000.000000'
+                  amount: 0.00418225
+                - price: '5958900.000000'
+                  amount: 5.874e-05
+                - price: '5999605.640000'
+                  amount: 0.00431034
+                - price: '5999656.000000'
+                  amount: 0.00446428
+                - price: '5999750.000000'
+                  amount: 0.00443262
+                - price: '5999805.000000'
+                  amount: 0.00431034
+                - price: '6000000.000000'
+                  amount: 0.27896304
+                - price: '6001125.000000'
+                  amount: 0.00116645
+                - price: '6030000.010000'
+                  amount: 0.02003035
+                - price: '6050000.000000'
+                  amount: 0.16612976
+                - price: '6055001.440000'
+                  amount: 5.78e-05
+                bids:
+                - price: '5820000.000000'
+                  amount: 0.00396798
+                - price: '5810500.000000'
+                  amount: 0.00020438
+                - price: '5801000.060000'
+                  amount: 3.427e-05
+                - price: '5774999.000000'
+                  amount: 0.00148547
+                - price: '5724000.000000'
+                  amount: 0.00087352
+                - price: '5701000.000000'
+                  amount: 1.772e-05
+                - price: '5655000.000000'
+                  amount: 8.842e-05
+                - price: '5650000.000000'
+                  amount: 8.85e-05
+                - price: '5630000.000000'
+                  amount: 0.0017762
+                - price: '5595000.000000'
+                  amount: 1.787e-05
+                - price: '5570000.000000'
+                  amount: 0.02154399
+                - price: '5551000.090000'
+                  amount: 0.01265007
+                - price: '5551000.000000'
+                  amount: 0.00684561
+                - price: '5518000.000000'
+                  amount: 0.00471185
+                - price: '5501000.000000'
+                  amount: 0.00454463
+                pair: BTC-INR
+      operationId: getMarketBTCINRBook
+      x-operation-id-source: derived
+    servers:
+    - url: http://{{baseurl}}
+    - url: https://www.zebapi.com
+    - url: https://futuresbe.zebpay.com
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+x-refined-from:
+- zebpay-postman-converted.yml
+- zebpay-openapi.yml
