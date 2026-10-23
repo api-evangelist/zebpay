@@ -1,0 +1,14 @@
+{
+  "repo": "zebpay",
+  "feeds": [
+    {
+      "source": "https://zebpay.com/blog",
+      "feed_url": "https://zebpay.com/blog/feed/",
+      "title": "",
+      "saved": 10,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-10-17T14:53:57Z"
+}
